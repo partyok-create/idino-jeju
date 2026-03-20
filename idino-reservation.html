@@ -145,10 +145,11 @@
     padding: 10px; text-align: center; cursor: pointer;
     transition: all 0.18s; position: relative;
     background: var(--cream); user-select: none; -webkit-user-select: none;
+    display: block;
   }
   .people-btn:hover { border-color: var(--sea); background: var(--sea-light); }
   .people-btn.selected { border-color: var(--sea); border-width: 2px; background: var(--sea-light); }
-  .people-btn input { position: absolute; opacity: 0; }
+  .people-btn input { position: absolute; opacity: 0; width: 0; height: 0; }
   .pb-num { font-size: 18px; font-weight: 700; color: var(--ink); display: block; }
   .pb-label { font-size: 10px; color: var(--dust); display: block; margin-top: 1px; }
 
@@ -349,38 +350,46 @@
       <div class="section">
         <p class="section-label">참가 인원</p>
         <div class="people-grid" id="peopleGrid">
-          <div class="people-btn selected" onclick="selectPeople(this, 1)">
-            <input type="radio" name="people" value="1" checked>
-            <span class="pb-num" style="pointer-events:none;">1</span><span class="pb-label" style="pointer-events:none;">인</span>
-          </div>
-          <div class="people-btn" onclick="selectPeople(this, 2)">
-            <input type="radio" name="people" value="2">
-            <span class="pb-num" style="pointer-events:none;">2</span><span class="pb-label" style="pointer-events:none;">인</span>
-          </div>
-          <div class="people-btn" onclick="selectPeople(this, 3)">
-            <input type="radio" name="people" value="3">
-            <span class="pb-num" style="pointer-events:none;">3</span><span class="pb-label" style="pointer-events:none;">인</span>
-          </div>
-          <div class="people-btn" onclick="selectPeople(this, 4)">
-            <input type="radio" name="people" value="4">
-            <span class="pb-num" style="pointer-events:none;">4</span><span class="pb-label" style="pointer-events:none;">인</span>
-          </div>
-          <div class="people-btn" onclick="selectPeople(this, 5)">
-            <input type="radio" name="people" value="5">
-            <span class="pb-num" style="pointer-events:none;">5</span><span class="pb-label" style="pointer-events:none;">인</span>
-          </div>
-          <div class="people-btn" onclick="selectPeople(this, 6)">
-            <input type="radio" name="people" value="6">
-            <span class="pb-num" style="pointer-events:none;">6</span><span class="pb-label" style="pointer-events:none;">인</span>
-          </div>
-          <div class="people-btn" onclick="selectPeople(this, 7)">
-            <input type="radio" name="people" value="7">
-            <span class="pb-num" style="pointer-events:none;">7</span><span class="pb-label" style="pointer-events:none;">인</span>
-          </div>
-          <div class="people-btn" onclick="selectPeople(this, 8)">
-            <input type="radio" name="people" value="8">
-            <span class="pb-num" style="pointer-events:none;">8</span><span class="pb-label" style="pointer-events:none;">인</span>
-          </div>
+          <label class="people-btn selected" for="people1">
+            <input type="radio" name="people" id="people1" value="1" checked>
+            <span class="pb-num">1</span>
+            <span class="pb-label">인</span>
+          </label>
+          <label class="people-btn" for="people2">
+            <input type="radio" name="people" id="people2" value="2" >
+            <span class="pb-num">2</span>
+            <span class="pb-label">인</span>
+          </label>
+          <label class="people-btn" for="people3">
+            <input type="radio" name="people" id="people3" value="3" >
+            <span class="pb-num">3</span>
+            <span class="pb-label">인</span>
+          </label>
+          <label class="people-btn" for="people4">
+            <input type="radio" name="people" id="people4" value="4" >
+            <span class="pb-num">4</span>
+            <span class="pb-label">인</span>
+          </label>
+          <label class="people-btn" for="people5">
+            <input type="radio" name="people" id="people5" value="5" >
+            <span class="pb-num">5</span>
+            <span class="pb-label">인</span>
+          </label>
+          <label class="people-btn" for="people6">
+            <input type="radio" name="people" id="people6" value="6" >
+            <span class="pb-num">6</span>
+            <span class="pb-label">인</span>
+          </label>
+          <label class="people-btn" for="people7">
+            <input type="radio" name="people" id="people7" value="7" >
+            <span class="pb-num">7</span>
+            <span class="pb-label">인</span>
+          </label>
+          <label class="people-btn" for="people8">
+            <input type="radio" name="people" id="people8" value="8" >
+            <span class="pb-num">8</span>
+            <span class="pb-label">인</span>
+          </label>
         </div>
       </div>
 

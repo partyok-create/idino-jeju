@@ -345,32 +345,7 @@
         </div>
       </div>
 
-      <!-- 2. 객실 선택 -->
-      <div class="section">
-        <p class="section-label">객실 선택</p>
-        <div class="room-grid" id="roomGrid">
-          <div class="room-card selected" onclick="selectRoom(this, '크레오 (1~2인)', 160000)">
-            <input type="radio" name="room" value="크레오_1-2인" checked>
-            <p class="rc-name">크레오 CREO</p>
-            <p class="rc-cap">1~2인 · 오션뷰 · 개별테라스</p>
-            <p class="rc-price">8만원<span> / 1박</span></p>
-          </div>
-          <div class="room-card" onclick="selectRoom(this, '코피아 (4~5인)', 300000)">
-            <input type="radio" name="room" value="코피아_4-5인">
-            <p class="rc-name">코피아 COPIA</p>
-            <p class="rc-cap">4~5인 · 투룸 · 취사</p>
-            <p class="rc-price">15만원<span> / 1박</span></p>
-          </div>
-          <div class="room-card" onclick="selectRoom(this, '콤마 (7~8인)', 560000)">
-            <input type="radio" name="room" value="콤마_7-8인">
-            <p class="rc-name">콤마 COMMA</p>
-            <p class="rc-cap">7~8인 · 복층 · 취사 · 테라스4개</p>
-            <p class="rc-price">28만원<span> / 1박</span></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3. 참가 인원 -->
+      <!-- 2. 참가 인원 -->
       <div class="section">
         <p class="section-label">참가 인원</p>
         <div class="people-grid" id="peopleGrid">
@@ -407,6 +382,23 @@
             <span class="pb-num">8</span><span class="pb-label">인</span>
           </div>
         </div>
+      </div>
+
+      <!-- 3. 객실 자동 배정 -->
+      <div class="section">
+        <p class="section-label">객실 자동 배정</p>
+        <div id="roomDisplay" style="border:2px solid var(--sea); border-radius:10px; padding:18px 20px; background:var(--sea-light); display:flex; align-items:center; gap:16px;">
+          <div style="font-size:28px;">🏠</div>
+          <div style="flex:1;">
+            <p id="roomName" style="font-size:15px; font-weight:700; color:var(--ink); margin-bottom:3px;">크레오 CREO</p>
+            <p id="roomDesc" style="font-size:12px; color:var(--stone);">1~2인 · 오션뷰 · Q베드+모션베드 · 개별테라스</p>
+          </div>
+          <div style="text-align:right;">
+            <p id="roomPrice" style="font-size:18px; font-weight:700; color:var(--sea);">8만원</p>
+            <p style="font-size:10px; color:var(--dust);">1박 기준</p>
+          </div>
+        </div>
+        <input type="hidden" name="room" id="roomHidden" value="크레오 (1~2인)">
       </div>
 
       <!-- 4. 신청자 정보 -->
@@ -559,6 +551,17 @@
   const DISCOUNT = { 1:0, 2:0, 3:0, 4:0.05, 5:0.05, 6:0.10, 7:0.10, 8:0.15 };
   const PROG_BASE = 320000;
 
+  const ROOM_MAP = {
+    1: { name:'크레오 CREO',  desc:'1~2인 · 오션뷰 · Q베드+모션베드 · 개별테라스', price:160000, label:'8만원', hidden:'크레오 (1~2인)' },
+    2: { name:'크레오 CREO',  desc:'1~2인 · 오션뷰 · Q베드+모션베드 · 개별테라스', price:160000, label:'8만원', hidden:'크레오 (1~2인)' },
+    3: { name:'코피아 COPIA', desc:'3~5인 · 투룸(거실포함) · 취사 · 오션뷰 · 개별테라스', price:300000, label:'15만원', hidden:'코피아 (3~5인)' },
+    4: { name:'코피아 COPIA', desc:'3~5인 · 투룸(거실포함) · 취사 · 오션뷰 · 개별테라스', price:300000, label:'15만원', hidden:'코피아 (3~5인)' },
+    5: { name:'코피아 COPIA', desc:'3~5인 · 투룸(거실포함) · 취사 · 오션뷰 · 개별테라스', price:300000, label:'15만원', hidden:'코피아 (3~5인)' },
+    6: { name:'콤마 COMMA',   desc:'6~8인 · 쓰리룸 복층 · 취사 · 테라스4개 · 오션뷰', price:560000, label:'28만원', hidden:'콤마 (6~8인)' },
+    7: { name:'콤마 COMMA',   desc:'6~8인 · 쓰리룸 복층 · 취사 · 테라스4개 · 오션뷰', price:560000, label:'28만원', hidden:'콤마 (6~8인)' },
+    8: { name:'콤마 COMMA',   desc:'6~8인 · 쓰리룸 복층 · 취사 · 테라스4개 · 오션뷰', price:560000, label:'28만원', hidden:'콤마 (6~8인)' },
+  };
+
   function selectProduct(el, name, price) {
     document.querySelectorAll('.product-card').forEach(c => c.classList.remove('selected'));
     el.classList.add('selected');
@@ -568,21 +571,38 @@
     updateSummary();
   }
 
-  function selectRoom(el, name, price) {
-    document.querySelectorAll('.room-card').forEach(c => c.classList.remove('selected'));
-    el.classList.add('selected');
-    el.querySelector('input').checked = true;
-    selectedRoomPrice = price;
-    document.getElementById('hiddenRoom').value = name;
-    updateSummary();
-  }
-
   function selectPeople(el, n) {
     document.querySelectorAll('.people-btn').forEach(c => c.classList.remove('selected'));
     el.classList.add('selected');
     el.querySelector('input').checked = true;
     selectedPeople = n;
     document.getElementById('hiddenPeople').value = n;
+
+    // 객실 자동 배정
+    const room = ROOM_MAP[n];
+    selectedRoomPrice = room.price;
+    document.getElementById('roomName').textContent = room.name;
+    document.getElementById('roomDesc').textContent = room.desc;
+    document.getElementById('roomPrice').textContent = room.label;
+    document.getElementById('roomHidden').value = room.hidden;
+    document.getElementById('hiddenRoom').value = room.hidden;
+
+    // 콤마 배정 시 색상 변경
+    const roomDisplay = document.getElementById('roomDisplay');
+    if (n >= 6) {
+      roomDisplay.style.borderColor = 'var(--amber)';
+      roomDisplay.style.background = 'var(--amber-light)';
+      document.getElementById('roomPrice').style.color = 'var(--amber)';
+    } else if (n >= 3) {
+      roomDisplay.style.borderColor = 'var(--green)';
+      roomDisplay.style.background = 'var(--green-light)';
+      document.getElementById('roomPrice').style.color = 'var(--green)';
+    } else {
+      roomDisplay.style.borderColor = 'var(--sea)';
+      roomDisplay.style.background = 'var(--sea-light)';
+      document.getElementById('roomPrice').style.color = 'var(--sea)';
+    }
+
     updateSummary();
   }
 
@@ -596,20 +616,20 @@
   function updateSummary() {
     const discount = DISCOUNT[selectedPeople] || 0;
     const progPer = Math.round(PROG_BASE * (1 - discount));
-    const roomPer = Math.round(selectedRoomPrice / selectedPeople);
+    const roomPer = Math.round(selectedRoomPrice * 2 / selectedPeople); // 2박 기준 1인 환산
     const totalPer = progPer + roomPer;
 
     const roomNames = { 160000:'크레오', 300000:'코피아', 560000:'콤마' };
-    const roomName = roomNames[selectedRoomPrice] || '크레오';
-    const roomDisplay = `${roomName} · ${(roomPer/10000).toFixed(0)}만원/인`;
-    const discountLabel = discount > 0 ? ` (${discount*100}% 할인 적용)` : '';
+    const rName = roomNames[selectedRoomPrice] || '크레오';
+    const roomDisplay = `${rName} · 2박 ${(roomPer/10000).toFixed(0)}만원/인`;
+    const discountLabel = discount > 0 ? ` (${discount*100}% 할인)` : '';
 
     document.getElementById('summRoom').textContent = roomDisplay;
     document.getElementById('summPeople').textContent = `${selectedPeople}인`;
     document.getElementById('summProg').textContent = `${(progPer/10000).toFixed(0)}만원${discountLabel}`;
     document.getElementById('summTotal').textContent = `${(totalPer/10000).toFixed(0)}만원`;
-    document.getElementById('summTotalLabel').textContent = `총 결제 금액 (1인)`;
-    document.getElementById('hiddenTotal').value = `1인 ${(totalPer/10000).toFixed(0)}만원 (${selectedPeople}인 합계 ${(totalPer*selectedPeople/10000).toFixed(0)}만원)`;
+    document.getElementById('summTotalLabel').textContent = `총 결제 금액 (1인 기준)`;
+    document.getElementById('hiddenTotal').value = `1인 ${(totalPer/10000).toFixed(0)}만원 / ${selectedPeople}인 합계 ${(totalPer*selectedPeople/10000).toFixed(0)}만원`;
   }
 
   function copyAccount() {

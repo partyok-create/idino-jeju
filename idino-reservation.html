@@ -144,7 +144,7 @@
     border: 1.5px solid var(--sand); border-radius: 8px;
     padding: 10px; text-align: center; cursor: pointer;
     transition: all 0.18s; position: relative;
-    background: var(--cream);
+    background: var(--cream); user-select: none; -webkit-user-select: none;
   }
   .people-btn:hover { border-color: var(--sea); background: var(--sea-light); }
   .people-btn.selected { border-color: var(--sea); border-width: 2px; background: var(--sea-light); }
@@ -572,9 +572,11 @@
   }
 
   function selectPeople(el, n) {
+    // 클릭된 요소가 span이면 부모 div로 올라감
+    const btn = el.closest ? el.closest('.people-btn') : el;
     document.querySelectorAll('.people-btn').forEach(c => c.classList.remove('selected'));
-    el.classList.add('selected');
-    el.querySelector('input').checked = true;
+    btn.classList.add('selected');
+    btn.querySelector('input').checked = true;
     selectedPeople = n;
     document.getElementById('hiddenPeople').value = n;
 

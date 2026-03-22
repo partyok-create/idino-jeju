@@ -42,7 +42,9 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
 .pkg-card.selected { border-color:var(--teal); border-width:2px; background:var(--teal-light); }
 .pkg-card.selected::after { content:'✓'; position:absolute; top:10px; right:12px; font-size:13px; font-weight:700; color:var(--teal); }
 .pkg-card input[type="radio"] { position:absolute; opacity:0; width:0; height:0; }
-.pkg-badge { font-size:10px; font-weight:700; padding:3px 9px; border-radius:12px; display:inline-block; margin-bottom:8px; }
+.pkg-badge { font-size:10px; font-weight:700; padding:3px 9px; border-radius:12px; display:inline-block; margin-bottom:6px; }
+.pkg-title { font-family:'Noto Serif KR',serif; font-size:22px; font-weight:700; color:var(--ink); margin-bottom:8px; line-height:1.2; }
+.pkg-card.selected .pkg-title { color:var(--teal); }
 .b-gray { background:var(--sand); color:var(--stone); }
 .b-teal { background:var(--teal); color:#fff; }
 .b-green { background:var(--green); color:#fff; }
@@ -151,6 +153,7 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
         <label class="pkg-card" for="pkg1">
           <input type="radio" name="package" id="pkg1" value="1인 단독 (크레오) — 48만원" required>
           <span class="pkg-badge b-gray">1인 단독</span>
+          <p class="pkg-title">1인<br>단독</p>
           <p class="pkg-room">크레오 (1~2인실) · 2박</p>
           <p class="pkg-price">480,000<span>원</span></p>
           <hr class="pkg-divider">
@@ -162,6 +165,7 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
         <label class="pkg-card" for="pkg2">
           <input type="radio" name="package" id="pkg2" value="2인 함께 (크레오 공유) — 40만원/인">
           <span class="pkg-badge b-teal">2인 함께</span>
+          <p class="pkg-title">2인<br>함께</p>
           <p class="pkg-room">크레오 (1~2인실) · 2박 공유</p>
           <p class="pkg-orig">48만원</p>
           <p class="pkg-price">400,000<span>원</span></p>
@@ -175,6 +179,7 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
         <label class="pkg-card" for="pkg3">
           <input type="radio" name="package" id="pkg3" value="4~5인 그룹 (코피아, 5%할인) — 37만원~/인">
           <span class="pkg-badge b-green">4~5인 그룹</span>
+          <p class="pkg-title">4~5인<br>그룹</p>
           <p class="pkg-room">코피아 (4~5인실) · 5% 할인</p>
           <p class="pkg-orig">39만원</p>
           <p class="pkg-price">370,000<span>원~</span></p>
@@ -188,6 +193,7 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
         <label class="pkg-card" for="pkg4">
           <input type="radio" name="package" id="pkg4" value="8인 단체 BEST (콤마 전실독점, 15%할인) — 33만원/인">
           <span class="pkg-badge b-gold">8인 단체 BEST</span>
+          <p class="pkg-title">8인<br>단체</p>
           <p class="pkg-room">콤마 (7~8인실) 전실 독점</p>
           <p class="pkg-orig">48만원</p>
           <p class="pkg-price">330,000<span>원</span></p>

@@ -33,9 +33,9 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
 .sec-title::before { content:''; width:3px; height:13px; background:var(--teal); border-radius:2px; display:inline-block; }
 
 /* PACKAGE */
-.pkg-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.pkg-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
 .pkg-card {
-  border:1.5px solid var(--sand); border-radius:12px; padding:16px;
+  border:1.5px solid var(--sand); border-radius:12px; padding:12px 10px;
   cursor:pointer; transition:all 0.18s; position:relative; background:var(--white); display:block;
 }
 .pkg-card:hover { border-color:var(--teal); }
@@ -43,19 +43,19 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
 .pkg-card.selected::after { content:'✓'; position:absolute; top:10px; right:12px; font-size:13px; font-weight:700; color:var(--teal); }
 .pkg-card input[type="radio"] { position:absolute; opacity:0; width:0; height:0; }
 .pkg-badge { font-size:10px; font-weight:700; padding:3px 9px; border-radius:12px; display:inline-block; margin-bottom:6px; }
-.pkg-title { font-family:'Noto Serif KR',serif; font-size:22px; font-weight:700; color:var(--ink); margin-bottom:8px; line-height:1.2; }
+.pkg-title { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:700; color:var(--ink); margin-bottom:6px; line-height:1.2; }
 .pkg-card.selected .pkg-title { color:var(--teal); }
 .b-gray { background:var(--sand); color:var(--stone); }
 .b-teal { background:var(--teal); color:#fff; }
 .b-green { background:var(--green); color:#fff; }
 .b-gold { background:var(--gold); color:#fff; }
-.pkg-room { font-size:11px; color:var(--dust); margin-bottom:4px; }
+.pkg-room { font-size:10px; color:var(--dust); margin-bottom:4px; }
 .pkg-orig { font-size:11px; color:var(--dust); text-decoration:line-through; }
-.pkg-price { font-size:22px; font-weight:700; color:var(--ink); line-height:1.1; }
+.pkg-price { font-size:18px; font-weight:700; color:var(--ink); line-height:1.1; }
 .pkg-price span { font-size:13px; font-weight:400; color:var(--stone); }
 .pkg-saving { font-size:11px; font-weight:700; color:var(--coral); margin-top:3px; }
 .pkg-divider { border:none; border-top:0.5px solid var(--sand); margin:10px 0; }
-.pkg-row { display:flex; justify-content:space-between; font-size:11px; color:var(--stone); padding:2px 0; }
+.pkg-row { display:flex; justify-content:space-between; font-size:10px; color:var(--stone); padding:1px 0; }
 .pkg-row.total { font-size:12px; font-weight:700; color:var(--ink); }
 
 /* PEOPLE */
@@ -130,6 +130,10 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
 .success-sub { font-size:14px; color:var(--stone); line-height:1.9; margin-bottom:28px; }
 .success-bank { background:var(--cream); border-radius:12px; padding:20px; text-align:left; margin-bottom:24px; border:1px solid var(--sand); }
 .back-link { display:inline-block; padding:12px 28px; background:var(--teal); color:#fff; border-radius:10px; text-decoration:none; font-size:14px; font-weight:700; }
+
+  @media (max-width: 500px) {
+    .pkg-grid { grid-template-columns: 1fr 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -154,55 +158,84 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
           <input type="radio" name="package" id="pkg1" value="1인 단독 (크레오) — 48만원" required>
           <span class="pkg-badge b-gray">1인 단독</span>
           <p class="pkg-title">1인<br>단독</p>
-          <p class="pkg-room">크레오 (1~2인실) · 2박</p>
+          <p class="pkg-room">크레오 · 2박</p>
           <p class="pkg-price">480,000<span>원</span></p>
           <hr class="pkg-divider">
-          <div class="pkg-row"><span>프로그램비</span><span>32만원</span></div>
-          <div class="pkg-row"><span>숙박 2박 (1인)</span><span>16만원</span></div>
-          <div class="pkg-row total"><span>1인 합계</span><span>48만원</span></div>
+          <div class="pkg-row"><span>프로그램비</span><span>32만</span></div>
+          <div class="pkg-row"><span>숙박 (1인)</span><span>16만</span></div>
+          <div class="pkg-row total"><span>합계</span><span>48만원</span></div>
         </label>
 
         <label class="pkg-card" for="pkg2">
           <input type="radio" name="package" id="pkg2" value="2인 함께 (크레오 공유) — 40만원/인">
           <span class="pkg-badge b-teal">2인 함께</span>
           <p class="pkg-title">2인<br>함께</p>
-          <p class="pkg-room">크레오 (1~2인실) · 2박 공유</p>
+          <p class="pkg-room">크레오 · 2박 공유</p>
           <p class="pkg-orig">48만원</p>
           <p class="pkg-price">400,000<span>원</span></p>
-          <p class="pkg-saving">↓ 1인당 8만원 절감</p>
+          <p class="pkg-saving">↓ 8만원 절감</p>
           <hr class="pkg-divider">
-          <div class="pkg-row"><span>프로그램비</span><span>32만원</span></div>
-          <div class="pkg-row"><span>숙박 2박 (1인 환산)</span><span>8만원</span></div>
-          <div class="pkg-row total"><span>1인 합계</span><span>40만원</span></div>
+          <div class="pkg-row"><span>프로그램비</span><span>32만</span></div>
+          <div class="pkg-row"><span>숙박 (1인환산)</span><span>8만</span></div>
+          <div class="pkg-row total"><span>합계</span><span>40만원</span></div>
+        </label>
+
+        <label class="pkg-card" for="pkg3new">
+          <input type="radio" name="package" id="pkg3new" value="3인 함께 (크레오 공유) — 37만원/인">
+          <span class="pkg-badge b-teal">3인 함께</span>
+          <p class="pkg-title">3인<br>함께</p>
+          <p class="pkg-room">크레오 · 3인 공유</p>
+          <p class="pkg-orig">48만원</p>
+          <p class="pkg-price">370,000<span>원</span></p>
+          <p class="pkg-saving">↓ 숙박비 3인 배분</p>
+          <hr class="pkg-divider">
+          <div class="pkg-row"><span>프로그램비</span><span>32만</span></div>
+          <div class="pkg-row"><span>숙박 (1인환산)</span><span>5만</span></div>
+          <div class="pkg-row total"><span>합계</span><span>37만원</span></div>
         </label>
 
         <label class="pkg-card" for="pkg3">
           <input type="radio" name="package" id="pkg3" value="4~5인 그룹 (코피아, 5%할인) — 37만원~/인">
           <span class="pkg-badge b-green">4~5인 그룹</span>
           <p class="pkg-title">4~5인<br>그룹</p>
-          <p class="pkg-room">코피아 (4~5인실) · 5% 할인</p>
+          <p class="pkg-room">코피아 · 5% 할인</p>
           <p class="pkg-orig">39만원</p>
           <p class="pkg-price">370,000<span>원~</span></p>
-          <p class="pkg-saving">↓ 5% 단체 할인 적용</p>
+          <p class="pkg-saving">↓ 5% 할인</p>
           <hr class="pkg-divider">
-          <div class="pkg-row"><span>프로그램비 (5%할인)</span><span>30만원</span></div>
-          <div class="pkg-row"><span>숙박 2박 (1인 환산)</span><span>6~7만원</span></div>
-          <div class="pkg-row total"><span>1인 합계</span><span>37만원~</span></div>
+          <div class="pkg-row"><span>프로그램비</span><span>30만</span></div>
+          <div class="pkg-row"><span>숙박 (1인환산)</span><span>6~7만</span></div>
+          <div class="pkg-row total"><span>합계</span><span>37만원~</span></div>
         </label>
 
         <label class="pkg-card" for="pkg4">
-          <input type="radio" name="package" id="pkg4" value="8인 단체 BEST (콤마 전실독점, 15%할인) — 33만원/인">
-          <span class="pkg-badge b-gold">8인 단체 BEST</span>
+          <input type="radio" name="package" id="pkg4" value="6~7인 (콤마, 10%할인) — 35만원/인">
+          <span class="pkg-badge b-teal">6~7인</span>
+          <p class="pkg-title">6~7인</p>
+          <p class="pkg-room">콤마 · 10% 할인</p>
+          <p class="pkg-orig">39만원</p>
+          <p class="pkg-price">350,000<span>원</span></p>
+          <p class="pkg-saving">↓ 10% 할인</p>
+          <hr class="pkg-divider">
+          <div class="pkg-row"><span>프로그램비</span><span>29만</span></div>
+          <div class="pkg-row"><span>숙박 (1인환산)</span><span>6만</span></div>
+          <div class="pkg-row total"><span>합계</span><span>35만원</span></div>
+        </label>
+
+        <label class="pkg-card" for="pkg5">
+          <input type="radio" name="package" id="pkg5" value="8인 단체 BEST (콤마 전실독점, 15%할인) — 33만원/인">
+          <span class="pkg-badge b-gold">8인 BEST</span>
           <p class="pkg-title">8인<br>단체</p>
-          <p class="pkg-room">콤마 (7~8인실) 전실 독점</p>
+          <p class="pkg-room">콤마 전실독점 · 15%</p>
           <p class="pkg-orig">48만원</p>
           <p class="pkg-price">330,000<span>원</span></p>
-          <p class="pkg-saving">↓ 최대 15% · 1인 15만원 절감</p>
+          <p class="pkg-saving">↓ 15만원 절감</p>
           <hr class="pkg-divider">
-          <div class="pkg-row"><span>프로그램비 (15%할인)</span><span>27만원</span></div>
-          <div class="pkg-row"><span>숙박 2박 (1인 환산)</span><span>6만원</span></div>
-          <div class="pkg-row total"><span>1인 합계</span><span>33만원</span></div>
+          <div class="pkg-row"><span>프로그램비</span><span>27만</span></div>
+          <div class="pkg-row"><span>숙박 (1인환산)</span><span>6만</span></div>
+          <div class="pkg-row total"><span>합계</span><span>33만원</span></div>
         </label>
+
 
       </div>
     </div>
@@ -326,10 +359,12 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
 
 <script>
 const PKGS = {
-  pkg1:{ label:'1인 단독', minP:1, maxP:1, per:480000 },
-  pkg2:{ label:'2인 함께', minP:2, maxP:2, per:400000 },
-  pkg3:{ label:'4~5인 그룹', minP:4, maxP:5, per:370000 },
-  pkg4:{ label:'8인 단체 BEST', minP:6, maxP:8, per:330000 },
+  pkg1:    { label:'1인 단독 (크레오)',           minP:1, maxP:1, per:480000 },
+  pkg2:    { label:'2인 함께 (크레오)',           minP:2, maxP:2, per:400000 },
+  pkg3new: { label:'3인 함께 (크레오)',           minP:3, maxP:3, per:370000 },
+  pkg3:    { label:'4~5인 그룹 (코피아)',         minP:4, maxP:5, per:370000 },
+  pkg4:    { label:'6~7인 (콤마 10%할인)',       minP:6, maxP:7, per:350000 },
+  pkg5:    { label:'8인 단체 BEST (콤마 15%할인)', minP:8, maxP:8, per:330000 },
 };
 let selPkg=null, pCount=1;
 

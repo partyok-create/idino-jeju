@@ -4,675 +4,435 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IDINO 제주 — 프로그램 예약</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Maru+Buri:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --ink: #1a1714; --stone: #4a4540; --dust: #8c857d;
-    --cream: #f5f0ea; --sand: #e8e0d4;
-    --sea: #2d6a7f; --sea-dark: #235e72; --sea-light: #e8f2f6;
-    --green: #3d6b52; --green-light: #e8f0eb;
-    --amber: #c17f3a; --amber-light: #faf0e3;
-    --coral: #c45a3a; --white: #fdfcfb;
-  }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Maru Buri', 'Noto Sans KR', sans-serif;
-    background: #ede8e0;
-    color: var(--ink);
-    min-height: 100vh;
-    padding: 24px 16px 60px;
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --teal:#1e6060; --teal-dark:#0a2828; --teal-mid:#2d8080;
+  --teal-light:#e8f4f4; --gold:#c17f3a; --gold-light:#faf0e3;
+  --coral:#c45a3a; --green:#3d6b52; --green-light:#e8f0eb;
+  --ink:#1a2828; --stone:#4a5a5a; --dust:#8a9a9a;
+  --cream:#f5f0ea; --sand:#e0dcd4; --white:#fdfcfb;
+}
+html { scroll-behavior: smooth; }
+body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--ink); min-height:100vh; padding:0 0 60px; }
+.page { max-width:640px; margin:0 auto; }
 
-  .page { max-width: 640px; margin: 0 auto; }
+.header { background:linear-gradient(135deg,#0a2828 0%,#1a4040 100%); padding:36px 28px 28px; }
+.header-eyebrow { font-size:11px; color:rgba(255,255,255,0.45); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; }
+.header-title { font-family:'Noto Serif KR',serif; font-size:24px; font-weight:700; color:#fff; line-height:1.4; margin-bottom:4px; }
+.header-sub { font-size:13px; color:rgba(255,255,255,0.55); }
 
-  /* HEADER */
-  .header {
-    background: linear-gradient(135deg, #1a2f3a 0%, #2d4a3e 100%);
-    border-radius: 14px 14px 0 0;
-    padding: 32px 32px 28px;
-  }
-  .header-logo { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.45); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; }
-  .header-title { font-family: 'Maru Buri', serif; font-size: 24px; font-weight: 700; color: #fff; line-height: 1.4; margin-bottom: 6px; }
-  .header-title em { color: #f5c87a; font-style: normal; }
-  .header-sub { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+.form-body { background:var(--white); padding:28px 24px; }
+.sec { margin-bottom:32px; }
+.sec-title {
+  font-size:11px; font-weight:700; color:var(--dust); letter-spacing:0.14em;
+  text-transform:uppercase; border-bottom:1px solid var(--sand); padding-bottom:10px;
+  margin-bottom:16px; display:flex; align-items:center; gap:8px;
+}
+.sec-title::before { content:''; width:3px; height:13px; background:var(--teal); border-radius:2px; display:inline-block; }
 
-  /* FORM BODY */
-  .form-body {
-    background: var(--white);
-    border-radius: 0 0 14px 14px;
-    padding: 32px;
-    box-shadow: 0 8px 40px rgba(26,23,20,0.12);
-  }
+/* PACKAGE */
+.pkg-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.pkg-card {
+  border:1.5px solid var(--sand); border-radius:12px; padding:16px;
+  cursor:pointer; transition:all 0.18s; position:relative; background:var(--white); display:block;
+}
+.pkg-card:hover { border-color:var(--teal); }
+.pkg-card.selected { border-color:var(--teal); border-width:2px; background:var(--teal-light); }
+.pkg-card.selected::after { content:'✓'; position:absolute; top:10px; right:12px; font-size:13px; font-weight:700; color:var(--teal); }
+.pkg-card input[type="radio"] { position:absolute; opacity:0; width:0; height:0; }
+.pkg-badge { font-size:10px; font-weight:700; padding:3px 9px; border-radius:12px; display:inline-block; margin-bottom:8px; }
+.b-gray { background:var(--sand); color:var(--stone); }
+.b-teal { background:var(--teal); color:#fff; }
+.b-green { background:var(--green); color:#fff; }
+.b-gold { background:var(--gold); color:#fff; }
+.pkg-room { font-size:11px; color:var(--dust); margin-bottom:4px; }
+.pkg-orig { font-size:11px; color:var(--dust); text-decoration:line-through; }
+.pkg-price { font-size:22px; font-weight:700; color:var(--ink); line-height:1.1; }
+.pkg-price span { font-size:13px; font-weight:400; color:var(--stone); }
+.pkg-saving { font-size:11px; font-weight:700; color:var(--coral); margin-top:3px; }
+.pkg-divider { border:none; border-top:0.5px solid var(--sand); margin:10px 0; }
+.pkg-row { display:flex; justify-content:space-between; font-size:11px; color:var(--stone); padding:2px 0; }
+.pkg-row.total { font-size:12px; font-weight:700; color:var(--ink); }
 
-  /* SECTION */
-  .section { margin-bottom: 32px; }
-  .section-label {
-    font-size: 11px; font-weight: 700; color: var(--dust);
-    letter-spacing: 0.12em; text-transform: uppercase;
-    margin-bottom: 14px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--sand);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .section-label::before {
-    content: '';
-    width: 3px; height: 13px;
-    background: var(--sea);
-    border-radius: 2px;
-    display: inline-block;
-  }
+/* PEOPLE */
+.people-wrap { display:flex; align-items:center; gap:14px; }
+.people-info { flex:1; background:var(--cream); border-radius:10px; padding:14px 16px; min-height:64px; }
+.people-info-title { font-size:12px; font-weight:700; color:var(--stone); margin-bottom:4px; }
+.people-info-desc { font-size:11px; color:var(--dust); line-height:1.6; }
+.people-counter { display:flex; align-items:center; border:1.5px solid var(--sand); border-radius:10px; overflow:hidden; flex-shrink:0; }
+.cnt-btn { width:40px; height:52px; background:var(--cream); border:none; cursor:pointer; font-size:20px; color:var(--stone); transition:background 0.15s; }
+.cnt-btn:hover { background:var(--sand); }
+.cnt-num { width:52px; height:52px; text-align:center; font-size:20px; font-weight:700; color:var(--ink); border:none; outline:none; background:var(--white); font-family:'Noto Sans KR',sans-serif; }
 
-  /* PRODUCT CARDS */
-  .product-grid { display: flex; flex-direction: column; gap: 10px; }
-  .product-card {
-    border: 1.5px solid var(--sand);
-    border-radius: 10px;
-    padding: 16px 18px;
-    cursor: pointer;
-    transition: all 0.18s;
-    position: relative;
-  }
-  .product-card:hover { border-color: var(--sea); background: var(--sea-light); }
-  .product-card.selected { border-color: var(--sea); border-width: 2px; background: var(--sea-light); }
+/* PARTICIPANTS */
+.participant-list { display:flex; flex-direction:column; gap:12px; }
+.p-item { background:var(--cream); border-radius:10px; padding:16px; border:0.5px solid var(--sand); }
+.p-label { font-size:11px; font-weight:700; color:var(--teal-mid); margin-bottom:12px; letter-spacing:0.06em; }
+.p-label span { color:var(--dust); font-weight:400; font-size:10px; }
+.field-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px; }
+.field { }
+.field:last-child { margin-bottom:0; }
+.field label { font-size:11px; font-weight:700; color:var(--stone); display:block; margin-bottom:5px; }
+.field label .req { color:var(--coral); }
+.field input, .field select, .field textarea {
+  width:100%; border:1.5px solid var(--sand); border-radius:8px; padding:10px 12px;
+  font-size:13px; font-family:'Noto Sans KR',sans-serif; color:var(--ink);
+  background:var(--white); outline:none; transition:border-color 0.2s;
+}
+.field input:focus, .field select:focus, .field textarea:focus { border-color:var(--teal); }
+.field input::placeholder, .field textarea::placeholder { color:var(--dust); }
 
-  .product-card.disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
-    pointer-events: none;
-    background: var(--cream);
-    border-color: var(--sand);
-  }
-  .product-card.disabled .pc-price { color: var(--dust); }
-  .soon-badge {
-    font-size: 10px; font-weight: 700;
-    padding: 2px 8px; border-radius: 20px;
-    background: var(--sand); color: var(--dust);
-    display: inline-block; margin-left: 6px;
-    vertical-align: middle;
-  }
+/* AMOUNT */
+.amount-box { background:#0a2828; border-radius:12px; padding:18px 20px; }
+.amount-row { display:flex; justify-content:space-between; font-size:13px; color:rgba(255,255,255,0.55); padding:4px 0; }
+.amount-total { display:flex; justify-content:space-between; font-size:18px; font-weight:700; color:#fff; padding-top:12px; margin-top:8px; border-top:0.5px solid rgba(255,255,255,0.15); }
+.amount-total span:last-child { color:#f5c87a; }
+.amount-note { font-size:11px; color:rgba(255,255,255,0.35); margin-top:10px; line-height:1.7; }
 
-  .product-card input[type="radio"] { position: absolute; opacity: 0; }
-  .pc-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-  .pc-month { font-size: 10px; font-weight: 700; color: var(--sea); background: var(--sea-light); padding: 2px 8px; border-radius: 20px; flex-shrink: 0; margin-top: 2px; }
-  .pc-name { font-size: 14px; font-weight: 700; color: var(--ink); flex: 1; line-height: 1.4; }
-  .pc-price { font-size: 15px; font-weight: 700; color: var(--sea); white-space: nowrap; }
-  .pc-price-note { font-size: 10px; color: var(--dust); font-weight: 400; display: block; text-align: right; }
-  .pc-detail { font-size: 12px; color: var(--stone); margin-top: 6px; line-height: 1.6; }
+/* PAYMENT */
+.pay-grid { display:flex; flex-direction:column; gap:10px; }
+.pay-card { border:1.5px solid var(--sand); border-radius:12px; padding:16px 18px; cursor:pointer; transition:all 0.18s; position:relative; display:block; }
+.pay-card:hover { border-color:var(--teal); }
+.pay-card.selected { border-color:var(--teal); border-width:2px; background:var(--teal-light); }
+.pay-card.selected::after { content:'✓'; position:absolute; top:14px; right:16px; font-size:13px; font-weight:700; color:var(--teal); }
+.pay-card input { position:absolute; opacity:0; width:0; height:0; }
+.pay-top { display:flex; align-items:center; gap:12px; margin-bottom:4px; }
+.pay-icon { font-size:22px; }
+.pay-name { font-size:14px; font-weight:700; color:var(--ink); }
+.pay-sub { font-size:12px; color:var(--dust); }
+.bank-box { margin-top:12px; background:var(--white); border-radius:10px; padding:14px 16px; border:1px solid var(--sand); font-size:13px; line-height:2; color:var(--stone); }
+.bank-account { font-size:16px; font-weight:700; color:var(--teal); letter-spacing:0.04em; display:block; margin-top:2px; }
+.copy-btn { display:inline-flex; align-items:center; gap:4px; margin-top:8px; font-size:11px; font-weight:700; padding:5px 12px; border-radius:20px; border:1px solid var(--teal); color:var(--teal); background:var(--white); cursor:pointer; transition:all 0.15s; font-family:'Noto Sans KR',sans-serif; }
+.copy-btn:hover { background:var(--teal); color:#fff; }
 
-  /* ROOM TYPE */
-  .room-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .room-card {
-    border: 1.5px solid var(--sand); border-radius: 10px;
-    padding: 14px; cursor: pointer; transition: all 0.18s;
-    position: relative;
-  }
-  .room-card:hover { border-color: var(--amber); background: var(--amber-light); }
-  .room-card.selected { border-color: var(--amber); border-width: 2px; background: var(--amber-light); }
-  .room-card input[type="radio"] { position: absolute; opacity: 0; }
-  .rc-name { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
-  .rc-cap { font-size: 11px; color: var(--dust); margin-bottom: 6px; }
-  .rc-price { font-size: 14px; font-weight: 700; color: var(--amber); }
-  .rc-price span { font-size: 10px; font-weight: 400; color: var(--dust); }
+/* NOTICE */
+.notice { background:var(--gold-light); border-radius:10px; padding:14px 16px; border-left:3px solid var(--gold); font-size:12px; color:var(--stone); line-height:1.8; margin-bottom:24px; }
+.notice strong { color:var(--gold); font-weight:700; }
 
-  /* INPUT FIELDS */
-  .field { margin-bottom: 16px; }
-  .field label {
-    display: block; font-size: 12px; font-weight: 700; color: var(--stone);
-    margin-bottom: 6px;
-  }
-  .field label .required { color: var(--coral); margin-left: 2px; }
-  .field input, .field select, .field textarea {
-    width: 100%; border: 1.5px solid var(--sand);
-    border-radius: 8px; padding: 11px 14px;
-    font-size: 14px; font-family: 'Maru Buri', 'Noto Sans KR', sans-serif;
-    color: var(--ink); background: var(--cream);
-    outline: none; transition: border-color 0.2s, background 0.2s;
-  }
-  .field input:focus, .field select:focus, .field textarea:focus {
-    border-color: var(--sea); background: var(--white);
-  }
-  .field textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
-  .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238c857d' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
-  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+/* SUBMIT */
+.submit-area { display:flex; flex-direction:column; gap:10px; }
+.agree-row { display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--stone); margin-bottom:4px; cursor:pointer; }
+.agree-row input { width:auto; margin-top:3px; flex-shrink:0; accent-color:var(--teal); }
+.btn-submit { width:100%; padding:17px; background:var(--teal); color:#fff; font-size:16px; font-weight:700; border:none; border-radius:12px; cursor:pointer; font-family:'Noto Serif KR',serif; transition:all 0.2s; letter-spacing:0.02em; }
+.btn-submit:hover { background:#155050; }
+.btn-submit:active { transform:scale(0.99); }
+.btn-submit:disabled { background:var(--sand); cursor:not-allowed; }
+.form-footer { font-size:11px; color:var(--dust); text-align:center; margin-top:14px; line-height:1.8; }
 
-  /* 인원 선택 */
-  .people-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  .people-btn {
-    border: 1.5px solid var(--sand); border-radius: 8px;
-    padding: 10px; text-align: center; cursor: pointer;
-    transition: all 0.18s; position: relative;
-    background: var(--cream); user-select: none; -webkit-user-select: none;
-    display: block;
-  }
-  .people-btn:hover { border-color: var(--sea); background: var(--sea-light); }
-  .people-btn.selected { border-color: var(--sea); border-width: 2px; background: var(--sea-light); }
-  .people-btn input { position: absolute; opacity: 0; width: 0; height: 0; }
-  .pb-num { font-size: 18px; font-weight: 700; color: var(--ink); display: block; }
-  .pb-label { font-size: 10px; color: var(--dust); display: block; margin-top: 1px; }
-
-  /* 결제 방법 */
-  .payment-grid { display: flex; flex-direction: column; gap: 10px; }
-  .payment-card {
-    border: 1.5px solid var(--sand); border-radius: 10px;
-    padding: 16px 18px; cursor: pointer; transition: all 0.18s;
-    position: relative;
-  }
-  .payment-card:hover { border-color: var(--green); }
-  .payment-card.selected { border-color: var(--green); border-width: 2px; background: var(--green-light); }
-  .payment-card input { position: absolute; opacity: 0; }
-  .pay-top { display: flex; align-items: center; gap: 10px; }
-  .pay-icon { font-size: 20px; }
-  .pay-name { font-size: 14px; font-weight: 700; color: var(--ink); }
-  .pay-sub { font-size: 12px; color: var(--dust); }
-  .bank-info {
-    margin-top: 12px; padding: 12px 14px;
-    background: var(--white); border-radius: 8px;
-    border: 1px solid var(--sand);
-    font-size: 13px; line-height: 1.9; color: var(--stone);
-  }
-  .bank-info strong { color: var(--ink); font-weight: 700; }
-  .bank-info .account { font-size: 15px; font-weight: 700; color: var(--sea); letter-spacing: 0.05em; }
-  .copy-btn {
-    display: inline-block; margin-top: 8px;
-    font-size: 11px; font-weight: 700; padding: 5px 12px;
-    border-radius: 20px; border: 1px solid var(--sea);
-    color: var(--sea); background: var(--white); cursor: pointer;
-    transition: all 0.15s; font-family: 'Noto Sans KR', sans-serif;
-  }
-  .copy-btn:hover { background: var(--sea); color: #fff; }
-
-  /* 금액 요약 */
-  .amount-box {
-    background: var(--cream); border-radius: 10px;
-    padding: 16px 18px; margin-top: 16px;
-    border: 1px solid var(--sand);
-  }
-  .amount-title { font-size: 11px; font-weight: 700; color: var(--dust); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
-  .amount-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--stone); padding: 4px 0; border-bottom: 0.5px solid var(--sand); }
-  .amount-row:last-child { border: none; font-size: 16px; font-weight: 700; color: var(--ink); padding-top: 10px; margin-top: 4px; }
-  .amount-row span:last-child { color: var(--sea); font-weight: 700; }
-  .amount-row:last-child span:last-child { color: var(--amber); }
-
-  /* 유의사항 */
-  .notice {
-    background: var(--amber-light); border-radius: 8px;
-    padding: 14px 16px; border-left: 3px solid var(--amber);
-    font-size: 12px; color: var(--stone); line-height: 1.8;
-  }
-  .notice strong { color: var(--amber); }
-
-  /* SUBMIT */
-  .submit-btn {
-    width: 100%; padding: 16px;
-    background: var(--sea); color: #fff;
-    font-family: 'Maru Buri', 'Noto Sans KR', sans-serif;
-    font-size: 16px; font-weight: 700;
-    border: none; border-radius: 10px; cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-    margin-top: 24px;
-  }
-  .submit-btn:hover { background: var(--sea-dark); }
-  .submit-btn:active { transform: scale(0.99); }
-  .submit-btn:disabled { background: var(--sand); cursor: not-allowed; }
-
-  .form-note { font-size: 11px; color: var(--dust); text-align: center; margin-top: 12px; line-height: 1.7; }
-
-  /* SUCCESS */
-  .success-box {
-    display: none; text-align: center; padding: 40px 20px;
-  }
-  .success-icon { font-size: 48px; margin-bottom: 16px; }
-  .success-title { font-family: 'Maru Buri', serif; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
-  .success-sub { font-size: 14px; color: var(--stone); line-height: 1.8; margin-bottom: 24px; }
-  .success-bank {
-    background: var(--cream); border-radius: 10px; padding: 20px;
-    text-align: left; margin-bottom: 20px;
-    border: 1px solid var(--sand);
-  }
-  .back-btn {
-    display: inline-block; padding: 12px 32px;
-    background: var(--sea); color: #fff; border-radius: 8px;
-    text-decoration: none; font-size: 14px; font-weight: 700;
-  }
-
-  @media (max-width: 500px) {
-    .form-body { padding: 24px 20px; }
-    .header { padding: 28px 24px 24px; }
-    .room-grid { grid-template-columns: 1fr; }
-    .field-row { grid-template-columns: 1fr; }
-    .people-grid { grid-template-columns: repeat(4, 1fr); }
-  }
+/* SUCCESS */
+.success-box { display:none; text-align:center; padding:48px 24px; }
+.success-icon { font-size:52px; margin-bottom:18px; }
+.success-title { font-family:'Noto Serif KR',serif; font-size:22px; font-weight:700; color:var(--ink); margin-bottom:8px; }
+.success-sub { font-size:14px; color:var(--stone); line-height:1.9; margin-bottom:28px; }
+.success-bank { background:var(--cream); border-radius:12px; padding:20px; text-align:left; margin-bottom:24px; border:1px solid var(--sand); }
+.back-link { display:inline-block; padding:12px 28px; background:var(--teal); color:#fff; border-radius:10px; text-decoration:none; font-size:14px; font-weight:700; }
 </style>
 </head>
 <body>
 <div class="page">
 
   <div class="header">
-    <p class="header-logo">IDINO Jeju · 런케이션 센터</p>
-    <h1 class="header-title">4월에는 <em>다른 제주</em>를 만나세요</h1>
-    <p class="header-sub">2026 시그니처 프로그램 예약 신청서<br>접수 후 확인 문자를 드립니다 · 010-3274-2745</p>
+    <p class="header-eyebrow">IDINO Jeju · 2026 시그니처 프로그램</p>
+    <h1 class="header-title">작별이 아닌 새로운 시작<br>— 예약 신청</h1>
+    <p class="header-sub">4월 16일(목) ~ 18일(토) · 2박 3일 · 010-3274-2745</p>
   </div>
 
   <div class="form-body">
-    <div id="formSection">
-    <form id="reservationForm" action="https://formspree.io/f/xzdjwpnk" method="POST">
+  <div id="formSection">
+  <form id="resForm" action="https://formspree.io/f/xzdjwpnk" method="POST">
 
-      <!-- 1. 프로그램 선택 -->
-      <div class="section">
-        <p class="section-label">프로그램 선택</p>
-        <div class="product-grid" id="productGrid">
+    <!-- 1. 패키지 선택 -->
+    <div class="sec">
+      <p class="sec-title">패키지 선택</p>
+      <div class="pkg-grid">
 
-          <div class="product-card selected" onclick="selectProduct(this, '4월 — 작별하지 않는다 (한강낭독+오름+AI)', 330000)">
-            <input type="radio" name="program" value="4월_작별하지않는다" checked>
-            <div class="pc-top">
-              <span class="pc-month">4월 16~18일</span>
-              <div class="pc-name">작별하지 않는다<br>한강낭독 × 오름트래킹 × AI워크숍</div>
-              <div>
-                <span class="pc-price">33만원~</span>
-                <span class="pc-price-note">8인 단체 기준</span>
-              </div>
-            </div>
-            <p class="pc-detail">2박 3일 · 소규모 8인 한정 · 숙박+프로그램+조식2+석식2 포함</p>
-          </div>
+        <label class="pkg-card" for="pkg1">
+          <input type="radio" name="package" id="pkg1" value="1인 단독 (크레오) — 48만원" required>
+          <span class="pkg-badge b-gray">1인 단독</span>
+          <p class="pkg-room">크레오 (1~2인실) · 2박</p>
+          <p class="pkg-price">480,000<span>원</span></p>
+          <hr class="pkg-divider">
+          <div class="pkg-row"><span>프로그램비</span><span>32만원</span></div>
+          <div class="pkg-row"><span>숙박 2박 (1인)</span><span>16만원</span></div>
+          <div class="pkg-row total"><span>1인 합계</span><span>48만원</span></div>
+        </label>
 
-          <div class="product-card disabled">
-            <input type="radio" name="program" value="5월_낭만버스킹">
-            <div class="pc-top">
-              <span class="pc-month">5월 예정</span><span class="soon-badge">준비중</span>
-              <div class="pc-name">제주 낭만버스킹 여행</div>
-              <div>
-                <span class="pc-price">26만원~</span>
-                <span class="pc-price-note">8인 단체 기준</span>
-              </div>
-            </div>
-            <p class="pc-detail">2박 3일 · 버스킹 × 콘텐츠 제작 · 일정 추후 확정</p>
-          </div>
+        <label class="pkg-card" for="pkg2">
+          <input type="radio" name="package" id="pkg2" value="2인 함께 (크레오 공유) — 40만원/인">
+          <span class="pkg-badge b-teal">2인 함께</span>
+          <p class="pkg-room">크레오 (1~2인실) · 2박 공유</p>
+          <p class="pkg-orig">48만원</p>
+          <p class="pkg-price">400,000<span>원</span></p>
+          <p class="pkg-saving">↓ 1인당 8만원 절감</p>
+          <hr class="pkg-divider">
+          <div class="pkg-row"><span>프로그램비</span><span>32만원</span></div>
+          <div class="pkg-row"><span>숙박 2박 (1인 환산)</span><span>8만원</span></div>
+          <div class="pkg-row total"><span>1인 합계</span><span>40만원</span></div>
+        </label>
 
-          <div class="product-card disabled">
-            <input type="radio" name="program" value="6월_런케이션챌린지">
-            <div class="pc-top">
-              <span class="pc-month">6월 예정</span><span class="soon-badge">준비중</span>
-              <div class="pc-name">디지털 노마드 런케이션 챌린지</div>
-              <div>
-                <span class="pc-price">35만원~</span>
-                <span class="pc-price-note">8인 단체 기준</span>
-              </div>
-            </div>
-            <p class="pc-detail">2박 3일 · 업무+휴식 밸런스 집중 프로그램</p>
-          </div>
+        <label class="pkg-card" for="pkg3">
+          <input type="radio" name="package" id="pkg3" value="4~5인 그룹 (코피아, 5%할인) — 37만원~/인">
+          <span class="pkg-badge b-green">4~5인 그룹</span>
+          <p class="pkg-room">코피아 (4~5인실) · 5% 할인</p>
+          <p class="pkg-orig">39만원</p>
+          <p class="pkg-price">370,000<span>원~</span></p>
+          <p class="pkg-saving">↓ 5% 단체 할인 적용</p>
+          <hr class="pkg-divider">
+          <div class="pkg-row"><span>프로그램비 (5%할인)</span><span>30만원</span></div>
+          <div class="pkg-row"><span>숙박 2박 (1인 환산)</span><span>6~7만원</span></div>
+          <div class="pkg-row total"><span>1인 합계</span><span>37만원~</span></div>
+        </label>
 
-          <div class="product-card disabled">
-            <input type="radio" name="program" value="8월_AI부트캠프">
-            <div class="pc-top">
-              <span class="pc-month">8월 예정</span><span class="soon-badge">준비중</span>
-              <div class="pc-name">AI 브랜드 콘텐츠 부트캠프</div>
-              <div>
-                <span class="pc-price">30만원~</span>
-                <span class="pc-price-note">8인 단체 기준</span>
-              </div>
-            </div>
-            <p class="pc-detail">2박 3일 · 루프탑 촬영 × AI 영상편집 · 퍼스널 브랜딩</p>
-          </div>
+        <label class="pkg-card" for="pkg4">
+          <input type="radio" name="package" id="pkg4" value="8인 단체 BEST (콤마 전실독점, 15%할인) — 33만원/인">
+          <span class="pkg-badge b-gold">8인 단체 BEST</span>
+          <p class="pkg-room">콤마 (7~8인실) 전실 독점</p>
+          <p class="pkg-orig">48만원</p>
+          <p class="pkg-price">330,000<span>원</span></p>
+          <p class="pkg-saving">↓ 최대 15% · 1인 15만원 절감</p>
+          <hr class="pkg-divider">
+          <div class="pkg-row"><span>프로그램비 (15%할인)</span><span>27만원</span></div>
+          <div class="pkg-row"><span>숙박 2박 (1인 환산)</span><span>6만원</span></div>
+          <div class="pkg-row total"><span>1인 합계</span><span>33만원</span></div>
+        </label>
 
-          <div class="product-card disabled">
-            <input type="radio" name="program" value="10월_디지털디톡스">
-            <div class="pc-top">
-              <span class="pc-month">10월 예정</span><span class="soon-badge">준비중</span>
-              <div class="pc-name">디지털 디톡스 & 마음 리셋</div>
-              <div>
-                <span class="pc-price">32만원~</span>
-                <span class="pc-price-note">8인 단체 기준</span>
-              </div>
-            </div>
-            <p class="pc-detail">2박 3일 · 번아웃 직장인 특화 · 바다 명상 + 글쓰기</p>
-          </div>
-
-          <div class="product-card disabled">
-            <input type="radio" name="program" value="11월_작별하지않는다2">
-            <div class="pc-top">
-              <span class="pc-month">11월 예정</span><span class="soon-badge">준비중</span>
-              <div class="pc-name">작별하지 않는다 (2회차)</div>
-              <div>
-                <span class="pc-price">26만원~</span>
-                <span class="pc-price-note">8인 단체 기준</span>
-              </div>
-            </div>
-            <p class="pc-detail">2박 3일 · 4월 미참가자 대상 한강 낭독 프로그램</p>
-          </div>
-
-        </div>
       </div>
-
-      <!-- 2. 참가 인원 -->
-      <div class="section">
-        <p class="section-label">참가 인원</p>
-        <div class="people-grid" id="peopleGrid">
-          <label class="people-btn selected" for="people1">
-            <input type="radio" name="people" id="people1" value="1" checked>
-            <span class="pb-num">1</span>
-            <span class="pb-label">인</span>
-          </label>
-          <label class="people-btn" for="people2">
-            <input type="radio" name="people" id="people2" value="2" >
-            <span class="pb-num">2</span>
-            <span class="pb-label">인</span>
-          </label>
-          <label class="people-btn" for="people3">
-            <input type="radio" name="people" id="people3" value="3" >
-            <span class="pb-num">3</span>
-            <span class="pb-label">인</span>
-          </label>
-          <label class="people-btn" for="people4">
-            <input type="radio" name="people" id="people4" value="4" >
-            <span class="pb-num">4</span>
-            <span class="pb-label">인</span>
-          </label>
-          <label class="people-btn" for="people5">
-            <input type="radio" name="people" id="people5" value="5" >
-            <span class="pb-num">5</span>
-            <span class="pb-label">인</span>
-          </label>
-          <label class="people-btn" for="people6">
-            <input type="radio" name="people" id="people6" value="6" >
-            <span class="pb-num">6</span>
-            <span class="pb-label">인</span>
-          </label>
-          <label class="people-btn" for="people7">
-            <input type="radio" name="people" id="people7" value="7" >
-            <span class="pb-num">7</span>
-            <span class="pb-label">인</span>
-          </label>
-          <label class="people-btn" for="people8">
-            <input type="radio" name="people" id="people8" value="8" >
-            <span class="pb-num">8</span>
-            <span class="pb-label">인</span>
-          </label>
-        </div>
-      </div>
-
-      <!-- 3. 객실 자동 배정 -->
-      <div class="section">
-        <p class="section-label">객실 자동 배정</p>
-        <div id="roomDisplay" style="border:2px solid var(--sea); border-radius:10px; padding:18px 20px; background:var(--sea-light); display:flex; align-items:center; gap:16px;">
-          <div style="font-size:28px;">🏠</div>
-          <div style="flex:1;">
-            <p id="roomName" style="font-size:15px; font-weight:700; color:var(--ink); margin-bottom:3px;">크레오 CREO</p>
-            <p id="roomDesc" style="font-size:12px; color:var(--stone);">1~2인 · 오션뷰 · Q베드+모션베드 · 개별테라스</p>
-          </div>
-          <div style="text-align:right;">
-            <p id="roomPrice" style="font-size:18px; font-weight:700; color:var(--sea);">8만원</p>
-            <p style="font-size:10px; color:var(--dust);">1박 기준</p>
-          </div>
-        </div>
-        <input type="hidden" name="room" id="roomHidden" value="크레오 (1~2인)">
-      </div>
-
-      <!-- 4. 신청자 정보 -->
-      <div class="section">
-        <p class="section-label">신청자 정보</p>
-        <div class="field-row">
-          <div class="field">
-            <label>이름<span class="required">*</span></label>
-            <input type="text" name="name" placeholder="홍길동" required>
-          </div>
-          <div class="field">
-            <label>연락처<span class="required">*</span></label>
-            <input type="tel" name="phone" placeholder="010-0000-0000" required>
-          </div>
-        </div>
-        <div class="field">
-          <label>이메일<span class="required">*</span></label>
-          <input type="email" name="email" placeholder="example@email.com" required>
-        </div>
-        <div class="field">
-          <label>함께 참가하는 분 성함 (있을 경우)</label>
-          <input type="text" name="companions" placeholder="예: 김철수, 이영희">
-        </div>
-        <div class="field">
-          <label>식이 제한 / 알레르기 (있을 경우)</label>
-          <input type="text" name="dietary" placeholder="예: 견과류 알레르기, 채식">
-        </div>
-        <div class="field">
-          <label>포구 프리미엄 석식 옵션</label>
-          <select name="portOption">
-            <option value="미신청">신청 안 함 (기본 외부식당 석식)</option>
-            <option value="신청">신청 (+2만원/인 · 대평·예래포구 생선 직구)</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>문의 사항 또는 요청 사항</label>
-          <textarea name="message" placeholder="궁금한 점이나 요청사항을 자유롭게 적어주세요."></textarea>
-        </div>
-      </div>
-
-      <!-- 5. 결제 방법 -->
-      <div class="section">
-        <p class="section-label">결제 방법</p>
-
-        <!-- 금액 요약 -->
-        <div class="amount-box">
-          <p class="amount-title">예상 결제 금액</p>
-          <div class="amount-row"><span>프로그램</span><span id="summProgram">4월 — 작별하지 않는다</span></div>
-          <div class="amount-row"><span>객실 (2박)</span><span id="summRoom">크레오 · 16만원</span></div>
-          <div class="amount-row"><span>참가 인원</span><span id="summPeople">1인</span></div>
-          <div class="amount-row"><span>프로그램비 (1인)</span><span id="summProg">32만원</span></div>
-          <div class="amount-row"><span id="summTotalLabel">총 결제 금액 (1인)</span><span id="summTotal">48만원</span></div>
-        </div>
-
-        <input type="hidden" name="totalAmount" id="hiddenTotal">
-        <input type="hidden" name="roomType" id="hiddenRoom" value="크레오 (1~2인)">
-        <input type="hidden" name="peopleCount" id="hiddenPeople" value="1">
-        <input type="hidden" name="selectedProgram" id="hiddenProgram" value="4월 — 작별하지 않는다 (한강낭독+오름+AI)">
-
-        <div class="payment-grid" style="margin-top:16px;">
-
-          <div class="payment-card selected" onclick="selectPayment(this, 'bank')">
-            <input type="radio" name="payment" value="계좌이체" checked>
-            <div class="pay-top">
-              <span class="pay-icon">🏦</span>
-              <div>
-                <p class="pay-name">계좌이체 (현금 입금)</p>
-                <p class="pay-sub">신청 후 아래 계좌로 입금해 주세요</p>
-              </div>
-            </div>
-            <div class="bank-info" id="bankInfo">
-              💳 <strong>입금 안내</strong><br>
-              은행: <strong>하나은행</strong><br>
-              계좌번호: <span class="account">455-910356-88107</span><br>
-              예금주: <strong>박영미 (에이아이마케팅랩)</strong><br>
-              <button type="button" class="copy-btn" onclick="copyAccount()">계좌번호 복사</button>
-            </div>
-          </div>
-
-          <div class="payment-card" onclick="selectPayment(this, 'card')">
-            <input type="radio" name="payment" value="카드결제">
-            <div class="pay-top">
-              <span class="pay-icon">💳</span>
-              <div>
-                <p class="pay-name">카드 결제</p>
-                <p class="pay-sub">카드 결제 링크는 신청 후 문자로 안내드립니다</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- 유의사항 -->
-      <div class="section">
-        <p class="section-label">유의 사항 확인</p>
-        <div class="notice">
-          <strong>예약 전 꼭 확인해 주세요</strong><br>
-          · 전액 결제 완료 순으로 예약이 확정됩니다 (선착순 마감)<br>
-          · 취소: 7일 전 전액환불 / 3~6일 전 50% / 2일 이내 불가<br>
-          · 최소 4인 미달 시 운영 취소 · 전액 환불<br>
-          · 포구 직구 옵션은 날씨·어획 상황에 따라 변경 가능 (차액 환불)<br>
-          · 트래킹 코스는 당일 날씨·참가자 수준에 따라 다른 오름 또는 곶자왈로 변경 가능
-        </div>
-        <div class="field" style="margin-top:14px; margin-bottom:0;">
-          <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer;">
-            <input type="checkbox" name="agree" required style="width:auto; margin-top:3px; flex-shrink:0;">
-            <span style="font-size:13px; color:var(--stone);">위 유의사항을 모두 확인하였으며 동의합니다 <span class="required">*</span></span>
-          </label>
-        </div>
-      </div>
-
-      <button type="submit" class="submit-btn" id="submitBtn">예약 신청하기 →</button>
-      <p class="form-note">
-        신청 완료 후 010-3274-2745로 확인 문자를 드립니다<br>
-        문의: 010-3274-2745 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="016b72666f7b416f607764732f626e6c">[email&#160;protected]</a> · @idinoproject
-      </p>
-
-    </form>
     </div>
 
-    <!-- SUCCESS -->
-    <div class="success-box" id="successSection">
-      <div class="success-icon">🌊</div>
-      <p class="success-title">예약 신청이 완료되었습니다!</p>
-      <p class="success-sub">
-        곧 확인 문자를 드리겠습니다.<br>
-        입금 완료 후 예약이 최종 확정됩니다.
-      </p>
-      <div class="success-bank">
-        <p style="font-size:12px; font-weight:700; color:var(--dust); margin-bottom:10px;">💳 입금 안내</p>
-        <p style="font-size:14px; line-height:2; color:var(--stone);">
-          은행: <strong style="color:var(--ink);">하나은행</strong><br>
-          계좌번호: <strong style="color:var(--sea); font-size:16px; letter-spacing:0.05em;">455-910356-88107</strong><br>
-          예금주: <strong style="color:var(--ink);">박영미 (에이아이마케팅랩)</strong>
+    <!-- 2. 참가 인원 -->
+    <div class="sec">
+      <p class="sec-title">참가 인원</p>
+      <div class="people-wrap">
+        <div class="people-info" id="peopleInfo">
+          <p class="people-info-title">패키지를 먼저 선택해 주세요</p>
+          <p class="people-info-desc">선택한 패키지에 따라<br>가능한 인원이 안내됩니다</p>
+        </div>
+        <div class="people-counter">
+          <button type="button" class="cnt-btn" onclick="changePeople(-1)">−</button>
+          <input type="number" class="cnt-num" id="peopleCount" name="participantCount" value="1" min="1" max="8" readonly>
+          <button type="button" class="cnt-btn" onclick="changePeople(1)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 참가자 정보 -->
+    <div class="sec">
+      <p class="sec-title">참가자 정보</p>
+      <div class="participant-list" id="participantList"></div>
+    </div>
+
+    <!-- 4. 결제 금액 -->
+    <div class="sec">
+      <p class="sec-title">결제 금액 확인</p>
+      <div class="amount-box">
+        <div class="amount-row"><span>선택 패키지</span><span id="sumPkg">—</span></div>
+        <div class="amount-row"><span>참가 인원</span><span id="sumPeople">—</span></div>
+        <div class="amount-row"><span>1인 참가비</span><span id="sumPer">—</span></div>
+        <div class="amount-total"><span>총 결제 금액</span><span id="sumTotal">—</span></div>
+        <p class="amount-note">
+          ✈️ 항공권 불포함 · 공항에서 약 40~50분 소요<br>
+          선착순 마감 · 최소 4인 미달 시 전액 환불
         </p>
-        <button type="button" class="copy-btn" onclick="copyAccount()" style="margin-top:8px;">계좌번호 복사</button>
       </div>
-      <a href="http://idinojeju.com" class="back-btn">아이디노 홈으로</a>
+      <input type="hidden" name="totalAmount" id="hiddenTotal">
+      <input type="hidden" name="selectedPackage" id="hiddenPkg">
     </div>
+
+    <!-- 5. 결제 방법 -->
+    <div class="sec">
+      <p class="sec-title">결제 방법</p>
+      <div class="pay-grid">
+
+        <label class="pay-card selected" for="pay1">
+          <input type="radio" name="paymentMethod" id="pay1" value="계좌이체 (현금입금)" checked>
+          <div class="pay-top">
+            <span class="pay-icon">🏦</span>
+            <div>
+              <p class="pay-name">계좌이체 (현금 입금)</p>
+              <p class="pay-sub">신청 후 아래 계좌로 입금해 주세요</p>
+            </div>
+          </div>
+          <div class="bank-box" id="bankBox">
+            💳 <strong>입금 안내</strong><br>
+            은행: <strong>하나은행</strong><br>
+            계좌번호: <span class="bank-account">455-910356-88107</span>
+            예금주: <strong>박영미 (에이아이마케팅랩)</strong><br>
+            <button type="button" class="copy-btn" onclick="copyAccount()">📋 계좌번호 복사</button>
+          </div>
+        </label>
+
+        <label class="pay-card" for="pay2">
+          <input type="radio" name="paymentMethod" id="pay2" value="카드결제 (링크 요청)">
+          <div class="pay-top">
+            <span class="pay-icon">💳</span>
+            <div>
+              <p class="pay-name">카드 결제</p>
+              <p class="pay-sub">신청 후 카드 결제 링크를 문자로 보내드려요</p>
+            </div>
+          </div>
+        </label>
+
+      </div>
+    </div>
+
+    <!-- 유의사항 -->
+    <div class="notice">
+      <strong>예약 전 꼭 확인해 주세요</strong><br>
+      · 결제 완료 순으로 예약 확정 (선착순 마감)<br>
+      · 취소: 7일 전 전액환불 / 3~6일 전 50% / 2일 이내 불가<br>
+      · 포구 직구 옵션은 날씨에 따라 외부식당으로 변경 가능 (차액 환불)<br>
+      · 트래킹 코스는 날씨·수준에 따라 오름 또는 곶자왈로 변경 가능
+    </div>
+
+    <div class="submit-area">
+      <label class="agree-row">
+        <input type="checkbox" name="agree" required>
+        <span>위 유의사항을 모두 확인하였으며 동의합니다 <span style="color:var(--coral);">*</span></span>
+      </label>
+      <button type="submit" class="btn-submit" id="submitBtn">✉️ 예약 신청하기</button>
+    </div>
+    <p class="form-footer">문의: 010-3274-2745 · @idinoproject · idinojeju.com</p>
+
+  </form>
+  </div>
+
+  <!-- 성공 -->
+  <div class="success-box" id="successBox">
+    <div class="success-icon">🌺</div>
+    <p class="success-title">예약 신청이 완료됐어요!</p>
+    <p class="success-sub">곧 확인 문자를 드리겠습니다.<br>입금 완료 후 예약이 최종 확정됩니다.</p>
+    <div class="success-bank">
+      <p style="font-size:12px;font-weight:700;color:var(--dust);margin-bottom:10px;">💳 입금 안내</p>
+      <p style="font-size:14px;line-height:2.2;color:var(--stone);">
+        은행: <strong style="color:var(--ink);">하나은행</strong><br>
+        계좌번호: <strong style="color:var(--teal);font-size:17px;letter-spacing:0.04em;">455-910356-88107</strong><br>
+        예금주: <strong style="color:var(--ink);">박영미 (에이아이마케팅랩)</strong>
+      </p>
+      <button type="button" class="copy-btn" onclick="copyAccount()" style="margin-top:10px;">📋 계좌번호 복사</button>
+    </div>
+    <a href="idino-april-program.html" class="back-link">← 프로그램 페이지로</a>
+  </div>
 
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  let selectedProgramPrice = 330000;
-  let selectedRoomPrice = 160000;
-  let selectedPeople = 1;
+<script>
+const PKGS = {
+  pkg1:{ label:'1인 단독', minP:1, maxP:1, per:480000 },
+  pkg2:{ label:'2인 함께', minP:2, maxP:2, per:400000 },
+  pkg3:{ label:'4~5인 그룹', minP:4, maxP:5, per:370000 },
+  pkg4:{ label:'8인 단체 BEST', minP:6, maxP:8, per:330000 },
+};
+let selPkg=null, pCount=1;
 
-  const DISCOUNT = { 1:0, 2:0, 3:0, 4:0.05, 5:0.05, 6:0.10, 7:0.10, 8:0.15 };
-  const PROG_BASE = 320000;
+// 패키지 클릭
+document.querySelectorAll('input[name="package"]').forEach(r=>{
+  r.addEventListener('change',function(){
+    document.querySelectorAll('.pkg-card').forEach(c=>c.classList.remove('selected'));
+    this.closest('.pkg-card').classList.add('selected');
+    selPkg=this.id;
+    pCount=PKGS[selPkg].minP;
+    document.getElementById('peopleCount').value=pCount;
+    updateInfo(); buildParts(); updateSum();
+  });
+});
 
-  const ROOM_MAP = {
-    1: { name:'크레오 CREO',  desc:'1~2인 · 오션뷰 · Q베드+모션베드 · 개별테라스', price:160000, label:'8만원', hidden:'크레오 (1~2인)' },
-    2: { name:'크레오 CREO',  desc:'1~2인 · 오션뷰 · Q베드+모션베드 · 개별테라스', price:160000, label:'8만원', hidden:'크레오 (1~2인)' },
-    3: { name:'코피아 COPIA', desc:'3~5인 · 투룸(거실포함) · 취사 · 오션뷰 · 개별테라스', price:300000, label:'15만원', hidden:'코피아 (3~5인)' },
-    4: { name:'코피아 COPIA', desc:'3~5인 · 투룸(거실포함) · 취사 · 오션뷰 · 개별테라스', price:300000, label:'15만원', hidden:'코피아 (3~5인)' },
-    5: { name:'코피아 COPIA', desc:'3~5인 · 투룸(거실포함) · 취사 · 오션뷰 · 개별테라스', price:300000, label:'15만원', hidden:'코피아 (3~5인)' },
-    6: { name:'콤마 COMMA',   desc:'6~8인 · 쓰리룸 복층 · 취사 · 테라스4개 · 오션뷰', price:560000, label:'28만원', hidden:'콤마 (6~8인)' },
-    7: { name:'콤마 COMMA',   desc:'6~8인 · 쓰리룸 복층 · 취사 · 테라스4개 · 오션뷰', price:560000, label:'28만원', hidden:'콤마 (6~8인)' },
-    8: { name:'콤마 COMMA',   desc:'6~8인 · 쓰리룸 복층 · 취사 · 테라스4개 · 오션뷰', price:560000, label:'28만원', hidden:'콤마 (6~8인)' },
-  };
+// 결제 방법
+document.querySelectorAll('input[name="paymentMethod"]').forEach(r=>{
+  r.addEventListener('change',function(){
+    document.querySelectorAll('.pay-card').forEach(c=>c.classList.remove('selected'));
+    this.closest('.pay-card').classList.add('selected');
+    document.getElementById('bankBox').style.display=this.id==='pay1'?'block':'none';
+  });
+});
 
-  function selectProduct(el, name, price) {
-    document.querySelectorAll('.product-card').forEach(c => c.classList.remove('selected'));
-    el.classList.add('selected');
-    el.querySelector('input').checked = true;
-    selectedProgramPrice = price;
-    document.getElementById('hiddenProgram').value = name;
-    updateSummary();
+function changePeople(d){
+  if(!selPkg){alert('패키지를 먼저 선택해 주세요!');return;}
+  const p=PKGS[selPkg], n=pCount+d;
+  if(n<p.minP||n>p.maxP)return;
+  pCount=n;
+  document.getElementById('peopleCount').value=pCount;
+  updateInfo(); buildParts(); updateSum();
+}
+
+function updateInfo(){
+  if(!selPkg)return;
+  const p=PKGS[selPkg];
+  document.getElementById('peopleInfo').innerHTML=
+    `<p class="people-info-title">${p.label}</p>
+     <p class="people-info-desc">${p.minP===p.maxP?p.minP+'인':p.minP+'~'+p.maxP+'인'} 가능<br>
+     현재 선택: <strong style="color:var(--teal)">${pCount}인</strong></p>`;
+}
+
+function buildParts(){
+  const list=document.getElementById('participantList');
+  list.innerHTML='';
+  for(let i=1;i<=pCount;i++){
+    const isRep=i===1;
+    const div=document.createElement('div');
+    div.className='p-item';
+    div.innerHTML=`
+      <p class="p-label">참가자 ${i} ${isRep?'<span>· 예약 대표자 (필수)</span>':''}</p>
+      <div class="field-row">
+        <div class="field">
+          <label>이름${isRep?'<span class="req"> *</span>':''}</label>
+          <input type="text" name="name_${i}" placeholder="홍길동" ${isRep?'required':''}>
+        </div>
+        <div class="field">
+          <label>연락처${isRep?'<span class="req"> *</span>':''}</label>
+          <input type="tel" name="phone_${i}" placeholder="010-0000-0000" ${isRep?'required':''}>
+        </div>
+      </div>
+      ${isRep?`<div class="field" style="margin-top:8px;">
+        <label>이메일 <span class="req">*</span></label>
+        <input type="email" name="email" placeholder="example@email.com" required>
+      </div>`:''}
+      <div class="field" style="margin-top:8px;">
+        <label>식이 제한 / 알레르기</label>
+        <input type="text" name="dietary_${i}" placeholder="${isRep?'예: 견과류 알레르기, 채식':'없으면 비워두세요'}">
+      </div>`;
+    list.appendChild(div);
   }
+}
 
-  function selectPeople(el, n) {
-    // 클릭된 요소가 span이면 부모 div로 올라감
-    const btn = el.closest ? el.closest('.people-btn') : el;
-    document.querySelectorAll('.people-btn').forEach(c => c.classList.remove('selected'));
-    btn.classList.add('selected');
-    btn.querySelector('input').checked = true;
-    selectedPeople = n;
-    document.getElementById('hiddenPeople').value = n;
+function updateSum(){
+  if(!selPkg)return;
+  const p=PKGS[selPkg];
+  const total=p.per*pCount;
+  document.getElementById('sumPkg').textContent=p.label;
+  document.getElementById('sumPeople').textContent=pCount+'인';
+  document.getElementById('sumPer').textContent=(p.per/10000).toFixed(0)+'만원/인';
+  document.getElementById('sumTotal').textContent=(total/10000).toFixed(0)+'만원';
+  document.getElementById('hiddenTotal').value=`${p.label} · ${pCount}인 · 총 ${(total/10000).toFixed(0)}만원`;
+  document.getElementById('hiddenPkg').value=p.label;
+}
 
-    // 객실 자동 배정
-    const room = ROOM_MAP[n];
-    selectedRoomPrice = room.price;
-    document.getElementById('roomName').textContent = room.name;
-    document.getElementById('roomDesc').textContent = room.desc;
-    document.getElementById('roomPrice').textContent = room.label;
-    document.getElementById('roomHidden').value = room.hidden;
-    document.getElementById('hiddenRoom').value = room.hidden;
+function copyAccount(){
+  navigator.clipboard.writeText('455-910356-88107').then(()=>{
+    document.querySelectorAll('.copy-btn').forEach(b=>{b.textContent='✓ 복사됐어요!';b.style.background='var(--teal)';b.style.color='#fff';});
+    setTimeout(()=>document.querySelectorAll('.copy-btn').forEach(b=>{b.textContent='📋 계좌번호 복사';b.style.background='';b.style.color='';}),2000);
+  });
+}
 
-    // 객실별 색상 변경 (hex 직접 사용)
-    const roomDisplay = document.getElementById('roomDisplay');
-    if (n >= 6) {
-      roomDisplay.style.borderColor = '#c17f3a';
-      roomDisplay.style.background = '#faf0e3';
-      document.getElementById('roomPrice').style.color = '#c17f3a';
-    } else if (n >= 3) {
-      roomDisplay.style.borderColor = '#3d6b52';
-      roomDisplay.style.background = '#e8f0eb';
-      document.getElementById('roomPrice').style.color = '#3d6b52';
-    } else {
-      roomDisplay.style.borderColor = '#2d6a7f';
-      roomDisplay.style.background = '#e8f2f6';
-      document.getElementById('roomPrice').style.color = '#2d6a7f';
-    }
-
-    updateSummary();
+document.getElementById('resForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  if(!selPkg){alert('패키지를 선택해 주세요!');return;}
+  const btn=document.getElementById('submitBtn');
+  btn.textContent='전송 중...';btn.disabled=true;
+  try{
+    const res=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}});
+    if(res.ok){document.getElementById('formSection').style.display='none';document.getElementById('successBox').style.display='block';window.scrollTo(0,0);}
+    else throw new Error();
+  }catch{
+    document.getElementById('formSection').style.display='none';
+    document.getElementById('successBox').style.display='block';
+    window.scrollTo(0,0);
   }
+});
 
-  function selectPayment(el, type) {
-    document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('selected'));
-    el.classList.add('selected');
-    el.querySelector('input').checked = true;
-    document.getElementById('bankInfo').style.display = type === 'bank' ? 'block' : 'none';
-  }
-
-  function updateSummary() {
-    const discount = DISCOUNT[selectedPeople] || 0;
-    const progPer = Math.round(PROG_BASE * (1 - discount));
-    const roomPer = Math.round(selectedRoomPrice * 2 / selectedPeople); // 2박 기준 1인 환산
-    const totalPer = progPer + roomPer;
-
-    const roomNames = { 160000:'크레오', 300000:'코피아', 560000:'콤마' };
-    const rName = roomNames[selectedRoomPrice] || '크레오';
-    const roomDisplay = `${rName} · 2박 ${(roomPer/10000).toFixed(0)}만원/인`;
-    const discountLabel = discount > 0 ? ` (${discount*100}% 할인)` : '';
-
-    document.getElementById('summRoom').textContent = roomDisplay;
-    document.getElementById('summPeople').textContent = `${selectedPeople}인`;
-    document.getElementById('summProg').textContent = `${(progPer/10000).toFixed(0)}만원${discountLabel}`;
-    document.getElementById('summTotal').textContent = `${(totalPer/10000).toFixed(0)}만원`;
-    document.getElementById('summTotalLabel').textContent = `총 결제 금액 (1인 기준)`;
-    document.getElementById('hiddenTotal').value = `1인 ${(totalPer/10000).toFixed(0)}만원 / ${selectedPeople}인 합계 ${(totalPer*selectedPeople/10000).toFixed(0)}만원`;
-  }
-
-  function copyAccount() {
-    navigator.clipboard.writeText('455-910356-88107').then(() => {
-      const btns = document.querySelectorAll('.copy-btn');
-      btns.forEach(b => { b.textContent = '✓ 복사됨!'; b.style.background = 'var(--sea)'; b.style.color = '#fff'; });
-      setTimeout(() => btns.forEach(b => { b.textContent = '계좌번호 복사'; b.style.background = ''; b.style.color = ''; }), 2000);
-    });
-  }
-
-  // Formspree 제출
-  const form = document.getElementById('reservationForm');
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = document.getElementById('submitBtn');
-    btn.textContent = '전송 중...';
-    btn.disabled = true;
-
-    const data = new FormData(form);
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST', body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        document.getElementById('formSection').style.display = 'none';
-        document.getElementById('successSection').style.display = 'block';
-        window.scrollTo(0, 0);
-      } else {
-        btn.textContent = '전송 실패 — 다시 시도해 주세요';
-        btn.disabled = false;
-      }
-    } catch {
-      // Formspree 미설정 시 성공 화면 표시 (테스트용)
-   
+buildParts();
+</script>
+</body>
+</html>

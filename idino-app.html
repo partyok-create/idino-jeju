@@ -895,56 +895,7 @@ body {
       </div>
     </div>
 
-    <!-- ③ 예약 -->
-    <div class="screen reservation-screen" id="screen-reservation">
-      <div class="res-header">
-        <h2 class="res-header-title">프로그램 예약</h2>
-        <p class="res-header-sub">4월 16일(목) ~ 18일(토) · 2박 3일</p>
-      </div>
-      <div class="res-body">
-
-        <div class="res-section">
-          <p class="res-label">참가 인원</p>
-          <div class="people-row" id="peopleGrid">
-          </div>
-          <div class="people-row" id="peopleGrid2"></div>
-        </div>
-
-        <div class="res-section">
-          <p class="res-label">객실 자동 배정</p>
-          <div class="room-auto" id="roomDisplay">
-            <div class="room-icon">🏠</div>
-            <div>
-              <p class="room-name-txt" id="roomName">크레오 CREO</p>
-              <p class="room-desc-txt" id="roomDesc">1~2인 · 오션뷰 · 개별테라스</p>
-            </div>
-            <div class="room-price-txt" id="roomPrice">8만원</div>
-          </div>
-        </div>
-
-        <div class="res-section">
-          <p class="res-label">신청자 정보</p>
-          <div class="field-row">
-            <div class="field"><label>이름 *</label><input type="text" placeholder="홍길동"></div>
-            <div class="field"><label>연락처 *</label><input type="tel" placeholder="010-0000-0000"></div>
-          </div>
-          <div class="field"><label>이메일 *</label><input type="email" placeholder="example@email.com"></div>
-          <div class="field"><label>요청 사항</label><textarea placeholder="식이 제한, 알레르기 등 자유롭게 적어주세요"></textarea></div>
-        </div>
-
-        <div class="amount-box">
-          <div class="amount-row"><span>프로그램비 (1인)</span><span id="amtProg">32만원</span></div>
-          <div class="amount-row"><span>숙박 2박 (1인 환산)</span><span id="amtRoom">16만원</span></div>
-          <div class="amount-total"><span>합계 (1인)</span><span id="amtTotal">48만원</span></div>
-        </div>
-
-        <p class="notice-small">✈️ 항공권 불포함 · 공항에서 약 40~50분 소요<br>💳 하나은행 455-910356-88107 (박영미) · 카드 결제 가능<br>선착순 마감 · 전액 일시결제</p>
-
-        <a href="idino-reservation.html" class="submit-btn" style="display:block;text-align:center;text-decoration:none;">예약 신청하기 →</a>
-      </div>
-    </div>
-
-    <!-- ④ 프로필 -->
+        <!-- ④ 프로필 -->
     <div class="screen" id="screen-profile" style="background:var(--teal-deep);">
       <div class="profile-header">
         <div class="profile-avatar">🌺</div>
@@ -977,7 +928,7 @@ body {
       </div>
       <span class="nav-label">일정</span>
     </div>
-    <div class="nav-item" id="nav-reservation" onclick="goTo('reservation')">
+    <div class="nav-item" id="nav-reservation" onclick="window.location.href='idino-reservation.html'">
       <div style="background:var(--teal-main);width:52px;height:32px;border-radius:16px;display:flex;align-items:center;justify-content:center;">
         <svg viewBox="0 0 24 24" style="stroke:white;"><path d="M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h6"/><path d="M15 3h6v6"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
@@ -1004,6 +955,7 @@ function goTo(name) {
       bubble.style.background = 'none';
     }
   });
+  if (name === 'reservation') { window.location.href='idino-reservation.html'; return; }
   const scr = document.getElementById('screen-'+name);
   if (scr) { scr.classList.add('active','entering'); scr.scrollTop = 0; }
   const nav = document.getElementById('nav-'+name);

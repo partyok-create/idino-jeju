@@ -12,8 +12,6 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://partyok-create.github.io/idino-jeju/idino-app.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="제주 챕터 — Jeju Chapter">
-<meta name="twitter:description" content="제주에서 쉬고, 걷고, AI로 다음 챕터를 설계하다">
 <meta name="twitter:image" content="https://partyok-create.github.io/idino-jeju/og-app.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -527,45 +525,129 @@ body {
     <div class="nav-icon hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </div>
-    <div class="nav-logo" style="display:flex;align-items:center;gap:10px;"><img src="jeju-chapter-logo.png" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" alt="로고"><div><p class="nav-title">제주 챕터</p><p class="nav-sub">Jeju Chapter</p></div></div>
+    <div class="nav-logo" style="display:flex;align-items:center;gap:8px;"><img src="jeju-chapter-logo.png" style="width:34px;height:34px;border-radius:50%;object-fit:cover;" alt="로고"><div><p class="nav-title" style="font-size:15px;font-weight:700;color:#fff;margin:0;">제주 챕터</p><p class="nav-sub" style="font-size:10px;color:rgba(255,255,255,0.55);margin:0;">Jeju Chapter</p></div></div>
+    <div class="nav-icon" onclick="goTo('profile')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+      </svg>
+    </div>
   </nav>
 
+  <!-- SCREENS -->
   <div class="screens">
 
-  <!-- ① 홈 -->
-  <div class="screen active" id="screen-retreat">
+    <!-- ① 리트리트 (홈) -->
+    <div class="screen active" id="screen-retreat">
+      <div class="hero">
+        <div class="hero-bg"></div>
+        <!-- 숲 SVG 일러스트 -->
+        <svg class="forest-svg" viewBox="0 0 390 680" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="mist">
+              <feGaussianBlur stdDeviation="8"/>
+            </filter>
+            <radialGradient id="glow" cx="50%" cy="30%" r="50%">
+              <stop offset="0%" stop-color="#4aafaf" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#0a2828" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <!-- 배경 글로우 -->
+          <rect width="390" height="680" fill="url(#glow)"/>
+          <!-- 원거리 나무들 (연하게) -->
+          <g opacity="0.25" fill="#1a6060">
+            <rect x="30" y="80" width="18" height="380"/>
+            <polygon points="39,30 15,90 63,90"/>
+            <polygon points="39,55 12,100 66,100"/>
+            <polygon points="39,75 10,108 68,108"/>
 
-      <!-- 프로그램 카드 2종 -->
-      <div style="padding:0 24px; display:flex; flex-direction:column; gap:12px; margin-top:24px;">
+            <rect x="340" y="100" width="16" height="360"/>
+            <polygon points="348,50 326,108 370,108"/>
+            <polygon points="348,72 322,118 374,118"/>
+            <polygon points="348,90 320,126 376,126"/>
 
-        <!-- 4월 카드 -->
-        <div style="background:linear-gradient(135deg,rgba(30,96,96,0.25),rgba(30,96,96,0.1)); border:0.5px solid rgba(30,96,96,0.4); border-radius:16px; padding:18px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
-          <div style="flex:1; min-width:0;">
-            <div style="display:flex; align-items:center; gap:7px; margin-bottom:6px;">
-              <span style="font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; background:rgba(30,96,96,0.3); color:var(--teal-pale);">4월 16~18일</span>
-              <span style="font-size:10px; color:rgba(255,255,255,0.4);">2박 3일</span>
-            </div>
-            <p style="font-family:'Noto Serif KR',serif; font-size:15px; font-weight:700; color:var(--white); line-height:1.4; margin-bottom:4px;">작별이 아닌<br>새로운 시작</p>
-            <p style="font-size:11px; color:rgba(255,255,255,0.5); line-height:1.6;">한강 낭독 × 오름 × AI 인생설계</p>
-            <p style="font-size:13px; font-weight:700; color:var(--gold); margin-top:6px;">25만원~ <span style="font-size:10px; font-weight:400; color:rgba(255,255,255,0.4);">/인</span></p>
+            <rect x="160" y="60" width="14" height="380"/>
+            <polygon points="167,15 145,70 189,70"/>
+            <polygon points="167,38 142,80 192,80"/>
+
+            <rect x="220" y="70" width="14" height="370"/>
+            <polygon points="227,22 205,78 249,78"/>
+            <polygon points="227,45 202,88 252,88"/>
+          </g>
+          <!-- 중거리 나무들 -->
+          <g opacity="0.45" fill="#0f4545">
+            <rect x="60" y="150" width="22" height="340"/>
+            <polygon points="71,90 44,158 98,158"/>
+            <polygon points="71,118 40,170 102,170"/>
+            <polygon points="71,140 36,180 106,180"/>
+
+            <rect x="300" y="160" width="20" height="330"/>
+            <polygon points="310,100 285,168 335,168"/>
+            <polygon points="310,128 282,178 338,178"/>
+            <polygon points="310,150 278,186 342,186"/>
+
+            <rect x="130" y="130" width="18" height="360"/>
+            <polygon points="139,75 116,138 162,138"/>
+            <polygon points="139,100 112,148 166,148"/>
+
+            <rect x="250" y="140" width="18" height="350"/>
+            <polygon points="259,82 236,148 282,148"/>
+            <polygon points="259,108 232,158 286,158"/>
+          </g>
+          <!-- 전경 나무들 (진하게) -->
+          <g opacity="0.8" fill="#0a3030">
+            <rect x="0" y="220" width="26" height="460"/>
+            <polygon points="13,140 -18,228 44,228"/>
+            <polygon points="13,168 -22,240 48,240"/>
+            <polygon points="13,195 -26,252 52,252"/>
+
+            <rect x="364" y="230" width="26" height="450"/>
+            <polygon points="377,148 346,238 408,238"/>
+            <polygon points="377,176 342,248 412,248"/>
+
+            <rect x="95" y="200" width="24" height="440"/>
+            <polygon points="107,120 78,208 136,208"/>
+            <polygon points="107,148 74,218 140,218"/>
+            <polygon points="107,172 70,228 144,228"/>
+
+            <rect x="270" y="210" width="24" height="430"/>
+            <polygon points="282,130 253,218 311,218"/>
+            <polygon points="282,158 249,228 315,228"/>
+            <polygon points="282,182 245,238 319,238"/>
+
+            <rect x="185" y="185" width="20" height="460"/>
+            <polygon points="195,110 168,193 222,193"/>
+            <polygon points="195,138 164,203 226,203"/>
+            <polygon points="195,162 160,213 230,213"/>
+          </g>
+          <!-- 안개 레이어 -->
+          <rect x="0" y="300" width="390" height="120" fill="#0f4545" opacity="0.15" filter="url(#mist)"/>
+          <rect x="0" y="380" width="390" height="100" fill="#0d3a3a" opacity="0.2" filter="url(#mist)"/>
+          <!-- 빛 줄기 -->
+          <g opacity="0.12">
+            <polygon points="195,0 165,400 225,400" fill="#90d0d0"/>
+            <polygon points="195,0 175,350 215,350" fill="#b0e0e0"/>
+          </g>
+        </svg>
+        <div class="hero-mist"></div>
+        <div class="hero-content">
+          <p class="hero-eyebrow">Jeju Chapter — 인생 2막 설계 런케이션</p>
+          <h1 class="hero-title">작별이 아닌<br>새로운 시작</h1>
+          <div class="hero-desc">
+            <span>괴테처럼, 헤밍웨이처럼</span>
+            <span>자연 속에서 인생 2막 설계 여행</span>
+            <span>4월 · 5월 · 시그니처 런케이션</span>
           </div>
-          <button onclick="window.location.href='idino-april-program.html'" style="flex-shrink:0; background:var(--teal-main); border:none; color:#fff; font-size:12px; font-weight:700; padding:10px 16px; border-radius:10px; cursor:pointer; font-family:'Noto Sans KR',sans-serif; white-space:nowrap;">자세히 →</button>
         </div>
+      </div>
 
-        <!-- 5월 카드 -->
-        <div style="background:linear-gradient(135deg,rgba(107,79,160,0.25),rgba(107,79,160,0.1)); border:0.5px solid rgba(107,79,160,0.4); border-radius:16px; padding:18px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
-          <div style="flex:1; min-width:0;">
-            <div style="display:flex; align-items:center; gap:7px; margin-bottom:6px;">
-              <span style="font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; background:rgba(107,79,160,0.3); color:#c4a8f0;">5월 14~16일</span>
-              <span style="font-size:10px; color:rgba(255,255,255,0.4);">2박 3일</span>
-            </div>
-            <p style="font-family:'Noto Serif KR',serif; font-size:15px; font-weight:700; color:var(--white); line-height:1.4; margin-bottom:4px;">제주 바닷가<br>낭만 버스킹 여행</p>
-            <p style="font-size:11px; color:rgba(255,255,255,0.5); line-height:1.6;">루프탑 낙조 콘서트 × 오름 × AI 인생설계</p>
-            <p style="font-size:13px; font-weight:700; color:#c4a8f0; margin-top:6px;">37만원~ <span style="font-size:10px; font-weight:400; color:rgba(255,255,255,0.4);">/인</span></p>
-          </div>
-          <button onclick="window.location.href='idino-may-program.html'" style="flex-shrink:0; background:#6b4fa0; border:none; color:#fff; font-size:12px; font-weight:700; padding:10px 16px; border-radius:10px; cursor:pointer; font-family:'Noto Sans KR',sans-serif; white-space:nowrap;">자세히 →</button>
+      <!-- 가격 배너 -->
+      <div class="price-banner">
+        <div>
+          <p class="price-label">2~3인 기준 최저가 · 항공 불포함</p>
+          <p class="price-num">25만원~</p>
+          <p class="price-sub">2박 3일 · 숙박+AI워크숍+오름+조식2+석식2 포함</p>
         </div>
-
+        <button class="price-btn" onclick="window.location.href='idino-april-program.html'">상세보기</button>
       </div>
 
       <!-- 하이라이트 -->
@@ -573,102 +655,25 @@ body {
         <p class="section-label">왜 제주인가 — 이 땅이 특별한 이유</p>
       </div>
       <div class="highlight-cards">
-
-        <!-- 4·3 -->
-        <div class="hcard" style="border-left:3px solid rgba(196,90,58,0.6); border-radius:0 14px 14px 0;">
-          <div class="hcard-icon" style="background:rgba(196,90,58,0.15);">🌺</div>
-          <div>
-            <p class="hcard-title">4월의 제주 — 4·3의 기억</p>
-            <p class="hcard-desc">붉은 동백꽃이 놓이는 계절. 한강의 『작별하지 않는다』는 그 역사의 정면입니다. 역사를 알고 걷는 오름길은 다른 경험입니다.</p>
-          </div>
-        </div>
-
-        <!-- 지질 -->
         <div class="hcard">
-          <div class="hcard-icon">🌋</div>
+          <div class="hcard-icon">📖</div>
           <div>
-            <p class="hcard-title">180만 년 화산의 땅</p>
-            <p class="hcard-desc">368개 오름, 세계 유일의 곶자왈. 발아래 현무암 하나가 수십만 년을 기억합니다. 그 위에 서면 인간의 시간이 얼마나 소중한지 몸으로 느낍니다.</p>
+            <p class="hcard-title">한강 낭독회</p>
+            <p class="hcard-desc">『작별하지 않는다』<br>제주 바다 앞에서 소리 내어 읽는 유일한 문학 체험</p>
           </div>
         </div>
-
-        <!-- 바다와 숲 -->
-        <div class="hcard">
-          <div class="hcard-icon">🌊</div>
-          <div>
-            <p class="hcard-title">바다와 숲 — 내면의 두 문</p>
-            <p class="hcard-desc">수평선은 경계가 아니라 가능성입니다. 곶자왈의 고요 속에서 오랫동안 외면해온 자신의 목소리가 들리기 시작합니다.</p>
-          </div>
-        </div>
-
-      </div>
-
-      <div style="margin:20px 24px 0; background:rgba(255,255,255,0.06); border:0.5px solid rgba(255,255,255,0.1); border-radius:12px; padding:16px 18px; text-align:center;">
-        <p style="font-size:12px; color:rgba(255,255,255,0.75); line-height:2; font-style:italic;">
-          "제주는 쉬기 좋은 곳이 아니라,<br>자기 자신을 만나기 좋은 곳입니다."
-        </p>
-      </div>
-
-      <div class="divider" style="margin-top:24px;"></div>
-
-      <!-- AI 워크숍 섹션 -->
-      <div class="section">
-        <p class="section-label">인생 2막 설계 AI 실전 워크숍</p>
-        <p class="section-title">ChatGPT·Claude로<br>나의 다음 챕터를 쓰다</p>
-        <p class="section-body" style="margin-bottom:16px;">완전 초보자도 OK — 스마트폰 하나면 충분합니다. 강의가 아닌 1:1 실습으로 진행되며, 프로그램이 끝날 때 손에 쥐는 것이 생깁니다.</p>
-      </div>
-
-      <div style="padding:0 24px 8px; display:flex; flex-direction:column; gap:10px;">
-
-        <div style="background:rgba(255,255,255,0.06); border:0.5px solid rgba(255,255,255,0.12); border-left:3px solid var(--teal-light); border-radius:0 12px 12px 0; padding:16px 18px;">
-          <p style="font-size:11px; font-weight:700; color:var(--teal-pale); letter-spacing:0.08em; margin-bottom:6px;">1회차 — 나를 발견하다</p>
-          <p style="font-size:13px; font-weight:600; color:var(--white); margin-bottom:6px;">강점 분석 · 인생 2막 키워드 도출</p>
-          <p style="font-size:12px; color:rgba(255,255,255,0.55); line-height:1.7;">ChatGPT·Claude로 내가 잘하는 것, 좋아하는 것, 세상이 필요로 하는 것을 찾아냅니다. 인생 2막의 핵심 키워드 3가지를 직접 도출합니다.</p>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.06); border:0.5px solid rgba(255,255,255,0.12); border-left:3px solid var(--gold); border-radius:0 12px 12px 0; padding:16px 18px;">
-          <p style="font-size:11px; font-weight:700; color:var(--gold-light); letter-spacing:0.08em; margin-bottom:6px;">2회차 — 결과물을 만들다</p>
-          <p style="font-size:13px; font-weight:600; color:var(--white); margin-bottom:6px;">포트폴리오 · SNS · 3개월 실행계획</p>
-          <p style="font-size:12px; color:rgba(255,255,255,0.55); line-height:1.7;">AI로 나만의 포트폴리오 초안과 SNS 소개글을 완성합니다. 제주에서 돌아가는 날, 구체적인 3개월 실행계획을 손에 쥐고 출발합니다.</p>
-        </div>
-
-        <div style="background:linear-gradient(135deg, rgba(45,106,127,0.2), rgba(30,96,96,0.1)); border:0.5px solid rgba(45,106,127,0.3); border-radius:12px; padding:14px 18px; text-align:center;">
-          <p style="font-size:12px; color:rgba(255,255,255,0.7); line-height:1.9;">
-            괴테는 이탈리아에서 걸작을 구상했고<br>
-            헤밍웨이는 쿠바에서 노벨상 수상작을 완성했다<br>
-            <span style="color:var(--teal-pale); font-weight:700;">당신은 제주에서 인생 2막을 설계한다</span>
-          </p>
-        </div>
-
-      </div>
-
-      <div class="divider" style="margin-top:24px;"></div>
-
-      <!-- 3가지 여정 -->
-      <div class="section">
-        <p class="section-label">3가지 여정</p>
-        <p class="section-title">걷고, 설계하고, 읽다</p>
-      </div>
-      <div class="highlight-cards">
         <div class="hcard">
           <div class="hcard-icon">🌿</div>
           <div>
             <p class="hcard-title">오름 · 곶자왈 트래킹</p>
-            <p class="hcard-desc">군산오름 360° 파노라마 · 자체 가이드 동행<br>몸을 움직이면 머리가 비워집니다</p>
+            <p class="hcard-desc">군산오름 360° 파노라마<br>자체 가이드 동행 · 날씨·수준에 따라 코스 변동</p>
           </div>
         </div>
         <div class="hcard">
           <div class="hcard-icon">🤖</div>
           <div>
-            <p class="hcard-title">AI 인생 2막 설계 워크숍</p>
-            <p class="hcard-desc">ChatGPT·Claude 실습 · 스마트폰 하나면 충분<br>포트폴리오 · SNS · 3개월 실행계획 완성</p>
-          </div>
-        </div>
-        <div class="hcard" style="border-left:3px solid rgba(200,168,75,0.5); border-radius:0 14px 14px 0;">
-          <div class="hcard-icon" style="background:rgba(200,168,75,0.15);">📖</div>
-          <div>
-            <p class="hcard-title">한강 낭독회 <span style="font-size:10px; color:rgba(245,200,122,0.8);">현장 선택 +1만원</span></p>
-            <p class="hcard-desc">『작별하지 않는다』를 소설 배경지 제주 바다 앞에서 낭독 · </p>
+            <p class="hcard-title">AI 인생 설계 워크샵</p>
+            <p class="hcard-desc">ChatGPT·Claude로 나의 강점 분석<br>인생 2막 로드맵 완성</p>
           </div>
         </div>
       </div>
@@ -677,22 +682,13 @@ body {
 
       <div class="section">
         <p class="section-label">장소</p>
-        <p class="section-title">제주 챕터<br>런케이션 센터</p>
-        <p class="section-body">제주 서귀포시 안덕면 난드르로 21번길 26<br>박수기정 도보 5분 · 루프탑 360° 파노라마뷰<br>바닷가 수영장(7~8월) · 고속 와이파이 Biz존</p>
+        <p class="section-title">IDINO 제주<br>런케이션 센터</p>
+        <p class="section-body">제주 서귀포시 안덕면 난드르로 21번길 26<br>바닷가 수영장 · 루프탑 360° 파노라마뷰<br>디지털 노마드 전문 공간</p>
       </div>
     </div>
 
-  </div><!-- /screen-retreat -->
-
     <!-- ② 일정 -->
     <div class="screen" id="screen-schedule">
-      <!-- 프로그램 선택 탭 -->
-      <div style="display:flex; gap:8px; padding:20px 24px 0;">
-        <button onclick="showSchedule('april')" id="tab-april" style="flex:1; padding:10px; border-radius:10px; border:1.5px solid var(--teal-main); background:var(--teal-main); color:#fff; font-size:13px; font-weight:700; cursor:pointer; font-family:'Noto Sans KR',sans-serif;">🌺 4월 일정</button>
-        <button onclick="showSchedule('may')" id="tab-may" style="flex:1; padding:10px; border-radius:10px; border:1.5px solid rgba(107,79,160,0.5); background:transparent; color:rgba(255,255,255,0.6); font-size:13px; font-weight:700; cursor:pointer; font-family:'Noto Sans KR',sans-serif;">🎵 5월 일정</button>
-      </div>
-
-      <div id="schedule-april">
       <div class="schedule-hero">
         <div class="schedule-hero-bg"></div>
         <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.3;" viewBox="0 0 390 240" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -705,8 +701,8 @@ body {
           </g>
         </svg>
         <div class="schedule-hero-content">
-          <p class="hero-eyebrow">2026 · 4월 16일 ~ 18일</p>
-          <h2 class="hero-title">2박 3일 일정</h2>
+          <p class="hero-eyebrow">관광이 아니라 전환 — 2026년 4월 16~18일</p>
+          <h2 class="hero-title">2박 3일<br>런케이션 일정</h2>
         </div>
       </div>
 
@@ -797,64 +793,63 @@ body {
           </div>
         </div>
       </div>
-      </div><!-- schedule-april end -->
-
-      <!-- 5월 일정 -->
-      <div id="schedule-may" style="display:none;">
-      <div class="schedule-hero" style="background:linear-gradient(160deg,#1a1228,#2d2040);">
-        <p class="hero-eyebrow">5월 14일(목) ~ 16일(토)</p>
-        <h2 class="hero-title">제주 바닷가<br>낭만 버스킹 여행</h2>
-      </div>
-      <div class="schedule-list">
-        <div class="schedule-item active">
-          <div class="si-day">DAY 1</div>
-          <div class="si-content">
-            <p class="si-title">5월 14일 (목) — 도착 & 버스킹 나이트</p>
-            <div class="si-timeline">
-              <div class="si-event"><span class="si-time">14:00</span><span class="si-desc">체크인 & 오리엔테이션 · 버스킹 신청 접수</span></div>
-              <div class="si-event"><span class="si-time">17:00</span><span class="si-desc">버스킹 신청자 사운드체크 & 리허설</span></div>
-              <div class="si-event"><span class="si-time">18:30</span><span class="si-desc">박수기정 낙조 산책 (선택)</span></div>
-              <div class="si-event" style="background:rgba(107,79,160,0.12); border-radius:8px; padding:6px 8px;"><span class="si-time" style="color:#c4a8f0;">19:30</span><span class="si-desc" style="color:#c4a8f0; font-weight:700;">🎵 루프탑 낙조 버스킹 콘서트 1회 ⭐</span></div>
-              <div class="si-event"><span class="si-time">21:00</span><span class="si-desc">석식 & 자유 시간</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="schedule-item">
-          <div class="si-day">DAY 2</div>
-          <div class="si-content">
-            <p class="si-title">5월 15일 (금) — 걷고, 설계하고, 다시 무대로</p>
-            <div class="si-timeline">
-              <div class="si-event"><span class="si-time">08:30</span><span class="si-desc">조식</span></div>
-              <div class="si-event"><span class="si-time">09:30</span><span class="si-desc">군산오름 or 곶자왈 가이드 트래킹</span></div>
-              <div class="si-event"><span class="si-time">15:30</span><span class="si-desc">AI 워크숍 1회차 — 강점 분석 · 인생 2막 키워드</span></div>
-              <div class="si-event" style="background:rgba(107,79,160,0.12); border-radius:8px; padding:6px 8px;"><span class="si-time" style="color:#c4a8f0;">19:00</span><span class="si-desc" style="color:#c4a8f0; font-weight:700;">🎵 루프탑 낙조 버스킹 콘서트 2회 ⭐</span></div>
-              <div class="si-event"><span class="si-time">21:00</span><span class="si-desc">석식</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="schedule-item">
-          <div class="si-day">DAY 3</div>
-          <div class="si-content">
-            <p class="si-title">5월 16일 (토) — 결과물을 들고 돌아가다</p>
-            <div class="si-timeline">
-              <div class="si-event"><span class="si-time">09:30</span><span class="si-desc">AI 워크숍 2회차 — 포트폴리오 · 3개월 실행계획</span></div>
-              <div class="si-event"><span class="si-time">11:00</span><span class="si-desc">루프탑 편지 쓰기 — '1년 후의 나에게'</span></div>
-              <div class="si-event"><span class="si-time">12:30</span><span class="si-desc">마무리 브런치 & 수료식</span></div>
-              <div class="si-event"><span class="si-time">14:00</span><span class="si-desc">체크아웃 · 합승 귀환</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div><!-- schedule-may end -->
-
     </div>
 
-        <!-- ④ 프로필 -->
+    <!-- ③ 예약 -->
+    <div class="screen reservation-screen" id="screen-reservation">
+      <div class="res-header">
+        <h2 class="res-header-title">프로그램 예약</h2>
+        <p class="res-header-sub">4월 16일(목) ~ 18일(토) · 2박 3일</p>
+      </div>
+      <div class="res-body">
+
+        <div class="res-section">
+          <p class="res-label">참가 인원</p>
+          <div class="people-row" id="peopleGrid">
+          </div>
+          <div class="people-row" id="peopleGrid2"></div>
+        </div>
+
+        <div class="res-section">
+          <p class="res-label">객실 자동 배정</p>
+          <div class="room-auto" id="roomDisplay">
+            <div class="room-icon">🏠</div>
+            <div>
+              <p class="room-name-txt" id="roomName">크레오 CREO</p>
+              <p class="room-desc-txt" id="roomDesc">1~2인 · 오션뷰 · 개별테라스</p>
+            </div>
+            <div class="room-price-txt" id="roomPrice">8만원</div>
+          </div>
+        </div>
+
+        <div class="res-section">
+          <p class="res-label">신청자 정보</p>
+          <div class="field-row">
+            <div class="field"><label>이름 *</label><input type="text" placeholder="홍길동"></div>
+            <div class="field"><label>연락처 *</label><input type="tel" placeholder="010-0000-0000"></div>
+          </div>
+          <div class="field"><label>이메일 *</label><input type="email" placeholder="example@email.com"></div>
+          <div class="field"><label>요청 사항</label><textarea placeholder="식이 제한, 알레르기 등 자유롭게 적어주세요"></textarea></div>
+        </div>
+
+        <div class="amount-box">
+          <div class="amount-row"><span>프로그램비 (1인)</span><span id="amtProg">32만원</span></div>
+          <div class="amount-row"><span>숙박 2박 (1인 환산)</span><span id="amtRoom">16만원</span></div>
+          <div class="amount-total"><span>합계 (1인)</span><span id="amtTotal">48만원</span></div>
+        </div>
+
+        <p class="notice-small">✈️ 항공권 불포함 · 공항에서 약 40~50분 소요<br>💳 하나은행 455-910356-88107 (박영미) · 카드 결제 가능<br>선착순 마감 · 전액 일시결제</p>
+
+        <button class="submit-btn">예약 신청하기 →</button>
+      </div>
+    </div>
+
+    <!-- ④ 프로필 -->
     <div class="screen" id="screen-profile" style="background:var(--teal-deep);">
       <div class="profile-header">
         <div class="profile-avatar">🌺</div>
-        <p class="profile-name">제주 챕터</p>
-        <p class="profile-sub">런케이션 센터 · 서귀포 안덕면<br><span style="font-size:10px; color:rgba(255,255,255,0.4);">관광이 아니라 전환 — 인생 2막 설계 여행</span></p>
+        <p class="profile-name">IDINO 제주</p>
+        <p class="profile-sub">런케이션 센터 · 서귀포 안덕면</p>
       </div>
       <div class="menu-list">
         <div class="menu-item"><div class="menu-icon">📞</div><div class="menu-text">010-3274-2745</div><div class="menu-arrow">›</div></div>
@@ -865,8 +860,6 @@ body {
         <div class="menu-item"><div class="menu-icon">🔔</div><div class="menu-text">5월 이후 프로그램 알림 신청</div><div class="menu-arrow">›</div></div>
       </div>
     </div>
-
-  </div><!-- /screens -->
 
   </div><!-- /screens -->
 
@@ -884,7 +877,7 @@ body {
       </div>
       <span class="nav-label">일정</span>
     </div>
-    <div class="nav-item" id="nav-reservation" onclick="window.location.href='idino-reservation.html'">
+    <div class="nav-item" id="nav-reservation" onclick="goTo('reservation')">
       <div style="background:var(--teal-main);width:52px;height:32px;border-radius:16px;display:flex;align-items:center;justify-content:center;">
         <svg viewBox="0 0 24 24" style="stroke:white;"><path d="M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h6"/><path d="M15 3h6v6"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
@@ -995,23 +988,7 @@ function updateAmount(n){
 
 function toggleMenu(){}
 
-document.addEventListener('DOMContentLoaded', function() {
-  if(document.getElementById('peopleGrid')) { buildPeopleGrid(); updateAmount(1); }
-});
-
-function showSchedule(month) {
-  document.getElementById('schedule-april').style.display = month==='april' ? 'block' : 'none';
-  document.getElementById('schedule-may').style.display = month==='may' ? 'block' : 'none';
-  const tA = document.getElementById('tab-april');
-  const tM = document.getElementById('tab-may');
-  if (month==='april') {
-    tA.style.background='var(--teal-main)'; tA.style.color='#fff'; tA.style.borderColor='var(--teal-main)';
-    tM.style.background='transparent'; tM.style.color='rgba(255,255,255,0.6)'; tM.style.borderColor='rgba(107,79,160,0.5)';
-  } else {
-    tM.style.background='#6b4fa0'; tM.style.color='#fff'; tM.style.borderColor='#6b4fa0';
-    tA.style.background='transparent'; tA.style.color='rgba(255,255,255,0.6)'; tA.style.borderColor='rgba(30,96,96,0.5)';
-  }
-}
+if(document.getElementById('peopleGrid')){buildPeopleGrid();updateAmount(1);}
 </script>
 </body>
 </html>

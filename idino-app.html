@@ -658,19 +658,42 @@ body {
             <span>괴테처럼, 헤밍웨이처럼</span>
             <span>제주 자연 속에서 쉬고, 걷고</span>
             <span>AI로 다음 챕터를 설계하다</span>
-            <span>4월 16~18일 · 2박 3일</span>
+            <span>4월 · 5월 · 시그니처 런케이션</span>
           </div>
         </div>
       </div>
 
-      <!-- 가격 배너 -->
-      <div class="price-banner">
-        <div>
-          <p class="price-label">2~3인 기준 최저가 · 항공 불포함</p>
-          <p class="price-num">25만원~</p>
-          <p class="price-sub">2박 3일 · 숙박+AI워크숍+오름+조식2+석식2 포함</p>
+      <!-- 프로그램 카드 2종 -->
+      <div style="padding:0 24px; display:flex; flex-direction:column; gap:12px; margin-top:24px;">
+
+        <!-- 4월 카드 -->
+        <div style="background:linear-gradient(135deg,rgba(30,96,96,0.25),rgba(30,96,96,0.1)); border:0.5px solid rgba(30,96,96,0.4); border-radius:16px; padding:18px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+          <div style="flex:1; min-width:0;">
+            <div style="display:flex; align-items:center; gap:7px; margin-bottom:6px;">
+              <span style="font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; background:rgba(30,96,96,0.3); color:var(--teal-pale);">4월 16~18일</span>
+              <span style="font-size:10px; color:rgba(255,255,255,0.4);">2박 3일</span>
+            </div>
+            <p style="font-family:'Noto Serif KR',serif; font-size:15px; font-weight:700; color:var(--white); line-height:1.4; margin-bottom:4px;">작별이 아닌<br>새로운 시작</p>
+            <p style="font-size:11px; color:rgba(255,255,255,0.5); line-height:1.6;">한강 낭독 × 오름 × AI 인생설계</p>
+            <p style="font-size:13px; font-weight:700; color:var(--gold); margin-top:6px;">25만원~ <span style="font-size:10px; font-weight:400; color:rgba(255,255,255,0.4);">/인</span></p>
+          </div>
+          <button onclick="window.location.href='idino-april-program.html'" style="flex-shrink:0; background:var(--teal-main); border:none; color:#fff; font-size:12px; font-weight:700; padding:10px 16px; border-radius:10px; cursor:pointer; font-family:'Noto Sans KR',sans-serif; white-space:nowrap;">자세히 →</button>
         </div>
-        <button class="price-btn" onclick="window.location.href='idino-april-program.html'">상세보기</button>
+
+        <!-- 5월 카드 -->
+        <div style="background:linear-gradient(135deg,rgba(107,79,160,0.25),rgba(107,79,160,0.1)); border:0.5px solid rgba(107,79,160,0.4); border-radius:16px; padding:18px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+          <div style="flex:1; min-width:0;">
+            <div style="display:flex; align-items:center; gap:7px; margin-bottom:6px;">
+              <span style="font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; background:rgba(107,79,160,0.3); color:#c4a8f0;">5월 14~16일</span>
+              <span style="font-size:10px; color:rgba(255,255,255,0.4);">2박 3일</span>
+            </div>
+            <p style="font-family:'Noto Serif KR',serif; font-size:15px; font-weight:700; color:var(--white); line-height:1.4; margin-bottom:4px;">제주 바닷가<br>낭만 버스킹 여행</p>
+            <p style="font-size:11px; color:rgba(255,255,255,0.5); line-height:1.6;">루프탑 낙조 콘서트 × 오름 × AI 인생설계</p>
+            <p style="font-size:13px; font-weight:700; color:#c4a8f0; margin-top:6px;">37만원~ <span style="font-size:10px; font-weight:400; color:rgba(255,255,255,0.4);">/인</span></p>
+          </div>
+          <button onclick="window.location.href='idino-may-program.html'" style="flex-shrink:0; background:#6b4fa0; border:none; color:#fff; font-size:12px; font-weight:700; padding:10px 16px; border-radius:10px; cursor:pointer; font-family:'Noto Sans KR',sans-serif; white-space:nowrap;">자세히 →</button>
+        </div>
+
       </div>
 
       <!-- 하이라이트 -->
@@ -789,6 +812,13 @@ body {
 
     <!-- ② 일정 -->
     <div class="screen" id="screen-schedule">
+      <!-- 프로그램 선택 탭 -->
+      <div style="display:flex; gap:8px; padding:20px 24px 0;">
+        <button onclick="showSchedule('april')" id="tab-april" style="flex:1; padding:10px; border-radius:10px; border:1.5px solid var(--teal-main); background:var(--teal-main); color:#fff; font-size:13px; font-weight:700; cursor:pointer; font-family:'Noto Sans KR',sans-serif;">🌺 4월 일정</button>
+        <button onclick="showSchedule('may')" id="tab-may" style="flex:1; padding:10px; border-radius:10px; border:1.5px solid rgba(107,79,160,0.5); background:transparent; color:rgba(255,255,255,0.6); font-size:13px; font-weight:700; cursor:pointer; font-family:'Noto Sans KR',sans-serif;">🎵 5월 일정</button>
+      </div>
+
+      <div id="schedule-april">
       <div class="schedule-hero">
         <div class="schedule-hero-bg"></div>
         <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.3;" viewBox="0 0 390 240" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -893,6 +923,56 @@ body {
           </div>
         </div>
       </div>
+      </div><!-- schedule-april end -->
+
+      <!-- 5월 일정 -->
+      <div id="schedule-may" style="display:none;">
+      <div class="schedule-hero" style="background:linear-gradient(160deg,#1a1228,#2d2040);">
+        <p class="hero-eyebrow">5월 14일(목) ~ 16일(토)</p>
+        <h2 class="hero-title">제주 바닷가<br>낭만 버스킹 여행</h2>
+      </div>
+      <div class="schedule-list">
+        <div class="schedule-item active">
+          <div class="si-day">DAY 1</div>
+          <div class="si-content">
+            <p class="si-title">5월 14일 (목) — 도착 & 버스킹 나이트</p>
+            <div class="si-timeline">
+              <div class="si-event"><span class="si-time">14:00</span><span class="si-desc">체크인 & 오리엔테이션 · 버스킹 신청 접수</span></div>
+              <div class="si-event"><span class="si-time">17:00</span><span class="si-desc">버스킹 신청자 사운드체크 & 리허설</span></div>
+              <div class="si-event"><span class="si-time">18:30</span><span class="si-desc">박수기정 낙조 산책 (선택)</span></div>
+              <div class="si-event" style="background:rgba(107,79,160,0.12); border-radius:8px; padding:6px 8px;"><span class="si-time" style="color:#c4a8f0;">19:30</span><span class="si-desc" style="color:#c4a8f0; font-weight:700;">🎵 루프탑 낙조 버스킹 콘서트 1회 ⭐</span></div>
+              <div class="si-event"><span class="si-time">21:00</span><span class="si-desc">석식 & 자유 시간</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="si-day">DAY 2</div>
+          <div class="si-content">
+            <p class="si-title">5월 15일 (금) — 걷고, 설계하고, 다시 무대로</p>
+            <div class="si-timeline">
+              <div class="si-event"><span class="si-time">08:30</span><span class="si-desc">조식</span></div>
+              <div class="si-event"><span class="si-time">09:30</span><span class="si-desc">군산오름 or 곶자왈 가이드 트래킹</span></div>
+              <div class="si-event"><span class="si-time">15:30</span><span class="si-desc">AI 워크숍 1회차 — 강점 분석 · 인생 2막 키워드</span></div>
+              <div class="si-event" style="background:rgba(107,79,160,0.12); border-radius:8px; padding:6px 8px;"><span class="si-time" style="color:#c4a8f0;">19:00</span><span class="si-desc" style="color:#c4a8f0; font-weight:700;">🎵 루프탑 낙조 버스킹 콘서트 2회 ⭐</span></div>
+              <div class="si-event"><span class="si-time">21:00</span><span class="si-desc">석식</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="si-day">DAY 3</div>
+          <div class="si-content">
+            <p class="si-title">5월 16일 (토) — 결과물을 들고 돌아가다</p>
+            <div class="si-timeline">
+              <div class="si-event"><span class="si-time">09:30</span><span class="si-desc">AI 워크숍 2회차 — 포트폴리오 · 3개월 실행계획</span></div>
+              <div class="si-event"><span class="si-time">11:00</span><span class="si-desc">루프탑 편지 쓰기 — '1년 후의 나에게'</span></div>
+              <div class="si-event"><span class="si-time">12:30</span><span class="si-desc">마무리 브런치 & 수료식</span></div>
+              <div class="si-event"><span class="si-time">14:00</span><span class="si-desc">체크아웃 · 합승 귀환</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div><!-- schedule-may end -->
+
     </div>
 
         <!-- ④ 프로필 -->
@@ -1039,6 +1119,20 @@ function toggleMenu(){}
 
 buildPeopleGrid();
 updateAmount(1);
+
+function showSchedule(month) {
+  document.getElementById('schedule-april').style.display = month==='april' ? 'block' : 'none';
+  document.getElementById('schedule-may').style.display = month==='may' ? 'block' : 'none';
+  const tA = document.getElementById('tab-april');
+  const tM = document.getElementById('tab-may');
+  if (month==='april') {
+    tA.style.background='var(--teal-main)'; tA.style.color='#fff'; tA.style.borderColor='var(--teal-main)';
+    tM.style.background='transparent'; tM.style.color='rgba(255,255,255,0.6)'; tM.style.borderColor='rgba(107,79,160,0.5)';
+  } else {
+    tM.style.background='#6b4fa0'; tM.style.color='#fff'; tM.style.borderColor='#6b4fa0';
+    tA.style.background='transparent'; tA.style.color='rgba(255,255,255,0.6)'; tA.style.borderColor='rgba(30,96,96,0.5)';
+  }
+}
 </script>
 </body>
 </html>

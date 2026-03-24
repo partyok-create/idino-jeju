@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="제주 바닷가 낭만 버스킹 여행 — 루프탑 낙조 콘서트 × AI 인생설계 2박 3일">
+<meta property="og:description" content="5월 제주 루프탑에서 낙조를 바라보며 버스킹 콘서트. 누구나 무대에 설 수 있는 낭만 런케이션. 5월 14~16일 · 37만원~">
+<meta property="og:image" content="https://partyok-create.github.io/idino-jeju/og-thumbnail.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://partyok-create.github.io/idino-jeju/og-thumbnail.png">
+<title>제주 바닷가 낭만 버스킹 여행 — IDINO 제주 5월 시그니처 프로그램</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Maru+Buri:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1714; --stone: #4a4540; --dust: #8c857d;
+    --cream: #f5f0ea; --sand: #e8e0d4;
+    --sea: #2d6a7f; --sea-dark: #235e72; --sea-light: #e8f2f6;
+    --green: #3d6b52; --green-light: #e8f0eb;
+    --amber: #c17f3a; --amber-light: #faf0e3;
+    --coral: #c45a3a; --white: #fdfcfb;
+    --gold: #f5c87a; --purple: #6b4fa0; --purple-light: #f0ebfa;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Maru Buri','Noto Sans KR',sans-serif; background: var(--white); color: var(--ink); font-size: 15px; line-height: 1.7; }
+  .page-wrap { max-width: 820px; margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.08); background: var(--white); min-height: 100vh; }
+
+  /* NAV */
+  .top-nav { background: rgba(26,23,20,0.95); backdrop-filter: blur(8px); padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-family: 'Maru Buri',serif; font-size: 14px; color: rgba(255,255,255,0.85); letter-spacing: 0.05em; text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-cta { background: var(--purple); color: #fff; font-size: 13px; font-weight: 700; padding: 8px 20px; border-radius: 3px; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: #5a3d8a; }
+
+  /* HERO */
+  .hero { position: relative; background: linear-gradient(160deg, #1a1228 0%, #2d2040 45%, #1e3040 100%); padding: 60px 40px 48px; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(ellipse at 85% 20%, rgba(107,79,160,0.45) 0%, transparent 55%), radial-gradient(ellipse at 15% 80%, rgba(45,106,127,0.35) 0%, transparent 50%), radial-gradient(ellipse at 50% 50%, rgba(193,127,58,0.1) 0%, transparent 70%); }
+  .hero-inner { position: relative; z-index: 1; max-width: 600px; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 22px; }
+  .hero-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; padding: 4px 11px; border-radius: 2px; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); border: 0.5px solid rgba(255,255,255,0.18); }
+  .hero-tag.gold { background: rgba(245,200,122,0.2); color: var(--gold); border-color: rgba(245,200,122,0.35); }
+  .hero-tag.purple { background: rgba(107,79,160,0.25); color: #c4a8f0; border-color: rgba(107,79,160,0.4); }
+  .hero-eyebrow { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+  .hero-title { font-family: 'Maru Buri',serif; font-size: 28px; font-weight: 700; color: #fff; line-height: 1.4; margin-bottom: 12px; }
+  .hero-title em { font-style: normal; color: var(--gold); display: block; font-size: 22px; margin-top: 6px; }
+  .hero-subtitle { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.85; margin-bottom: 28px; font-weight: 300; }
+  .hero-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+  .hero-stat { }
+  .hero-stat-val { display: block; font-size: 22px; font-weight: 700; color: #fff; font-family: 'Maru Buri',serif; }
+  .hero-stat-lbl { display: block; font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+
+  /* 기타 SVG 장식 */
+  .hero-deco { position: absolute; right: 30px; bottom: 20px; width: 180px; opacity: 0.15; z-index: 0; }
+
+  /* PRICE BAR */
+  .price-bar { background: #1a1714; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; position: sticky; top: 52px; z-index: 99; }
+  .price-left { }
+  .price-from { font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 2px; }
+  .price-num { font-size: 26px; font-weight: 700; color: #fff; font-family: 'Maru Buri',serif; line-height: 1; }
+  .price-num span { font-size: 14px; font-weight: 400; }
+  .price-note { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 3px; }
+  .price-cta { background: var(--purple); color: #fff; font-size: 13px; font-weight: 700; padding: 11px 22px; border-radius: 3px; text-decoration: none; transition: background 0.2s; white-space: nowrap; }
+  .price-cta:hover { background: #5a3d8a; }
+  .price-cta.sub { background: var(--sea); }
+  .price-cta.sub:hover { background: var(--sea-dark); }
+
+  /* CONTENT */
+  .content { padding: 40px 40px; }
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 11px; font-weight: 700; color: var(--dust); letter-spacing: 0.18em; text-transform: uppercase; padding-bottom: 12px; border-bottom: 1.5px solid var(--sand); margin-bottom: 22px; display: flex; align-items: center; gap: 8px; }
+  .section-title::before { content: ''; width: 3px; height: 13px; background: var(--purple); border-radius: 2px; display: inline-block; }
+
+  /* INTRO */
+  .intro-block { background: var(--cream); border-radius: 10px; padding: 24px 28px; border-left: 4px solid var(--purple); }
+  .intro-text { font-size: 14px; color: var(--stone); line-height: 2.0; }
+
+  /* BUSKING HIGHLIGHT */
+  .busking-hero { background: linear-gradient(135deg, #1a1228 0%, #2d2040 100%); border-radius: 14px; padding: 28px 30px; margin-bottom: 20px; position: relative; overflow: hidden; }
+  .busking-hero::before { content: ''; position: absolute; top: -30px; right: -30px; width: 160px; height: 160px; background: rgba(107,79,160,0.2); border-radius: 50%; }
+  .busking-hero-title { font-family: 'Maru Buri',serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 8px; position: relative; z-index: 1; }
+  .busking-hero-sub { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 16px; position: relative; z-index: 1; }
+  .instrument-tags { display: flex; flex-wrap: wrap; gap: 7px; position: relative; z-index: 1; }
+  .itag { font-size: 12px; padding: 5px 12px; border-radius: 20px; background: rgba(107,79,160,0.3); color: #c4a8f0; border: 0.5px solid rgba(107,79,160,0.5); }
+
+  /* HIGHLIGHTS */
+  .hl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .hl-box { border-radius: 12px; padding: 20px; border: 1px solid var(--sand); }
+  .hl-box.purple { background: var(--purple-light); border-color: rgba(107,79,160,0.2); }
+  .hl-box.sea { background: var(--sea-light); border-color: rgba(45,106,127,0.2); }
+  .hl-box.green { background: var(--green-light); border-color: rgba(61,107,82,0.2); }
+  .hl-box.amber { background: var(--amber-light); border-color: rgba(193,127,58,0.2); }
+  .hl-icon { font-size: 28px; margin-bottom: 10px; }
+  .hl-title { font-family: 'Maru Buri',serif; font-size: 15px; font-weight: 700; margin-bottom: 7px; color: var(--ink); }
+  .hl-desc { font-size: 12px; color: var(--stone); line-height: 1.8; }
+
+  /* SCHEDULE */
+  .day-block { margin-bottom: 28px; border-radius: 12px; overflow: hidden; border: 1px solid var(--sand); }
+  .day-header { padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .day-header.d1 { background: linear-gradient(90deg, #1a1228, #2d2040); }
+  .day-header.d2 { background: linear-gradient(90deg, #2d2040, #1e3040); }
+  .day-header.d3 { background: linear-gradient(90deg, #1e3040, #2d4a3e); }
+  .day-num { font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; }
+  .day-title-txt { font-family: 'Maru Buri',serif; font-size: 16px; font-weight: 700; color: #fff; }
+  .day-theme-txt { font-size: 11px; color: rgba(255,255,255,0.55); }
+  .day-items { background: var(--white); }
+  .day-item { display: flex; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--cream); align-items: flex-start; }
+  .day-item:last-child { border-bottom: none; }
+  .di-time { font-size: 12px; font-weight: 700; color: var(--dust); min-width: 44px; flex-shrink: 0; padding-top: 2px; }
+  .di-icon { font-size: 18px; flex-shrink: 0; width: 28px; text-align: center; }
+  .di-body { }
+  .di-title { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+  .di-desc { font-size: 12px; color: var(--stone); line-height: 1.7; }
+  .di-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-left: 6px; background: rgba(107,79,160,0.15); color: var(--purple); }
+  .di-badge.free { background: rgba(61,107,82,0.15); color: var(--green); }
+
+  /* PRICE CARDS */
+  .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pc { border-radius: 12px; padding: 20px; border: 1.5px solid var(--sand); background: var(--white); }
+  .pc.best { border-color: var(--purple); background: var(--purple-light); }
+  .pc-badge { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 10px; display: inline-block; margin-bottom: 8px; }
+  .pb-gray { background: var(--sand); color: var(--stone); }
+  .pb-teal { background: var(--sea); color: #fff; }
+  .pb-green { background: var(--green); color: #fff; }
+  .pb-purple { background: var(--purple); color: #fff; }
+  .pc-room { font-size: 11px; color: var(--dust); margin-bottom: 6px; }
+  .pc-price { font-size: 26px; font-weight: 700; color: var(--ink); font-family: 'Maru Buri',serif; line-height: 1.1; }
+  .pc-price span { font-size: 13px; font-weight: 400; color: var(--stone); }
+  .pc-divider { border: none; border-top: 0.5px solid var(--sand); margin: 10px 0; }
+  .pc-row { display: flex; justify-content: space-between; font-size: 11px; color: var(--stone); padding: 2px 0; }
+  .pc-row.new { color: var(--purple); }
+  .pc-row.total { font-size: 12px; font-weight: 700; color: var(--ink); }
+
+  /* INCLUDED */
+  .inc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .inc-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--stone); }
+  .dot-yes { color: var(--green); font-size: 10px; flex-shrink: 0; padding-top: 4px; }
+  .dot-no { color: var(--coral); font-size: 10px; flex-shrink: 0; padding-top: 4px; }
+
+  /* VENUE */
+  .venue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .venue-item { background: var(--cream); border-radius: 10px; padding: 16px; }
+  .venue-icon { font-size: 22px; margin-bottom: 8px; }
+  .venue-title { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .venue-desc { font-size: 12px; color: var(--stone); line-height: 1.7; }
+
+  /* NOTICE */
+  .notice-box { background: var(--amber-light); border-radius: 10px; padding: 18px 20px; border-left: 4px solid var(--amber); }
+  .notice-box p { font-size: 12px; color: var(--stone); line-height: 2; }
+  .notice-box strong { color: var(--amber); }
+
+  /* CANCEL */
+  .cancel-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .cancel-item { background: var(--cream); border-radius: 8px; padding: 12px; text-align: center; }
+  .cancel-when { font-size: 11px; font-weight: 700; color: var(--dust); margin-bottom: 4px; }
+  .cancel-what { font-size: 13px; font-weight: 700; color: var(--ink); }
+
+  /* FOOTER CTA */
+  .footer-cta { background: linear-gradient(135deg, #1a1228 0%, #2d2040 100%); padding: 48px 40px; text-align: center; }
+  .footer-cta-title { font-family: 'Maru Buri',serif; font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.5; }
+  .footer-cta-sub { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 28px; }
+  .footer-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .footer-btn { padding: 14px 28px; border-radius: 4px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+  .footer-btn.primary { background: var(--purple); color: #fff; }
+  .footer-btn.primary:hover { background: #5a3d8a; }
+  .footer-btn.secondary { background: var(--sea); color: #fff; }
+  .footer-btn.secondary:hover { background: var(--sea-dark); }
+
+  /* FOOTER */
+  .site-footer { background: #1a1714; padding: 28px 40px; text-align: center; }
+  .fc-contact-item { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 4px; }
+  .fc-contact-item a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+  .divider { border: none; border-top: 1px solid var(--sand); }
+
+  @media (max-width: 600px) {
+    .hero { padding: 44px 24px 36px; }
+    .hero-title { font-size: 22px; }
+    .price-bar { padding: 14px 24px; }
+    .content { padding: 28px 24px; }
+    .hl-grid, .price-grid, .inc-grid, .venue-grid, .cancel-grid { grid-template-columns: 1fr; }
+    .cancel-grid { grid-template-columns: 1fr 1fr; }
+    .footer-cta { padding: 36px 24px; }
+    .top-nav { padding: 12px 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <nav class="top-nav">
+    <a href="http://idinojeju.com" class="nav-logo">IDINO <span>·</span> 제주</a>
+    <a href="idino-reservation.html" class="nav-cta">예약 신청</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="hero-deco" viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- 기타 실루엣 -->
+      <ellipse cx="100" cy="200" rx="50" ry="55" fill="rgba(255,255,255,0.6)"/>
+      <ellipse cx="100" cy="200" rx="22" ry="24" fill="rgba(30,20,40,0.5)"/>
+      <rect x="97" y="80" width="6" height="120" rx="3" fill="rgba(255,255,255,0.6)"/>
+      <rect x="72" y="85" width="56" height="8" rx="4" fill="rgba(255,255,255,0.5)"/>
+      <rect x="82" y="78" width="36" height="12" rx="3" fill="rgba(255,255,255,0.4)"/>
+      <!-- 음표들 -->
+      <circle cx="155" cy="60" r="8" fill="rgba(255,255,255,0.3)"/>
+      <rect x="163" y="30" width="3" height="32" rx="1" fill="rgba(255,255,255,0.3)"/>
+      <circle cx="140" cy="40" r="6" fill="rgba(255,255,255,0.2)"/>
+      <rect x="146" y="16" width="2.5" height="26" rx="1" fill="rgba(255,255,255,0.2)"/>
+      <circle cx="168" cy="80" r="5" fill="rgba(200,160,255,0.3)"/>
+      <rect x="173" y="60" width="2" height="22" rx="1" fill="rgba(200,160,255,0.3)"/>
+    </svg>
+
+    <div class="hero-inner">
+      <div class="hero-tags">
+        <span class="hero-tag">제주 · 안덕면</span>
+        <span class="hero-tag">2박 3일</span>
+        <span class="hero-tag gold">5월 14일 ~ 16일</span>
+        <span class="hero-tag">소규모 8인 한정</span>
+        <span class="hero-tag purple">🎵 버스킹 콘서트 2회</span>
+      </div>
+      <p class="hero-eyebrow">IDINO Jeju · 2026 런케이션 시그니처 프로그램 — 5월</p>
+      <h1 class="hero-title">
+        제주 바닷가 낭만 버스킹 여행<br>
+        <em>루프탑 낙조 콘서트 × AI 인생설계</em>
+      </h1>
+      <p class="hero-subtitle">
+        낮에는 제주 오름을 걷고<br>
+        저녁이 되면 루프탑에서 낙조를 바라보며 각자의 이야기를 음악으로 나눕니다<br>
+        관객이 곧 무대가 되는 — 낭만 버스킹 런케이션
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-val">8명</span>
+          <span class="hero-stat-lbl">소규모 정원</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-val">2박 3일</span>
+          <span class="hero-stat-lbl">5/14(목) ~ 5/16(토)</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-val">37만원~</span>
+          <span class="hero-stat-lbl">2~3인 기준 (항공 불포함)</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-val">2회</span>
+          <span class="hero-stat-lbl">루프탑 낙조 콘서트</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE BAR -->
+  <div class="price-bar">
+    <div class="price-left">
+      <p class="price-from">2~3인 기준 최저가</p>
+      <p class="price-num">370,000<span>원~</span></p>
+      <p class="price-note">숙박 · 버스킹 · AI워크숍 · 오름 · 조식2 · 석식2 · 교통 포함 · <strong style="color:var(--coral);">항공 불포함</strong></p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="idino-reservation.html" class="price-cta">지금 예약하기 →</a>
+      <a href="idino-chatbot.html" class="price-cta sub">🤖 AI 상담</a>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- 소개 -->
+    <div class="section">
+      <p class="section-title">프로그램 소개</p>
+      <div class="intro-block">
+        <p class="intro-text">
+          <strong>관객이 곧 무대가 됩니다.</strong><br><br>
+          바닷가 루프탑에서 한라산 낙조를 바라보며, 참가자 누구나 자신의 이야기를 음악으로 나눕니다. 기타를 치든, 노래를 부르든, 색소폰을 불든, 젬베를 두드리든 — 무엇이든 환영입니다. 공연이 서툴러도 괜찮아요. 여기서는 완성도가 아니라 용기가 박수를 받습니다.<br><br>
+          낮에는 180만 년 화산이 만든 오름을 걷고, 저녁이 되면 루프탑에 모여 AI로 인생 2막을 설계하고, 밤에는 제주 바다를 배경으로 버스킹 콘서트가 열립니다.<br><br>
+          <strong>쉬고, 걷고, 연주하고, 설계하는 — 제주 낭만 런케이션 2박 3일.</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- 왜 제주인가 -->
+    <div class="section">
+      <p class="section-title">왜 제주인가</p>
+      <div style="background:#1a2f3a; border-radius:12px; padding:22px 24px; margin-bottom:16px;">
+        <p style="font-size:14px; color:rgba(255,255,255,0.9); line-height:2; font-style:italic; text-align:center;">
+          "제주는 쉬기 좋은 곳이 아니라,<br>
+          <strong style="color:#f5c87a;">자기 자신을 만나기 좋은 곳입니다.</strong>"
+        </p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px;">
+        <div style="background:var(--purple-light); border-radius:10px; padding:16px; border:1px solid rgba(107,79,160,0.2);">
+          <p style="font-size:12px; font-weight:700; color:var(--purple); margin-bottom:8px;">🌅 루프탑 360° 낙조</p>
+          <p style="font-size:12px; color:var(--stone); line-height:1.8;">한라산·군산오름·박수기정·제주 바다가 한눈에. 노을이 질 때 이 루프탑에서 기타 소리가 울리면 — 그 순간은 평생 기억됩니다.</p>
+        </div>
+        <div style="background:var(--sea-light); border-radius:10px; padding:16px; border:1px solid rgba(45,106,127,0.2);">
+          <p style="font-size:12px; font-weight:700; color:var(--sea); margin-bottom:8px;">🌋 180만 년 화산의 땅</p>
+          <p style="font-size:12px; color:var(--stone); line-height:1.8;">368개 오름, 세계 유일의 곶자왈. 발아래 현무암 위에서 걷다 보면 내 고민이 얼마나 작은지 자연스럽게 느끼게 됩니다.</p>
+        </div>
+        <div style="background:var(--green-light); border-radius:10px; padding:16px; border:1px solid rgba(61,107,82,0.2);">
+          <p style="font-size:12px; font-weight:700; color:var(--green); margin-bottom:8px;">🌿 5월 제주의 초록</p>
+          <p style="font-size:12px; color:var(--stone); line-height:1.8;">유채꽃이 지고 청보리가 물결치는 5월. 제주에서 가장 싱그러운 계절입니다. 바람이 따뜻하고 바다가 빛납니다.</p>
+        </div>
+        <div style="background:var(--amber-light); border-radius:10px; padding:16px; border:1px solid rgba(193,127,58,0.2);">
+          <p style="font-size:12px; font-weight:700; color:var(--amber); margin-bottom:8px;">🎵 음악이 있는 공간</p>
+          <p style="font-size:12px; color:var(--stone); line-height:1.8;">곶자왈의 고요와 루프탑의 음악. 자연 속의 침묵이 있고, 사람들 사이의 소리가 있습니다. 그 둘 사이에서 자신을 발견합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 버스킹 콘서트 -->
+    <div class="section">
+      <p class="section-title">루프탑 낙조 버스킹 콘서트</p>
+      <div class="busking-hero">
+        <p class="busking-hero-title">🎵 관객이 곧 무대가 되는 콘서트</p>
+        <p class="busking-hero-sub">
+          2회 진행 — 5월 14일(목) 저녁 · 5월 15일(금) 저녁<br>
+          참가자 누구나 신청 가능 · 악기 없어도 목소리만으로 OK<br>
+          스토리텔링 + 음악 형식 — 자신의 이야기를 노래와 함께 나눕니다
+        </p>
+        <div class="instrument-tags">
+          <span class="itag">🎸 기타</span>
+          <span class="itag">🎷 색소폰</span>
+          <span class="itag">🥁 젬베</span>
+          <span class="itag">🥁 카혼</span>
+          <span class="itag">🎶 하모니카</span>
+          <span class="itag">🎤 보컬</span>
+          <span class="itag">✨ 그 외 무엇이든</span>
+        </div>
+      </div>
+      <div style="background:var(--cream); border-radius:10px; padding:16px 18px; font-size:13px; color:var(--stone); line-height:1.9; border-left:4px solid var(--purple);">
+        <strong style="color:var(--purple);">공연 신청 방법</strong><br>
+        · 예약 확정 후 단톡방에서 신청 접수 (악기 종류, 곡명, 소요 시간)<br>
+        · 당일 현장 신청도 가능 · 악기는 개인 지참<br>
+        · 버스킹 신청자는 사운드체크를 위해 17시까지 집결 요청<br>
+        · <strong>공연하지 않고 관람만 해도 충분합니다 😊</strong>
+      </div>
+    </div>
+
+    <!-- 이 프로그램만의 특별함 -->
+    <div class="section">
+      <p class="section-title">이 프로그램만의 특별함</p>
+      <div class="hl-grid">
+        <div class="hl-box purple">
+          <div class="hl-icon">🎵</div>
+          <p class="hl-title">루프탑 낙조 버스킹 2회</p>
+          <p class="hl-desc">참가자 누구나 무대에 설 수 있는 콘서트. 한라산 낙조를 배경으로 음악과 이야기가 흐르는 밤.</p>
+        </div>
+        <div class="hl-box sea">
+          <div class="hl-icon">🌿</div>
+          <p class="hl-title">오름 · 곶자왈 트래킹</p>
+          <p class="hl-desc">군산오름 360° 파노라마. 자체 가이드 동행. 몸을 움직이면 머리가 비워집니다.</p>
+        </div>
+        <div class="hl-box green">
+          <div class="hl-icon">🤖</div>
+          <p class="hl-title">AI 인생 2막 설계 워크숍</p>
+          <p class="hl-desc">ChatGPT·Claude로 강점 분석 → 포트폴리오·SNS 초안 → 3개월 실행계획. 스마트폰 하나면 충분.</p>
+        </div>
+        <div class="hl-box amber">
+          <div class="hl-icon">🚖</div>
+          <p class="hl-title">공항 합승 교통 포함</p>
+          <p class="hl-desc">예약 확정 후 같은 날 도착자끼리 카카오택시 합승 매칭. 공항부터 첫 만남이 시작됩니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2박 3일 일정 -->
+    <div class="section">
+      <p class="section-title">2박 3일 상세 일정</p>
+
+      <div class="day-block">
+        <div class="day-header d1">
+          <span class="day-num">DAY 1 · 5월 14일 (목)</span>
+          <span class="day-title-txt">도착, 그리고 첫 번째 무대</span>
+          <span class="day-theme-txt">🎵 버스킹 나이트 1</span>
+        </div>
+        <div class="day-items">
+          <div class="day-item">
+            <span class="di-time">14:00</span><span class="di-icon">🏠</span>
+            <div class="di-body"><p class="di-title">체크인 & 오리엔테이션</p><p class="di-desc">공간 안내 · 참가자 자기소개 · 버스킹 신청 접수</p></div>
+          </div>
+          <div class="day-item">
+            <span class="di-time">17:00</span><span class="di-icon">🎸</span>
+            <div class="di-body"><p class="di-title">버스킹 신청자 사운드체크 & 리허설 <span class="di-badge">신청자만</span></p><p class="di-desc">음향 장비 세팅 · 순서 확인 · 간단 리허설</p></div>
+          </div>
+          <div class="day-item">
+            <span class="di-time">18:30</span><span class="di-icon">🌅</span>
+            <div class="di-body"><p class="di-title">박수기정 낙조 산책 <span class="di-badge free">선택</span></p><p class="di-desc">도보 5분 · 제주 최고의 낙조 포인트</p></div>
+          </div>
+          <div class="day-item" style="background:rgba(107,79,160,0.04);">
+            <span class="di-time">19:30</span><span class="di-icon">🎵</span>
+            <div class="di-body"><p class="di-title" style="color:var(--purple);">루프탑 낙조 버스킹 콘서트 1회 ⭐</p><p class="di-desc">한라산 낙조를 배경으로 · 참가자 공연 · 음료·다과 제공</p></div>
+          </div>
+          <div class="day-item">
+            <span class="di-time">21:00</span><span class="di-icon">🍽</span>
+            <div class="di-body"><p class="di-title">석식 & 자유 시간</p><p class="di-desc">외부 식당 · 이후 자유 시간</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-header d2">
+          <span class="day-num">DAY 2 · 5월 15일 (금)</span>
+          <span class="day-title-txt">걷고, 설계하고, 다시 무대로</span>
+          <span class="day-theme-txt">🌿 트래킹 + 🤖 AI + 🎵 버스킹</span>
+        </div>
+        <div class="day-items">
+          <div class="day-item">
+            <span class="di-time">07:00</span><span class="di-icon">🌅</span>
+            <div class="di-body"><p class="di-title">루프탑 새벽 묵상 <span class="di-badge free">선택</span></p><p class="di-desc">한라산 일출 · 조용한 아침 시간</p></div>
+          </div>
+          <div class="day-item">
+            <span class="di-time">08:30</span><span class="di-icon">🍳</span>
+            <div class="di-body"><p class="di-title">조식</p></div>
+          </div>
+          <div class="day-item">
+            <span class="di-time">09:30</span><span class="di-icon">🌿</span>
+            <div class="di-body"><p class="di-title">군산오름 or 곶자왈 가이드 트래킹</p><p class="di-desc">자체 가이드 동행 · 왕복 약 2시간 · 날씨에 따라 코스 변경</p></div>
+          </div>
+          <div class="day-item">
+            <span class="di-time">14:00</span><span class="di-icon">☕</span>
+            <div class="di-body"><p class="di-title">자유 시간</p><p class="di-desc">휴식 · 독서 · 바다 산책</p></div>
+          </div>
+          <div class="day-item">
+            <span class="di-time">15:30</span><span class="di-icon">🤖</span>
+            <div class="di-body"><p class="di-title">AI 워크숍 1회차</p><p class="di-desc">ChatGPT·Claude로 강점 분석 · 인생 2막 키워드 3가지 도출</p></div>
+          </div>
+          <div class="day-item" style="background:rgba(107,79,160,0.04);">
+            <span class="di-time">19:00</span><span class="di-icon">🎵</span>
+            <div class="di-body"><p class="di-title" style="color:var(--purple);">루프탑 낙조 버스킹 콘서트 2회 ⭐</p><p class="di-desc">어제보다 더 깊어진 이야기들 · 음료·다과 제공</p></div>
+          </div>
+          <div class="day-item">
+            <span class="di-time">21:00</span><span class="di-icon">🍽</span>
+            <div class="di-body"><p class="di-title">석식</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-header d3">
+          <span class="day-num">DAY 3 · 5월 16일 (토)</span>
+          <span class="day-title-txt">결과물을 들고 돌아가다</span>
+          <span class="day-theme-txt">🤖 AI 2회차 + 수료</span>
+        </div>
+        <div class="day-items">
+          <div class="day-item">
+            <span class="di-time">08:30</span><span class="di-icon">🍳</span>
+            <div class="di-body"><p class="di-title">조식</p></div>
+          </div>
+          <div class="day-item">
+            <span class="di-time">09:30</span><span class="di-icon">🤖</span>
+            <div class="di-body"><p class="di-title">AI 워크숍 2회차</p><p class="di-desc">포트폴리오·SNS 초안 완성 · 3개월 실행계획 작성</p></div>
+          </div>
+          <div class="day-item">
+            <span class="di-time">11:00</span><span class="di-icon">✉️</span>
+            <div class="di-body"><p class="di-title">루프탑 편지 쓰기</p><p class="di-desc">한라산을 바라보며 '1년 후의 나에게' 편지</p></div>
+          </div>
+          <div class="day-item">
+            <span class="di-time">12:30</span><span class="di-icon">🏆</span>
+            <div class="di-body"><p class="di-title">마무리 브런치 & 수료식</p><p class="di-desc">수료증 증정 · 단체 기념 촬영</p></div>
+          </div>
+          <div class="day-item">
+            <span class="di-time">14:00</span><span class="di-icon">🚖</span>
+            <div class="di-body"><p class="di-title">체크아웃 · 합승 귀환</p><p class="di-desc">카카오택시 합승으로 공항 이동</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 가격 -->
+    <div class="section">
+      <p class="section-title">참가 유형별 가격</p>
+      <p style="font-size:13px; color:var(--dust); margin-bottom:20px;">숙박 + 버스킹 + AI워크숍 + 오름트래킹 + 조식2 + 석식2 + 다과 + 공항합승 포함 · 항공 불포함</p>
+      <div class="price-grid">
+
+        <div class="pc">
+          <span class="pc-badge pb-gray">1인 단독</span>
+          <p class="pc-room">크레오 · 2박</p>
+          <p class="pc-price">460,000<span>원</span></p>
+          <hr class="pc-divider">
+          <div class="pc-row"><span>숙박 (2박)</span><span>16만</span></div>
+          <div class="pc-row"><span>식사 4회</span><span>8만</span></div>
+          <div class="pc-row"><span>프로그램</span><span>10만</span></div>
+          <div class="pc-row new"><span>다과 + 음향</span><span>7만</span></div>
+          <div class="pc-row new"><span>시즌 + 교통</span><span>5만</span></div>
+          <div class="pc-row total"><span>1인 합계</span><span>46만원</span></div>
+        </div>
+
+        <div class="pc">
+          <span class="pc-badge pb-teal">2~3인 함께</span>
+          <p class="pc-room">크레오 공유 · 2박</p>
+          <p class="pc-price">370,000<span>원</span></p>
+          <hr class="pc-divider">
+          <div class="pc-row"><span>숙박 (÷인원)</span><span>5~8만</span></div>
+          <div class="pc-row"><span>식사 4회</span><span>8만</span></div>
+          <div class="pc-row"><span>프로그램</span><span>10만</span></div>
+          <div class="pc-row new"><span>다과 + 음향</span><span>7만</span></div>
+          <div class="pc-row new"><span>시즌 + 교통</span><span>5만</span></div>
+          <div class="pc-row total"><span>1인 합계</span><span>37만원</span></div>
+        </div>
+
+        <div class="pc">
+          <span class="pc-badge pb-green">4~5인 그룹</span>
+          <p class="pc-room">코피아 or 콤마</p>
+          <p class="pc-price">400,000<span>원</span></p>
+          <hr class="pc-divider">
+          <div class="pc-row"><span>숙박 (÷인원)</span><span>6~11만</span></div>
+          <div class="pc-row"><span>식사 4회</span><span>8만</span></div>
+          <div class="pc-row"><span>프로그램</span><span>10만</span></div>
+          <div class="pc-row new"><span>다과 + 음향</span><span>7만</span></div>
+          <div class="pc-row new"><span>시즌 + 교통</span><span>5만</span></div>
+          <div class="pc-row total"><span>1인 합계</span><span>40만원</span></div>
+        </div>
+
+        <div class="pc best">
+          <span class="pc-badge pb-purple">6~8인 단체 BEST</span>
+          <p class="pc-room">콤마 전실 독점</p>
+          <p class="pc-price">380,000<span>원</span></p>
+          <hr class="pc-divider">
+          <div class="pc-row"><span>숙박 (÷인원)</span><span>7~9만</span></div>
+          <div class="pc-row"><span>식사 4회</span><span>8만</span></div>
+          <div class="pc-row"><span>프로그램</span><span>10만</span></div>
+          <div class="pc-row new"><span>다과 + 음향</span><span>7만</span></div>
+          <div class="pc-row new"><span>시즌 + 교통</span><span>5만</span></div>
+          <div class="pc-row total"><span>1인 합계</span><span>38만원</span></div>
+        </div>
+
+      </div>
+      <p style="font-size:11px; color:var(--dust); margin-top:12px;">✈️ 항공권 불포함 · 공항에서 약 40~50분 소요 · 선착순 마감 · 최소 4인 운영</p>
+    </div>
+
+    <!-- 포함/불포함 -->
+    <div class="section">
+      <p class="section-title">포함 · 불포함</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+        <div>
+          <p style="font-size:12px; font-weight:700; color:var(--green); margin-bottom:12px;">포함 항목</p>
+          <div class="inc-grid" style="grid-template-columns:1fr;">
+            <div class="inc-item"><span class="dot-yes">●</span><span>숙박 2박 (오션뷰 · 개별테라스)</span></div>
+            <div class="inc-item"><span class="dot-yes">●</span><span>루프탑 낙조 버스킹 콘서트 2회</span></div>
+            <div class="inc-item"><span class="dot-yes">●</span><span>버스킹 음향 장비 (PA·마이크)</span></div>
+            <div class="inc-item"><span class="dot-yes">●</span><span>음료 · 다과 (콘서트 2회 제공)</span></div>
+            <div class="inc-item"><span class="dot-yes">●</span><span>AI 인생설계 워크숍 2회</span></div>
+            <div class="inc-item"><span class="dot-yes">●</span><span>오름·곶자왈 트래킹 (가이드)</span></div>
+            <div class="inc-item"><span class="dot-yes">●</span><span>조식 2회 · 석식 2회</span></div>
+            <div class="inc-item"><span class="dot-yes">●</span><span>공항 카카오택시 합승 매칭</span></div>
+            <div class="inc-item"><span class="dot-yes">●</span><span>수료증</span></div>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:12px; font-weight:700; color:var(--coral); margin-bottom:12px;">불포함 항목</p>
+          <div class="inc-grid" style="grid-template-columns:1fr;">
+            <div class="inc-item"><span class="dot-no">●</span><span>항공권 및 공항 이동 교통비</span></div>
+            <div class="inc-item"><span class="dot-no">●</span><span>점심</span></div>
+            <div class="inc-item"><span class="dot-no">●</span><span>개인 음료 · 쇼핑</span></div>
+            <div class="inc-item"><span class="dot-no">●</span><span>악기 (개인 지참)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 숙소 -->
+    <div class="section">
+      <p class="section-title">숙소 안내</p>
+      <div style="background:var(--cream); border-radius:12px; padding:20px 22px; margin-bottom:16px;">
+        <p style="font-size:14px; font-weight:700; color:var(--ink); margin-bottom:6px;">아이디노 제주 런케이션 센터</p>
+        <p style="font-size:12px; color:var(--stone);">제주 서귀포시 안덕면 난드르로 21번길 26 · 박수기정 도보 5분</p>
+      </div>
+      <div class="venue-grid">
+        <div class="venue-item">
+          <div class="venue-icon">🌅</div>
+          <p class="venue-title">루프탑 360° 파노라마</p>
+          <p class="venue-desc">한라산·군산오름·박수기정·제주 바다 동시 조망. 버스킹 콘서트 메인 무대.</p>
+        </div>
+        <div class="venue-item">
+          <div class="venue-icon">🌊</div>
+          <p class="venue-title">1층 바다뷰 라운지</p>
+          <p class="venue-desc">공유주방 · 바다가 보이는 라운지 · 자유로운 교류 공간.</p>
+        </div>
+        <div class="venue-item">
+          <div class="venue-icon">📶</div>
+          <p class="venue-title">고속 와이파이 + Biz존</p>
+          <p class="venue-desc">AI 워크숍 실습 · 업무 병행 가능.</p>
+        </div>
+        <div class="venue-item">
+          <div class="venue-icon">🏠</div>
+          <p class="venue-title">전 객실 오션뷰 + 테라스</p>
+          <p class="venue-desc">크레오(1~3인) · 코피아(4~5인) · 콤마(6~8인).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 취소 환불 -->
+    <div class="section">
+      <p class="section-title">취소 · 환불 규정</p>
+      <div class="cancel-grid">
+        <div class="cancel-item">
+          <p class="cancel-when">7일 전</p>
+          <p class="cancel-what">전액 환불</p>
+        </div>
+        <div class="cancel-item">
+          <p class="cancel-when">3~6일 전</p>
+          <p class="cancel-what">50% 환불</p>
+        </div>
+        <div class="cancel-item">
+          <p class="cancel-when">2일 이내</p>
+          <p class="cancel-what">환불 불가</p>
+        </div>
+        <div class="cancel-item">
+          <p class="cancel-when">운영 취소</p>
+          <p class="cancel-what">전액 환불</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 유의사항 -->
+    <div class="section">
+      <p class="section-title">유의사항</p>
+      <div class="notice-box">
+        <p>
+          <strong>최소 4인</strong> 이상 모집 시 운영됩니다. 미달 시 전액 환불됩니다.<br>
+          악기는 <strong>개인 지참</strong>이며, 악기 없이 보컬만으로도 참가 가능합니다.<br>
+          버스킹 공연은 자유 참가이며, 관람만 하셔도 됩니다.<br>
+          트래킹 코스는 날씨 · 수준에 따라 변경될 수 있습니다.<br>
+          공항 합승 교통은 예약 확정 후 <strong>단톡방에서 매칭</strong>해 드립니다.<br>
+          숙박 시설 내 숯불 · 직화구이는 불가합니다.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER CTA -->
+  <div class="footer-cta">
+    <p class="footer-cta-title">🎵 루프탑에서 당신의 이야기를<br>음악으로 나눠보세요</p>
+    <p class="footer-cta-sub">정원 최대 8인 · 선착순 마감 · 5월 14~16일</p>
+    <div class="footer-btns">
+      <a href="idino-reservation.html" class="footer-btn primary">지금 예약하기 →</a>
+      <a href="idino-chatbot.html" class="footer-btn secondary">🤖 AI 상담</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p class="fc-contact-item">IDINO AI Marketing Lab · 박영미 Center Head</p>
+    <p class="fc-contact-item"><a href="tel:010-3274-2745">010-3274-2745</a> · <a href="mailto:jsgnz@naver.com">jsgnz@naver.com</a></p>
+    <p class="fc-contact-item"><a href="http://idinojeju.com">idinojeju.com</a> · @idinoproject</p>
+    <p class="fc-contact-item" style="margin-top:8px;">제주 서귀포시 안덕면 난드르로 21번길 26</p>
+  </footer>
+
+</div>
+</body>
+</html>

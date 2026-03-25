@@ -19,14 +19,14 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
 .page { max-width:640px; margin:0 auto; }
 
 .header { background:linear-gradient(135deg,#0a2828 0%,#1a4040 100%); padding:36px 28px 28px; }
-.header-eyebrow { font-size:11px; color:rgba(255,255,255,0.45); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; }
-.header-title { font-family:'Noto Serif KR',serif; font-size:24px; font-weight:700; color:#fff; line-height:1.4; margin-bottom:4px; }
-.header-sub { font-size:13px; color:rgba(255,255,255,0.55); }
+.header-eyebrow { font-size:13px; color:rgba(255,255,255,0.45); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; }
+.header-title { font-family:'Noto Serif KR',serif; font-size:26px; font-weight:700; color:#fff; line-height:1.4; margin-bottom:4px; }
+.header-sub { font-size:15px; color:rgba(255,255,255,0.55); }
 
 .form-body { background:var(--white); padding:28px 24px; }
 .sec { margin-bottom:32px; }
 .sec-title {
-  font-size:11px; font-weight:700; color:var(--dust); letter-spacing:0.14em;
+  font-size:13px; font-weight:700; color:var(--dust); letter-spacing:0.14em;
   text-transform:uppercase; border-bottom:1px solid var(--sand); padding-bottom:10px;
   margin-bottom:16px; display:flex; align-items:center; gap:8px;
 }
@@ -40,47 +40,47 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
 }
 .pkg-card:hover { border-color:var(--teal); }
 .pkg-card.selected { border-color:var(--teal); border-width:2px; background:var(--teal-light); }
-.pkg-card.selected::after { content:'✓'; position:absolute; top:10px; right:12px; font-size:13px; font-weight:700; color:var(--teal); }
+.pkg-card.selected::after { content:'✓'; position:absolute; top:10px; right:12px; font-size:15px; font-weight:700; color:var(--teal); }
 .pkg-card input[type="radio"] { position:absolute; opacity:0; width:0; height:0; }
-.pkg-badge { font-size:11px; font-weight:700; padding:4px 11px; border-radius:12px; display:inline-block; margin-bottom:8px; }
-.pkg-title { font-family:'Noto Serif KR',serif; font-size:28px; font-weight:700; color:var(--ink); margin-bottom:6px; line-height:1.2; }
+.pkg-badge { font-size:13px; font-weight:700; padding:4px 11px; border-radius:12px; display:inline-block; margin-bottom:8px; }
+.pkg-title { font-family:'Noto Serif KR',serif; font-size:30px; font-weight:700; color:var(--ink); margin-bottom:6px; line-height:1.2; }
 .pkg-card.selected .pkg-title { color:var(--teal); }
 .b-gray { background:var(--sand); color:var(--stone); }
 .b-teal { background:var(--teal); color:#fff; }
 .b-green { background:var(--green); color:#fff; }
 .b-gold { background:var(--gold); color:#fff; }
-.pkg-room { font-size:12px; color:var(--dust); margin-bottom:4px; }
-.pkg-orig { font-size:11px; color:var(--dust); text-decoration:line-through; }
-.pkg-price { font-size:22px; font-weight:700; color:var(--ink); line-height:1.1; }
-.pkg-price span { font-size:13px; font-weight:400; color:var(--stone); }
-.pkg-saving { font-size:11px; font-weight:700; color:var(--coral); margin-top:3px; }
+.pkg-room { font-size:14px; color:var(--dust); margin-bottom:4px; }
+.pkg-orig { font-size:13px; color:var(--dust); text-decoration:line-through; }
+.pkg-price { font-size:24px; font-weight:700; color:var(--ink); line-height:1.1; }
+.pkg-price span { font-size:15px; font-weight:400; color:var(--stone); }
+.pkg-saving { font-size:13px; font-weight:700; color:var(--coral); margin-top:3px; }
 .pkg-divider { border:none; border-top:0.5px solid var(--sand); margin:10px 0; }
-.pkg-row { display:flex; justify-content:space-between; font-size:12px; color:var(--stone); padding:2px 0; }
-.pkg-row.total { font-size:14px; font-weight:700; color:var(--ink); }
+.pkg-row { display:flex; justify-content:space-between; font-size:14px; color:var(--stone); padding:2px 0; }
+.pkg-row.total { font-size:16px; font-weight:700; color:var(--ink); }
 
 /* PEOPLE */
 .people-wrap { display:flex; align-items:center; gap:14px; }
 .people-info { flex:1; background:var(--cream); border-radius:10px; padding:14px 16px; min-height:64px; }
-.people-info-title { font-size:12px; font-weight:700; color:var(--stone); margin-bottom:4px; }
-.people-info-desc { font-size:11px; color:var(--dust); line-height:1.6; }
+.people-info-title { font-size:14px; font-weight:700; color:var(--stone); margin-bottom:4px; }
+.people-info-desc { font-size:13px; color:var(--dust); line-height:1.6; }
 .people-counter { display:flex; align-items:center; border:1.5px solid var(--sand); border-radius:10px; overflow:hidden; flex-shrink:0; }
-.cnt-btn { width:40px; height:52px; background:var(--cream); border:none; cursor:pointer; font-size:20px; color:var(--stone); transition:background 0.15s; }
+.cnt-btn { width:40px; height:52px; background:var(--cream); border:none; cursor:pointer; font-size:22px; color:var(--stone); transition:background 0.15s; }
 .cnt-btn:hover { background:var(--sand); }
-.cnt-num { width:52px; height:52px; text-align:center; font-size:20px; font-weight:700; color:var(--ink); border:none; outline:none; background:var(--white); font-family:'Noto Sans KR',sans-serif; }
+.cnt-num { width:52px; height:52px; text-align:center; font-size:22px; font-weight:700; color:var(--ink); border:none; outline:none; background:var(--white); font-family:'Noto Sans KR',sans-serif; }
 
 /* PARTICIPANTS */
 .participant-list { display:flex; flex-direction:column; gap:12px; }
 .p-item { background:var(--cream); border-radius:10px; padding:16px; border:0.5px solid var(--sand); }
-.p-label { font-size:11px; font-weight:700; color:var(--teal-mid); margin-bottom:12px; letter-spacing:0.06em; }
-.p-label span { color:var(--dust); font-weight:400; font-size:10px; }
+.p-label { font-size:13px; font-weight:700; color:var(--teal-mid); margin-bottom:12px; letter-spacing:0.06em; }
+.p-label span { color:var(--dust); font-weight:400; font-size:12px; }
 .field-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px; }
 .field { }
 .field:last-child { margin-bottom:0; }
-.field label { font-size:11px; font-weight:700; color:var(--stone); display:block; margin-bottom:5px; }
+.field label { font-size:13px; font-weight:700; color:var(--stone); display:block; margin-bottom:5px; }
 .field label .req { color:var(--coral); }
 .field input, .field select, .field textarea {
   width:100%; border:1.5px solid var(--sand); border-radius:8px; padding:10px 12px;
-  font-size:13px; font-family:'Noto Sans KR',sans-serif; color:var(--ink);
+  font-size:15px; font-family:'Noto Sans KR',sans-serif; color:var(--ink);
   background:var(--white); outline:none; transition:border-color 0.2s;
 }
 .field input:focus, .field select:focus, .field textarea:focus { border-color:var(--teal); }
@@ -88,48 +88,48 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
 
 /* AMOUNT */
 .amount-box { background:#0a2828; border-radius:12px; padding:18px 20px; }
-.amount-row { display:flex; justify-content:space-between; font-size:13px; color:rgba(255,255,255,0.55); padding:4px 0; }
-.amount-total { display:flex; justify-content:space-between; font-size:18px; font-weight:700; color:#fff; padding-top:12px; margin-top:8px; border-top:0.5px solid rgba(255,255,255,0.15); }
+.amount-row { display:flex; justify-content:space-between; font-size:15px; color:rgba(255,255,255,0.55); padding:4px 0; }
+.amount-total { display:flex; justify-content:space-between; font-size:20px; font-weight:700; color:#fff; padding-top:12px; margin-top:8px; border-top:0.5px solid rgba(255,255,255,0.15); }
 .amount-total span:last-child { color:#f5c87a; }
-.amount-note { font-size:11px; color:rgba(255,255,255,0.35); margin-top:10px; line-height:1.7; }
+.amount-note { font-size:13px; color:rgba(255,255,255,0.35); margin-top:10px; line-height:1.7; }
 
 /* PAYMENT */
 .pay-grid { display:flex; flex-direction:column; gap:10px; }
 .pay-card { border:1.5px solid var(--sand); border-radius:12px; padding:16px 18px; cursor:pointer; transition:all 0.18s; position:relative; display:block; }
 .pay-card:hover { border-color:var(--teal); }
 .pay-card.selected { border-color:var(--teal); border-width:2px; background:var(--teal-light); }
-.pay-card.selected::after { content:'✓'; position:absolute; top:14px; right:16px; font-size:13px; font-weight:700; color:var(--teal); }
+.pay-card.selected::after { content:'✓'; position:absolute; top:14px; right:16px; font-size:15px; font-weight:700; color:var(--teal); }
 .pay-card input { position:absolute; opacity:0; width:0; height:0; }
 .pay-top { display:flex; align-items:center; gap:12px; margin-bottom:4px; }
-.pay-icon { font-size:22px; }
-.pay-name { font-size:14px; font-weight:700; color:var(--ink); }
-.pay-sub { font-size:12px; color:var(--dust); }
-.bank-box { margin-top:12px; background:var(--white); border-radius:10px; padding:14px 16px; border:1px solid var(--sand); font-size:13px; line-height:2; color:var(--stone); }
-.bank-account { font-size:16px; font-weight:700; color:var(--teal); letter-spacing:0.04em; display:block; margin-top:2px; }
-.copy-btn { display:inline-flex; align-items:center; gap:4px; margin-top:8px; font-size:11px; font-weight:700; padding:5px 12px; border-radius:20px; border:1px solid var(--teal); color:var(--teal); background:var(--white); cursor:pointer; transition:all 0.15s; font-family:'Noto Sans KR',sans-serif; }
+.pay-icon { font-size:24px; }
+.pay-name { font-size:16px; font-weight:700; color:var(--ink); }
+.pay-sub { font-size:14px; color:var(--dust); }
+.bank-box { margin-top:12px; background:var(--white); border-radius:10px; padding:14px 16px; border:1px solid var(--sand); font-size:15px; line-height:2; color:var(--stone); }
+.bank-account { font-size:18px; font-weight:700; color:var(--teal); letter-spacing:0.04em; display:block; margin-top:2px; }
+.copy-btn { display:inline-flex; align-items:center; gap:4px; margin-top:8px; font-size:13px; font-weight:700; padding:5px 12px; border-radius:20px; border:1px solid var(--teal); color:var(--teal); background:var(--white); cursor:pointer; transition:all 0.15s; font-family:'Noto Sans KR',sans-serif; }
 .copy-btn:hover { background:var(--teal); color:#fff; }
 
 /* NOTICE */
-.notice { background:var(--gold-light); border-radius:10px; padding:14px 16px; border-left:3px solid var(--gold); font-size:12px; color:var(--stone); line-height:1.8; margin-bottom:24px; }
+.notice { background:var(--gold-light); border-radius:10px; padding:14px 16px; border-left:3px solid var(--gold); font-size:14px; color:var(--stone); line-height:1.8; margin-bottom:24px; }
 .notice strong { color:var(--gold); font-weight:700; }
 
 /* SUBMIT */
 .submit-area { display:flex; flex-direction:column; gap:10px; }
-.agree-row { display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--stone); margin-bottom:4px; cursor:pointer; }
+.agree-row { display:flex; align-items:flex-start; gap:10px; font-size:15px; color:var(--stone); margin-bottom:4px; cursor:pointer; }
 .agree-row input { width:auto; margin-top:3px; flex-shrink:0; accent-color:var(--teal); }
-.btn-submit { width:100%; padding:17px; background:var(--teal); color:#fff; font-size:16px; font-weight:700; border:none; border-radius:12px; cursor:pointer; font-family:'Noto Serif KR',serif; transition:all 0.2s; letter-spacing:0.02em; }
+.btn-submit { width:100%; padding:17px; background:var(--teal); color:#fff; font-size:18px; font-weight:700; border:none; border-radius:12px; cursor:pointer; font-family:'Noto Serif KR',serif; transition:all 0.2s; letter-spacing:0.02em; }
 .btn-submit:hover { background:#155050; }
 .btn-submit:active { transform:scale(0.99); }
 .btn-submit:disabled { background:var(--sand); cursor:not-allowed; }
-.form-footer { font-size:11px; color:var(--dust); text-align:center; margin-top:14px; line-height:1.8; }
+.form-footer { font-size:13px; color:var(--dust); text-align:center; margin-top:14px; line-height:1.8; }
 
 /* SUCCESS */
 .success-box { display:none; text-align:center; padding:48px 24px; }
 .success-icon { font-size:52px; margin-bottom:18px; }
-.success-title { font-family:'Noto Serif KR',serif; font-size:22px; font-weight:700; color:var(--ink); margin-bottom:8px; }
-.success-sub { font-size:14px; color:var(--stone); line-height:1.9; margin-bottom:28px; }
+.success-title { font-family:'Noto Serif KR',serif; font-size:24px; font-weight:700; color:var(--ink); margin-bottom:8px; }
+.success-sub { font-size:16px; color:var(--stone); line-height:1.9; margin-bottom:28px; }
 .success-bank { background:var(--cream); border-radius:12px; padding:20px; text-align:left; margin-bottom:24px; border:1px solid var(--sand); }
-.back-link { display:inline-block; padding:12px 28px; background:var(--teal); color:#fff; border-radius:10px; text-decoration:none; font-size:14px; font-weight:700; }
+.back-link { display:inline-block; padding:12px 28px; background:var(--teal); color:#fff; border-radius:10px; text-decoration:none; font-size:16px; font-weight:700; }
 
   @media (max-width: 500px) {
     .pkg-grid { grid-template-columns: 1fr 1fr; }
@@ -143,8 +143,8 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
     <a href="idino-app.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:14px;">
       <img src="jeju-chapter-logo.png" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(200,168,75,0.4);" alt="제주 챕터">
       <div>
-        <p style="font-size:15px;font-weight:700;color:#fff;margin:0;">제주 챕터</p>
-        <p style="font-size:10px;color:rgba(255,255,255,0.45);margin:0;">IDINO Learn+Vation Center</p>
+        <p style="font-size:17px;font-weight:700;color:#fff;margin:0;">제주 챕터</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.45);margin:0;">IDINO Learn+Vation Center</p>
       </div>
     </a>
     <p class="header-eyebrow">IDINO Jeju · 2026 시그니처 프로그램</p>
@@ -160,8 +160,8 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
     <div class="sec">
       <p class="sec-title">패키지 선택</p>
       <div style="margin-bottom:10px; padding:10px 14px; background:#e8f2f6; border-radius:8px; border-left:3px solid #2d6a7f;">
-        <p style="font-size:17px; font-weight:700; color:#2d6a7f; margin-bottom:4px;">🌺 4월 프로그램 — 작별이 아닌 새로운 시작</p>
-        <p style="font-size:13px; color:#4a4540; line-height:1.7;">4월 16일(목) ~ 18일(토) · 한강 낭독 옵션(현장 +1만원) · AI 워크숍 · 오름 트래킹 · 최저 25만원~</p>
+        <p style="font-size:19px; font-weight:700; color:#2d6a7f; margin-bottom:4px;">🌺 4월 프로그램 — 작별이 아닌 새로운 시작</p>
+        <p style="font-size:15px; color:#4a4540; line-height:1.7;">4월 16일(목) ~ 18일(토) · 한강 낭독 옵션(현장 +1만원) · AI 워크숍 · 오름 트래킹 · 최저 25만원~</p>
       </div>
       <div class="pkg-grid">
 
@@ -221,73 +221,73 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
 
       <!-- 5월 패키지 -->
       <div style="margin-top:24px; padding:14px 16px; background:#f0ebfa; border-radius:10px; border-left:3px solid #6b4fa0; margin-bottom:12px;">
-        <p style="font-size:12px; font-weight:700; color:#6b4fa0; margin-bottom:4px;">🎵 5월 프로그램 — 제주 바닷가 낭만 버스킹 여행</p>
-        <p style="font-size:11px; color:#5a4540; line-height:1.7;">5월 14일(목) ~ 16일(토) · 루프탑 낙조 버스킹 콘서트 2회 · AI 워크숍 · 오름 트래킹</p>
+        <p style="font-size:14px; font-weight:700; color:#6b4fa0; margin-bottom:4px;">🎵 5월 프로그램 — 제주 바닷가 낭만 버스킹 여행</p>
+        <p style="font-size:13px; color:#5a4540; line-height:1.7;">5월 14일(목) ~ 16일(토) · 루프탑 낙조 버스킹 콘서트 2회 · AI 워크숍 · 오름 트래킹</p>
       </div>
       <div class="pkg-grid" id="may-grid">
 
         <label class="pkg-card" for="may1">
           <input type="radio" name="package" id="may1" value="[5월] 1인 단독 (크레오) — 46만원">
           <span class="pkg-badge b-gray">1인 단독</span>
-          <p class="pkg-title" style="font-size:28px;">1인<br>단독</p>
-          <p class="pkg-room" style="font-size:12px;">크레오 · 2박 · 5월</p>
-          <p class="pkg-price" style="font-size:22px;">460,000<span>원</span></p>
+          <p class="pkg-title" style="font-size:30px;">1인<br>단독</p>
+          <p class="pkg-room" style="font-size:14px;">크레오 · 2박 · 5월</p>
+          <p class="pkg-price" style="font-size:24px;">460,000<span>원</span></p>
           <hr class="pkg-divider">
-          <div class="pkg-row" style="font-size:12px;"><span>숙박+식사</span><span>24만</span></div>
-          <div class="pkg-row" style="font-size:12px;"><span>프로그램+버스킹</span><span>17만</span></div>
-          <div class="pkg-row" style="font-size:12px;"><span>시즌+교통</span><span>5만</span></div>
-          <div class="pkg-row total" style="font-size:14px;"><span>1인 합계</span><span>46만원</span></div>
+          <div class="pkg-row" style="font-size:14px;"><span>숙박+식사</span><span>24만</span></div>
+          <div class="pkg-row" style="font-size:14px;"><span>프로그램+버스킹</span><span>17만</span></div>
+          <div class="pkg-row" style="font-size:14px;"><span>시즌+교통</span><span>5만</span></div>
+          <div class="pkg-row total" style="font-size:16px;"><span>1인 합계</span><span>46만원</span></div>
         </label>
 
         <label class="pkg-card" for="may2">
           <input type="radio" name="package" id="may2" value="[5월] 2~3인 함께 (크레오 공유) — 37만원/인">
           <span class="pkg-badge b-teal">2~3인 함께</span>
-          <p class="pkg-title" style="font-size:28px;">2~3인<br>함께</p>
-          <p class="pkg-room" style="font-size:12px;">크레오 공유 · 2박 · 5월</p>
-          <p class="pkg-price" style="font-size:22px;">370,000<span>원</span></p>
+          <p class="pkg-title" style="font-size:30px;">2~3인<br>함께</p>
+          <p class="pkg-room" style="font-size:14px;">크레오 공유 · 2박 · 5월</p>
+          <p class="pkg-price" style="font-size:24px;">370,000<span>원</span></p>
           <hr class="pkg-divider">
-          <div class="pkg-row" style="font-size:12px;"><span>숙박+식사</span><span>16~19만</span></div>
-          <div class="pkg-row" style="font-size:12px;"><span>프로그램+버스킹</span><span>17만</span></div>
-          <div class="pkg-row" style="font-size:12px;"><span>시즌+교통</span><span>5만</span></div>
-          <div class="pkg-row total" style="font-size:14px;"><span>1인 합계</span><span>37만원</span></div>
+          <div class="pkg-row" style="font-size:14px;"><span>숙박+식사</span><span>16~19만</span></div>
+          <div class="pkg-row" style="font-size:14px;"><span>프로그램+버스킹</span><span>17만</span></div>
+          <div class="pkg-row" style="font-size:14px;"><span>시즌+교통</span><span>5만</span></div>
+          <div class="pkg-row total" style="font-size:16px;"><span>1인 합계</span><span>37만원</span></div>
         </label>
 
         <label class="pkg-card" for="may3">
           <input type="radio" name="package" id="may3" value="[5월] 4~5인 그룹 (코피아·콤마) — 40만원/인">
           <span class="pkg-badge b-green">4~5인 그룹</span>
-          <p class="pkg-title" style="font-size:28px;">4~5인<br>그룹</p>
-          <p class="pkg-room" style="font-size:12px;">코피아 or 콤마 · 5월</p>
-          <p class="pkg-price" style="font-size:22px;">400,000<span>원</span></p>
+          <p class="pkg-title" style="font-size:30px;">4~5인<br>그룹</p>
+          <p class="pkg-room" style="font-size:14px;">코피아 or 콤마 · 5월</p>
+          <p class="pkg-price" style="font-size:24px;">400,000<span>원</span></p>
           <hr class="pkg-divider">
-          <div class="pkg-row" style="font-size:12px;"><span>숙박+식사</span><span>18~23만</span></div>
-          <div class="pkg-row" style="font-size:12px;"><span>프로그램+버스킹</span><span>17만</span></div>
-          <div class="pkg-row" style="font-size:12px;"><span>시즌+교통</span><span>5만</span></div>
-          <div class="pkg-row total" style="font-size:14px;"><span>1인 합계</span><span>40만원</span></div>
+          <div class="pkg-row" style="font-size:14px;"><span>숙박+식사</span><span>18~23만</span></div>
+          <div class="pkg-row" style="font-size:14px;"><span>프로그램+버스킹</span><span>17만</span></div>
+          <div class="pkg-row" style="font-size:14px;"><span>시즌+교통</span><span>5만</span></div>
+          <div class="pkg-row total" style="font-size:16px;"><span>1인 합계</span><span>40만원</span></div>
         </label>
 
         <label class="pkg-card" for="may4" style="border-color:#6b4fa0; background:#f0ebfa;">
           <input type="radio" name="package" id="may4" value="[5월] 6~8인 단체 BEST (콤마 전실) — 38만원/인">
           <span class="pkg-badge" style="background:#6b4fa0; color:#fff;">6~8인 BEST</span>
-          <p class="pkg-title" style="font-size:28px;">6~8인<br>단체</p>
-          <p class="pkg-room" style="font-size:12px;">콤마 전실 독점 · 5월</p>
-          <p class="pkg-price" style="font-size:22px;">380,000<span>원</span></p>
+          <p class="pkg-title" style="font-size:30px;">6~8인<br>단체</p>
+          <p class="pkg-room" style="font-size:14px;">콤마 전실 독점 · 5월</p>
+          <p class="pkg-price" style="font-size:24px;">380,000<span>원</span></p>
           <hr class="pkg-divider">
-          <div class="pkg-row" style="font-size:12px;"><span>숙박+식사</span><span>15~17만</span></div>
-          <div class="pkg-row" style="font-size:12px;"><span>프로그램+버스킹</span><span>17만</span></div>
-          <div class="pkg-row" style="font-size:12px;"><span>시즌+교통</span><span>5만</span></div>
-          <div class="pkg-row total" style="font-size:14px;"><span>1인 합계</span><span>38만원</span></div>
+          <div class="pkg-row" style="font-size:14px;"><span>숙박+식사</span><span>15~17만</span></div>
+          <div class="pkg-row" style="font-size:14px;"><span>프로그램+버스킹</span><span>17만</span></div>
+          <div class="pkg-row" style="font-size:14px;"><span>시즌+교통</span><span>5만</span></div>
+          <div class="pkg-row total" style="font-size:16px;"><span>1인 합계</span><span>38만원</span></div>
         </label>
 
       </div>
 
       <!-- 한강 낭독 옵션 -->
       <div style="margin-top:12px; background:var(--amber-light); border-radius:10px; padding:14px 16px; border-left:3px solid var(--amber);">
-        <p style="font-size:12px; font-weight:700; color:var(--amber); margin-bottom:8px;">🌺 한강 낭독회 옵션 (현장 선택)</p>
+        <p style="font-size:14px; font-weight:700; color:var(--amber); margin-bottom:8px;">🌺 한강 낭독회 옵션 (현장 선택)</p>
         <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
           <input type="checkbox" name="hangang_option" value="한강 낭독회 옵션 신청 (+1만원/인)" style="width:auto; accent-color:var(--amber);">
-          <span style="font-size:13px; color:var(--stone);">한강 『작별하지 않는다』 낭독회 참가 <strong style="color:var(--amber);">+1만원/인</strong></span>
+          <span style="font-size:15px; color:var(--stone);">한강 『작별하지 않는다』 낭독회 참가 <strong style="color:var(--amber);">+1만원/인</strong></span>
         </label>
-        <p style="font-size:11px; color:var(--dust); margin-top:6px;"> · 현장 신청 가능 · 미신청 시 기본 프로그램만 진행</p>
+        <p style="font-size:13px; color:var(--dust); margin-top:6px;"> · 현장 신청 가능 · 미신청 시 기본 프로그램만 진행</p>
       </div>
     </div>
 
@@ -394,10 +394,10 @@ body { font-family:'Noto Sans KR',sans-serif; background:#ede8e0; color:var(--in
     <p class="success-title">예약 신청이 완료됐어요!</p>
     <p class="success-sub">곧 확인 문자를 드리겠습니다.<br>입금 완료 후 예약이 최종 확정됩니다.</p>
     <div class="success-bank">
-      <p style="font-size:12px;font-weight:700;color:var(--dust);margin-bottom:10px;">💳 입금 안내</p>
-      <p style="font-size:14px;line-height:2.2;color:var(--stone);">
+      <p style="font-size:14px;font-weight:700;color:var(--dust);margin-bottom:10px;">💳 입금 안내</p>
+      <p style="font-size:16px;line-height:2.2;color:var(--stone);">
         은행: <strong style="color:var(--ink);">하나은행</strong><br>
-        계좌번호: <strong style="color:var(--teal);font-size:17px;letter-spacing:0.04em;">455-910356-88107</strong><br>
+        계좌번호: <strong style="color:var(--teal);font-size:19px;letter-spacing:0.04em;">455-910356-88107</strong><br>
         예금주: <strong style="color:var(--ink);">박영미 (에이아이마케팅랩)</strong>
       </p>
       <button type="button" class="copy-btn" onclick="copyAccount()" style="margin-top:10px;">📋 계좌번호 복사</button>

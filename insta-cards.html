@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDINO × 한강 NBCC — 인스타그램 카드뉴스</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --forest: #1a3a2a;
+    --forest-mid: #2d5a3d;
+    --forest-light: #4a7c5c;
+    --cream: #f7f2e8;
+    --ivory: #faf7f2;
+    --camellia: #c0392b;
+    --camellia-light: #e74c3c;
+    --gold: #d4a853;
+    --gold-pale: #f0d9a0;
+    --charcoal: #1c1c1c;
+    --muted: #6b7c74;
+    --white: #ffffff;
+    --serif: 'Noto Serif KR', Georgia, serif;
+    --sans: 'Noto Sans KR', sans-serif;
+  }
+
+  body {
+    background: #0f0f0f;
+    font-family: var(--sans);
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+  }
+
+  /* ── 뷰어 헤더 ── */
+  .viewer-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .viewer-header h1 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: #888;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+  }
+  .viewer-header p {
+    color: #555;
+    font-size: 0.75rem;
+    margin-top: 0.4rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── 카드 래퍼 ── */
+  .cards-scroll {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 1rem 0.5rem 2rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #333 transparent;
+  }
+  .card-wrapper {
+    flex: 0 0 calc(min(500px, 88vw));
+    scroll-snap-align: center;
+  }
+  .card-num {
+    color: #444;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-family: var(--sans);
+  }
+
+  /* ── 카드 공통 ── */
+  .card {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    font-size: clamp(14px, 2.8vw, 18px);
+  }
+
+  /* ── 카피 힌트 ── */
+  .copy-hint {
+    text-align: center;
+    margin-top: 0.6rem;
+    font-size: 0.68rem;
+    color: #444;
+    letter-spacing: 0.08em;
+  }
+  .copy-hint kbd {
+    background: #1f1f1f;
+    color: #666;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-family: monospace;
+  }
+
+  /* ══════════════════════════════════
+     CARD 1 — 속보 (Dark Forest)
+  ══════════════════════════════════ */
+  .c1 {
+    background: var(--forest);
+  }
+  .c1-noise {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.6;
+  }
+  .c1-accent-line {
+    position: absolute;
+    top: 0; left: 7%; width: 86%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .c1-badge {
+    position: absolute;
+    top: 8%; left: 7%;
+    font-family: var(--sans);
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .c1-badge::before {
+    content: '';
+    display: inline-block;
+    width: 20px; height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+  .c1-main {
+    position: absolute;
+    top: 50%; left: 7%;
+    transform: translateY(-56%);
+    right: 7%;
+  }
+  .c1-eyebrow {
+    font-family: var(--serif);
+    font-size: 0.85em;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 0.6em;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+  }
+  .c1-title {
+    font-family: var(--serif);
+    font-size: 3.4em;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+  .c1-title em {
+    color: var(--gold);
+    font-style: normal;
+  }
+  .c1-sub {
+    font-family: var(--sans);
+    font-size: 0.82em;
+    color: rgba(255,255,255,0.6);
+    margin-top: 1em;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .c1-bottom {
+    position: absolute;
+    bottom: 8%; left: 7%; right: 7%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .c1-award-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(212,168,83,0.3);
+    border-radius: 6px;
+    padding: 0.6em 0.9em;
+  }
+  .c1-award-label {
+    font-size: 0.65em;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .c1-award-name {
+    font-family: var(--serif);
+    font-size: 0.78em;
+    color: rgba(255,255,255,0.85);
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+  .c1-logo { text-align: right; }
+  .logo-img { height: 36px; width: auto; object-fit: contain; display: block; }
+  .c1-logo .logo-img { filter: brightness(0) invert(1); opacity: 0.38; }
+  .c4-logo .logo-img { filter: brightness(0); opacity: 0.22; }
+  .c5-logo .logo-img { filter: brightness(0) invert(1); opacity: 0.32; }
+
+  /* ══════════════════════════════════
+     CARD 2 — 작품 소개 (Cream + Red)
+  ══════════════════════════════════ */
+  .c2 {
+    background: var(--cream);
+  }
+  .c2-left-bar {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 40%;
+    background: var(--forest);
+    display: flex; flex-direction: column;
+    justify-content: flex-end;
+    padding: 8% 7% 8%;
+  }
+  .c2-book-spine {
+    font-family: var(--serif);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    color: rgba(255,255,255,0.15);
+    font-size: 1.4em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    position: absolute;
+    top: 10%; right: 16%;
+  }
+  .c2-book-title {
+    font-family: var(--serif);
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 0.5em;
+  }
+  .c2-book-author {
+    font-family: var(--sans);
+    font-size: 0.72em;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.08em;
+  }
+  .c2-flowers {
+    position: absolute;
+    top: 8%; left: 6%;
+    font-size: 1.8em;
+    line-height: 1;
+    opacity: 0.6;
+    letter-spacing: 4px;
+  }
+  .c2-right {
+    position: absolute;
+    left: 42%; right: 0;
+    top: 0; bottom: 0;
+    padding: 8% 8% 8% 6%;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .c2-tag {
+    display: inline-block;
+    background: var(--camellia);
+    color: var(--white);
+    font-size: 0.62em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    border-radius: 2px;
+    margin-bottom: 1em;
+  }
+  .c2-head {
+    font-family: var(--serif);
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.4;
+    margin-bottom: 0.8em;
+  }
+  .c2-body {
+    font-family: var(--sans);
+    font-size: 0.76em;
+    color: #4a5550;
+    line-height: 1.8;
+    font-weight: 300;
+    border-left: 2px solid var(--forest-light);
+    padding-left: 0.8em;
+  }
+  .c2-awards {
+    margin-top: 1.2em;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .c2-award-item {
+    font-size: 0.65em;
+    color: var(--forest-mid);
+    font-weight: 500;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .c2-award-item::before {
+    content: '▸';
+    color: var(--gold);
+    font-size: 0.9em;
+  }
+
+  /* ══════════════════════════════════
+     CARD 3 — 연결고리 (Poetic / Dark)
+  ══════════════════════════════════ */
+  .c3 {
+    background: #0e1e14;
+  }
+  .c3-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(45,90,61,0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(45,90,61,0.15) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .c3-top {
+    position: absolute;
+    top: 7%; left: 8%; right: 8%;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .c3-label {
+    font-size: 0.62em;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-family: var(--sans);
+  }
+  .c3-num {
+    font-size: 0.62em;
+    color: rgba(255,255,255,0.2);
+    font-family: var(--sans);
+    letter-spacing: 0.1em;
+  }
+  .c3-center {
+    position: absolute;
+    top: 50%; left: 8%; right: 8%;
+    transform: translateY(-50%);
+    text-align: center;
+  }
+  .c3-quote-mark {
+    font-family: var(--serif);
+    font-size: 6em;
+    color: rgba(45,90,61,0.4);
+    line-height: 0.6;
+    margin-bottom: 0.15em;
+  }
+  .c3-quote {
+    font-family: var(--serif);
+    font-size: 1.55em;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+  }
+  .c3-quote span {
+    color: var(--gold);
+  }
+  .c3-divider {
+    width: 40px; height: 1px;
+    background: var(--gold);
+    margin: 1em auto;
+    opacity: 0.6;
+  }
+  .c3-sub {
+    font-family: var(--sans);
+    font-size: 0.75em;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .c3-bottom {
+    position: absolute;
+    bottom: 7%; left: 8%; right: 8%;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .c3-camellia {
+    width: 16px; height: 16px;
+    background: var(--camellia);
+    border-radius: 50%;
+    flex-shrink: 0;
+    opacity: 0.8;
+  }
+  .c3-bottom-text {
+    font-size: 0.68em;
+    color: rgba(255,255,255,0.3);
+    font-family: var(--sans);
+    letter-spacing: 0.06em;
+  }
+
+  /* ══════════════════════════════════
+     CARD 4 — 프로그램 일정 (Clean Ivory)
+  ══════════════════════════════════ */
+  .c4 {
+    background: var(--ivory);
+  }
+  .c4-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 22%;
+    background: var(--forest);
+    padding: 0 8%;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .c4-header-tag {
+    font-size: 0.62em;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: var(--sans);
+    margin-bottom: 3px;
+  }
+  .c4-header-title {
+    font-family: var(--serif);
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .c4-body {
+    position: absolute;
+    top: 24%; left: 8%; right: 8%; bottom: 8%;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+  }
+  .c4-row {
+    display: flex;
+    gap: 0;
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .c4-day {
+    background: var(--forest);
+    padding: 0.6em 0.8em;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    min-width: 22%;
+    flex-shrink: 0;
+  }
+  .c4-day-num {
+    font-family: var(--serif);
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+  }
+  .c4-day-label {
+    font-size: 0.58em;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+    font-family: var(--sans);
+  }
+  .c4-content {
+    padding: 0.6em 0.9em;
+    flex: 1;
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 3px;
+  }
+  .c4-title {
+    font-family: var(--serif);
+    font-size: 0.88em;
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1.2;
+  }
+  .c4-items {
+    font-size: 0.67em;
+    color: #777;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    font-family: var(--sans);
+  }
+  .c4-emoji {
+    font-size: 0.7em;
+    margin-right: 2px;
+  }
+  .c4-footer {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding-top: 2px;
+  }
+  .c4-info {
+    display: flex; gap: 8px; align-items: center;
+  }
+  .c4-chip {
+    background: #f0f7ed;
+    color: var(--forest-mid);
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 0.65em;
+    font-weight: 700;
+    font-family: var(--sans);
+  }
+  .c4-chip-red {
+    background: #fef0ee;
+    color: var(--camellia);
+  }
+  .c4-logo { display: flex; align-items: center; }
+
+  /* ══════════════════════════════════
+     CARD 5 — CTA (Bold Forest + Gold)
+  ══════════════════════════════════ */
+  .c5 {
+    background: var(--forest);
+    display: flex; flex-direction: column;
+  }
+  .c5-top-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--camellia), var(--gold));
+  }
+  .c5-center {
+    position: absolute;
+    top: 50%; left: 8%; right: 8%;
+    transform: translateY(-52%);
+    text-align: center;
+  }
+  .c5-eyebrow {
+    font-size: 0.7em;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: var(--sans);
+    margin-bottom: 0.8em;
+  }
+  .c5-main {
+    font-family: var(--serif);
+    font-size: 2.3em;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4em;
+  }
+  .c5-main em {
+    color: var(--gold);
+    font-style: normal;
+    display: block;
+    font-size: 0.75em;
+  }
+  .c5-tagline {
+    font-family: var(--sans);
+    font-size: 0.78em;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 1.5em;
+  }
+  .c5-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    max-width: 80%;
+    margin: 0 auto 1.5em;
+  }
+  .c5-detail {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 0.55em 0.5em;
+    text-align: center;
+  }
+  .c5-detail-val {
+    font-family: var(--serif);
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--white);
+    display: block;
+    line-height: 1;
+  }
+  .c5-detail-key {
+    font-size: 0.6em;
+    color: rgba(255,255,255,0.4);
+    margin-top: 3px;
+    display: block;
+    font-family: var(--sans);
+    letter-spacing: 0.06em;
+  }
+  .c5-cta-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-family: var(--sans);
+    font-size: 0.78em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 0.7em 2em;
+    border-radius: 100px;
+    text-decoration: none;
+  }
+  .c5-bottom {
+    position: absolute;
+    bottom: 7%; left: 8%; right: 8%;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .c5-contact {
+    font-size: 0.65em;
+    color: rgba(255,255,255,0.3);
+    font-family: var(--sans);
+    line-height: 1.6;
+  }
+  .c5-logo { text-align: right; }
+</style>
+</head>
+<body>
+
+<div class="viewer-header">
+  <h1>IDINO × 한강 NBCC — 인스타그램 카드뉴스</h1>
+  <p>← 좌우로 스크롤 · 각 카드를 스크린샷하여 사용하세요 →</p>
+</div>
+
+<div class="cards-scroll">
+
+  <!-- ══ CARD 1 ══ -->
+  <div class="card-wrapper">
+    <div class="card-num">01 / 05 — 속보 카드</div>
+    <div class="card c1">
+      <div class="c1-noise"></div>
+      <div class="c1-accent-line"></div>
+      <div class="c1-badge">문학 속보</div>
+      <div class="c1-main">
+        <div class="c1-eyebrow">노벨문학상에 이어</div>
+        <div class="c1-title">한강,<br><em>또</em><br>해냈다</div>
+        <div class="c1-sub">
+          『작별하지 않는다』<br>
+          한국 소설 최초 전미도서비평가협회상 수상
+        </div>
+      </div>
+      <div class="c1-bottom">
+        <div class="c1-award-box">
+          <div class="c1-award-label">🏆 2026 NBCC Award</div>
+          <div class="c1-award-name">전미도서비평가협회상<br>소설 부문</div>
+        </div>
+        <div class="c1-logo"><img class="logo-img" src="https://partyok-create.github.io/idino-jeju/jeju-chapter-logo.png" alt="IDINO 제주 챕터"></div>
+      </div>
+    </div>
+    <div class="copy-hint">스크린샷 후 인스타 업로드</div>
+  </div>
+
+  <!-- ══ CARD 2 ══ -->
+  <div class="card-wrapper">
+    <div class="card-num">02 / 05 — 작품 소개 카드</div>
+    <div class="card c2">
+      <div class="c2-left-bar">
+        <div class="c2-flowers">🌺🌺</div>
+        <div class="c2-book-spine">작별하지 않는다</div>
+        <div class="c2-book-title">작별하지<br>않는다</div>
+        <div class="c2-book-author">한 강 · 문학동네</div>
+      </div>
+      <div class="c2-right">
+        <div class="c2-tag">수상작 소개</div>
+        <div class="c2-head">제주 4·3의<br>기억을 담다</div>
+        <div class="c2-body">
+          제주 4·3의 비극 속에서<br>
+          살아남은 이들의 침묵과 애도,<br>
+          끝나지 않는 사랑의 이야기.
+        </div>
+        <div class="c2-awards">
+          <div class="c2-award-item">2024 노벨문학상</div>
+          <div class="c2-award-item">2026 NBCC상 (한국 최초)</div>
+          <div class="c2-award-item">메디치 외국문학상</div>
+          <div class="c2-award-item">에밀 기메 아시아 문학상</div>
+        </div>
+      </div>
+    </div>
+    <div class="copy-hint">스크린샷 후 인스타 업로드</div>
+  </div>
+
+  <!-- ══ CARD 3 ══ -->
+  <div class="card-wrapper">
+    <div class="card-num">03 / 05 — 연결고리 카드</div>
+    <div class="card c3">
+      <div class="c3-grid"></div>
+      <div class="c3-top">
+        <div class="c3-label">Jeju · April 2026</div>
+        <div class="c3-num">03 / 05</div>
+      </div>
+      <div class="c3-center">
+        <div class="c3-quote-mark">"</div>
+        <div class="c3-quote">
+          수상작의 배경,<br>
+          <span>제주에서 직접</span><br>
+          낭독합니다
+        </div>
+        <div class="c3-divider"></div>
+        <div class="c3-sub">
+          소설의 무대가 된 땅에서<br>
+          그 문장들을 소리 내어 읽는 경험.<br>
+          세상 어디에도 없는 단 하나의 순간.
+        </div>
+      </div>
+      <div class="c3-bottom">
+        <div class="c3-camellia"></div>
+        <div class="c3-bottom-text">4월 제주 · 동백꽃이 지고 유채꽃이 피는 계절</div>
+      </div>
+    </div>
+    <div class="copy-hint">스크린샷 후 인스타 업로드</div>
+  </div>
+
+  <!-- ══ CARD 4 ══ -->
+  <div class="card-wrapper">
+    <div class="card-num">04 / 05 — 프로그램 일정 카드</div>
+    <div class="card c4">
+      <div class="c4-header">
+        <div class="c4-header-tag">🌺 4월 런케이션 프로그램</div>
+        <div class="c4-header-title">2박 3일, 제주에서<br>다음 챕터를 씁니다</div>
+      </div>
+      <div class="c4-body">
+        <div class="c4-row">
+          <div class="c4-day">
+            <div class="c4-day-num">1</div>
+            <div class="c4-day-label">4/16 목</div>
+          </div>
+          <div class="c4-content">
+            <div class="c4-title">도착 · 낭독의 밤</div>
+            <div class="c4-items">
+              <span class="c4-emoji">📖</span>『작별하지 않는다』 낭독
+              &nbsp;·&nbsp; <span class="c4-emoji">🌅</span>박수기정 낙조
+            </div>
+          </div>
+        </div>
+        <div class="c4-row">
+          <div class="c4-day">
+            <div class="c4-day-num">2</div>
+            <div class="c4-day-label">4/17 금</div>
+          </div>
+          <div class="c4-content">
+            <div class="c4-title">오름 · AI 설계</div>
+            <div class="c4-items">
+              <span class="c4-emoji">🌿</span>군산오름 트래킹
+              &nbsp;·&nbsp; <span class="c4-emoji">🤖</span>AI 워크숍 1회
+            </div>
+          </div>
+        </div>
+        <div class="c4-row">
+          <div class="c4-day">
+            <div class="c4-day-num">3</div>
+            <div class="c4-day-label">4/18 토</div>
+          </div>
+          <div class="c4-content">
+            <div class="c4-title">완성 · 출발</div>
+            <div class="c4-items">
+              <span class="c4-emoji">🚀</span>AI 로드맵 완성
+              &nbsp;·&nbsp; <span class="c4-emoji">📝</span>루프탑 편지
+            </div>
+          </div>
+        </div>
+        <div class="c4-footer">
+          <div class="c4-info">
+            <span class="c4-chip">소규모 8인 한정</span>
+            <span class="c4-chip c4-chip-red">25만원~</span>
+            <span class="c4-chip">서귀포 안덕</span>
+          </div>
+          <div class="c4-logo"><img class="logo-img" src="https://partyok-create.github.io/idino-jeju/jeju-chapter-logo.png" alt="IDINO 제주 챕터"></div>
+        </div>
+      </div>
+    </div>
+    <div class="copy-hint">스크린샷 후 인스타 업로드</div>
+  </div>
+
+  <!-- ══ CARD 5 ══ -->
+  <div class="card-wrapper">
+    <div class="card-num">05 / 05 — 예약 CTA 카드</div>
+    <div class="card c5">
+      <div class="c5-top-bar"></div>
+      <div class="c5-center">
+        <div class="c5-eyebrow">선착순 · 8인 한정</div>
+        <div class="c5-main">
+          4월 제주에서<br>
+          <em>당신의 이야기를<br>써보세요</em>
+        </div>
+        <div class="c5-tagline">
+          노벨문학상·NBCC 수상작을 배경지에서 낭독하고<br>
+          AI로 인생 2막을 설계하는 단 하나의 경험
+        </div>
+        <div class="c5-details">
+          <div class="c5-detail">
+            <span class="c5-detail-val">4/16–18</span>
+            <span class="c5-detail-key">2박 3일</span>
+          </div>
+          <div class="c5-detail">
+            <span class="c5-detail-val">8명</span>
+            <span class="c5-detail-key">소규모 정원</span>
+          </div>
+          <div class="c5-detail">
+            <span class="c5-detail-val">25만~</span>
+            <span class="c5-detail-key">1인 최저가</span>
+          </div>
+          <div class="c5-detail">
+            <span class="c5-detail-val">제주</span>
+            <span class="c5-detail-key">서귀포 안덕</span>
+          </div>
+        </div>
+        <a href="https://partyok-create.github.io/idino-jeju/idino-reservation.html" class="c5-cta-btn" target="_blank">지금 예약하기 →</a>
+      </div>
+      <div class="c5-bottom">
+        <div class="c5-contact">
+          @idinoproject<br>
+          010-3274-2745
+        </div>
+        <div class="c5-logo"><img class="logo-img" src="https://partyok-create.github.io/idino-jeju/jeju-chapter-logo.png" alt="IDINO 제주 챕터"></div>
+      </div>
+    </div>
+    <div class="copy-hint">스크린샷 후 인스타 업로드</div>
+  </div>
+
+</div>
+
+</body>
+</html>
